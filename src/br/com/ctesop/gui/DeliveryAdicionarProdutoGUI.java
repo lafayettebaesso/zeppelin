@@ -67,12 +67,13 @@ public class DeliveryAdicionarProdutoGUI extends javax.swing.JInternalFrame {
             pnPesquisarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnPesquisarProdutoLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(pnPesquisarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNomeProduto)
-                    .addComponent(txtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btProduto))
-                .addGap(12, 12, 12))
+                .addGroup(pnPesquisarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnPesquisarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbNomeProduto)
+                        .addComponent(txtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tbGradePesquisarProduto.setModel(new javax.swing.table.DefaultTableModel(
@@ -156,7 +157,7 @@ public class DeliveryAdicionarProdutoGUI extends javax.swing.JInternalFrame {
     private void btProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btProdutoActionPerformed
         //Abre a JInternalFrame no JDesktopPane dpArea
         if (dpArea != null) {
-            DeliveryAdicionarProdutoGUI p = new DeliveryAdicionarProdutoGUI();
+            ProdutoGUI p = new ProdutoGUI();
             dpArea.add(p);
             p.setLocation(calculaLocal(dpArea, p));
             p.setVisible(true);

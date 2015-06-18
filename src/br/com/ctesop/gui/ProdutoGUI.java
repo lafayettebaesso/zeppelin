@@ -1,6 +1,11 @@
 package br.com.ctesop.gui;
 
+import javax.swing.JDesktopPane;
+
 public class ProdutoGUI extends javax.swing.JInternalFrame {
+
+    //Atribudo para armazenar qual JDesktopPane irá receber o JInternalFrame
+    private JDesktopPane dpArea = null;
 
     public ProdutoGUI() {
         initComponents();
@@ -10,7 +15,6 @@ public class ProdutoGUI extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         pnBotoes = new javax.swing.JPanel();
         btNovo = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
@@ -125,13 +129,11 @@ public class ProdutoGUI extends javax.swing.JInternalFrame {
                     .addComponent(lbPrecoVenda))
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNomeFuncionario)
                     .addGroup(pnFormularioLayout.createSequentialGroup()
                         .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cbGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnFormularioLayout.createSequentialGroup()
-                        .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnFormularioLayout.createSequentialGroup()
                                 .addComponent(txtPrecoVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -139,8 +141,7 @@ public class ProdutoGUI extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtPrecoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 109, Short.MAX_VALUE))
-                    .addComponent(txtNomeFuncionario))
+                        .addGap(0, 172, Short.MAX_VALUE)))
                 .addGap(12, 12, 12))
         );
         pnFormularioLayout.setVerticalGroup(
@@ -209,13 +210,13 @@ public class ProdutoGUI extends javax.swing.JInternalFrame {
 
         tbGrade.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         spGrade.setViewportView(tbGrade);
@@ -277,7 +278,6 @@ public class ProdutoGUI extends javax.swing.JInternalFrame {
     private javax.swing.JButton btFechar;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btSalvar;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox cbGrupo;
     private javax.swing.JComboBox cbStatus;
     private javax.swing.JButton jButton1;
