@@ -28,18 +28,9 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         pnFormulario = new javax.swing.JPanel();
-        pnBotoes = new javax.swing.JPanel();
-        btAbrirCaixa = new javax.swing.JButton();
-        btFecharCaixa = new javax.swing.JButton();
-        btCancelar = new javax.swing.JButton();
-        btFechar = new javax.swing.JButton();
-        pnFormularioCaixa = new javax.swing.JPanel();
-        txtValor = new javax.swing.JTextField();
-        lbDescricao = new javax.swing.JLabel();
-        txtDescricao = new javax.swing.JTextField();
-        lbValor = new javax.swing.JLabel();
         pnInformacoes = new javax.swing.JPanel();
         lbSaldoInicial = new javax.swing.JLabel();
+        txtSaldoInicial = new javax.swing.JFormattedTextField();
         pnEntradas = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -60,106 +51,24 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
         jFormattedTextField8 = new javax.swing.JFormattedTextField();
         lbSaldoFinal = new javax.swing.JLabel();
         txtSaldoFinal = new javax.swing.JFormattedTextField();
-        txtSaldoInicial = new javax.swing.JFormattedTextField();
+        jPanel1 = new javax.swing.JPanel();
+        lbValor = new javax.swing.JLabel();
+        txtValor = new javax.swing.JTextField();
+        btAbrirCaixa = new javax.swing.JButton();
+        btFecharCaixa = new javax.swing.JButton();
+        btSair = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
         setTitle("Caixa");
 
-        btAbrirCaixa.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        btAbrirCaixa.setMnemonic('a');
-        btAbrirCaixa.setText("Abrir o caixa");
-        btAbrirCaixa.setMaximumSize(new java.awt.Dimension(120, 40));
-        btAbrirCaixa.setMinimumSize(new java.awt.Dimension(120, 40));
-        btAbrirCaixa.setPreferredSize(new java.awt.Dimension(120, 40));
-
-        btFecharCaixa.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        btFecharCaixa.setMnemonic('e');
-        btFecharCaixa.setText("Fechar o caixa");
-        btFecharCaixa.setMaximumSize(new java.awt.Dimension(120, 40));
-        btFecharCaixa.setMinimumSize(new java.awt.Dimension(120, 40));
-        btFecharCaixa.setPreferredSize(new java.awt.Dimension(120, 40));
-
-        btCancelar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        btCancelar.setText("Cancelar");
-        btCancelar.setMaximumSize(new java.awt.Dimension(120, 40));
-        btCancelar.setMinimumSize(new java.awt.Dimension(120, 40));
-        btCancelar.setPreferredSize(new java.awt.Dimension(120, 40));
-
-        btFechar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        btFechar.setText("Fechar");
-        btFechar.setMaximumSize(new java.awt.Dimension(120, 40));
-        btFechar.setMinimumSize(new java.awt.Dimension(120, 40));
-        btFechar.setPreferredSize(new java.awt.Dimension(120, 40));
-
-        javax.swing.GroupLayout pnBotoesLayout = new javax.swing.GroupLayout(pnBotoes);
-        pnBotoes.setLayout(pnBotoesLayout);
-        pnBotoesLayout.setHorizontalGroup(
-            pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnBotoesLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btAbrirCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addComponent(btFecharCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        pnBotoesLayout.setVerticalGroup(
-            pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnBotoesLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btAbrirCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btFecharCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        lbDescricao.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        lbDescricao.setText("Descrição:");
-
-        lbValor.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        lbValor.setText("Valor de abertura:");
-
-        javax.swing.GroupLayout pnFormularioCaixaLayout = new javax.swing.GroupLayout(pnFormularioCaixa);
-        pnFormularioCaixa.setLayout(pnFormularioCaixaLayout);
-        pnFormularioCaixaLayout.setHorizontalGroup(
-            pnFormularioCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(pnFormularioCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnFormularioCaixaLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(pnFormularioCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lbDescricao)
-                        .addComponent(lbValor))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(pnFormularioCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnFormularioCaixaLayout.createSequentialGroup()
-                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(258, Short.MAX_VALUE))
-                        .addComponent(txtDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))))
-        );
-        pnFormularioCaixaLayout.setVerticalGroup(
-            pnFormularioCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 176, Short.MAX_VALUE)
-            .addGroup(pnFormularioCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnFormularioCaixaLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(pnFormularioCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbValor)
-                        .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(pnFormularioCaixaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lbDescricao)
-                        .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
+        pnInformacoes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lbSaldoInicial.setText("Saldo inical:");
 
-        pnEntradas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "(+) Entradas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 255))); // NOI18N
+        pnEntradas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "(+) Entradas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 0, 255))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel2.setText("Dinheiro:");
@@ -188,7 +97,7 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
                         .addComponent(jLabel4)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addGroup(pnEntradasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -223,7 +132,7 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12))
         );
 
-        pnSaidas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "(-) Saídas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 0, 0))); // NOI18N
+        pnSaidas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "(-) Saídas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 0, 0))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel6.setText("Dinheiro:");
@@ -249,7 +158,7 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addGroup(pnSaidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jFormattedTextField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextField7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,14 +196,14 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
                     .addComponent(pnSaidas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInformacoesLayout.createSequentialGroup()
                         .addComponent(lbSaldoFinal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(txtSaldoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGap(0, 0, 0))
+                        .addGap(17, 17, 17)))
+                .addGap(12, 12, 12))
             .addGroup(pnInformacoesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbSaldoInicial)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(txtSaldoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -316,28 +225,102 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12))
         );
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        lbValor.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        lbValor.setText("Valor de abertura:");
+
+        btAbrirCaixa.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btAbrirCaixa.setMnemonic('a');
+        btAbrirCaixa.setText("Abrir o caixa");
+        btAbrirCaixa.setMaximumSize(new java.awt.Dimension(120, 40));
+        btAbrirCaixa.setMinimumSize(new java.awt.Dimension(120, 40));
+        btAbrirCaixa.setPreferredSize(new java.awt.Dimension(120, 40));
+
+        btFecharCaixa.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btFecharCaixa.setMnemonic('e');
+        btFecharCaixa.setText("Fechar o caixa");
+        btFecharCaixa.setMaximumSize(new java.awt.Dimension(120, 40));
+        btFecharCaixa.setMinimumSize(new java.awt.Dimension(120, 40));
+        btFecharCaixa.setPreferredSize(new java.awt.Dimension(120, 40));
+        btFecharCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFecharCaixaActionPerformed(evt);
+            }
+        });
+
+        btSair.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btSair.setText("Sair");
+        btSair.setMaximumSize(new java.awt.Dimension(120, 40));
+        btSair.setMinimumSize(new java.awt.Dimension(120, 40));
+        btSair.setPreferredSize(new java.awt.Dimension(120, 40));
+        btSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSairActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(lbValor)
+                .addGap(6, 6, 6)
+                .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btAbrirCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(btFecharCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbValor)
+                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAbrirCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btFecharCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
+        );
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout pnFormularioLayout = new javax.swing.GroupLayout(pnFormulario);
         pnFormulario.setLayout(pnFormularioLayout);
         pnFormularioLayout.setHorizontalGroup(
             pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnFormularioLayout.createSequentialGroup()
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnFormularioCaixa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addGap(12, 12, 12)
-                .addComponent(pnInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(pnInformacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnFormularioLayout.setVerticalGroup(
             pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnFormularioLayout.createSequentialGroup()
-                .addComponent(pnInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
-            .addGroup(pnFormularioLayout.createSequentialGroup()
-                .addComponent(pnBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnFormularioCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159))
+            .addComponent(pnInformacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnFormularioLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -346,8 +329,8 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(pnFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(8, 8, 8))
+                .addComponent(pnFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,12 +347,19 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextField7ActionPerformed
 
+    private void btFecharCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFecharCaixaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btFecharCaixaActionPerformed
+
+    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
+        dispose();
+    }//GEN-LAST:event_btSairActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAbrirCaixa;
-    private javax.swing.JButton btCancelar;
-    private javax.swing.JButton btFechar;
     private javax.swing.JButton btFecharCaixa;
+    private javax.swing.JButton btSair;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JFormattedTextField jFormattedTextField3;
@@ -386,17 +376,16 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel lbDescricao;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbSaldoFinal;
     private javax.swing.JLabel lbSaldoInicial;
     private javax.swing.JLabel lbValor;
-    private javax.swing.JPanel pnBotoes;
     private javax.swing.JPanel pnEntradas;
     private javax.swing.JPanel pnFormulario;
-    private javax.swing.JPanel pnFormularioCaixa;
     private javax.swing.JPanel pnInformacoes;
     private javax.swing.JPanel pnSaidas;
-    private javax.swing.JTextField txtDescricao;
     private javax.swing.JFormattedTextField txtSaldoFinal;
     private javax.swing.JFormattedTextField txtSaldoInicial;
     private javax.swing.JTextField txtValor;
