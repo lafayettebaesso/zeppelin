@@ -7,6 +7,7 @@ public class ClienteTO {
     private int idPessoaFisica;
     private int idPessoaJuridica;
     private String localTrabalhoCliente;
+    private String dataCadastro;
     private String statusCliente;
 
     public int getIdCliente() {
@@ -49,6 +50,14 @@ public class ClienteTO {
         this.localTrabalhoCliente = localTrabalhoCliente;
     }
 
+    public String getDataCadastro() {
+        return dataCadastro;
+    }
+    
+    public void setDataCadastro(String dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+    
     public String getStatusCliente() {
         return statusCliente;
     }

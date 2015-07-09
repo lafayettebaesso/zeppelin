@@ -20,28 +20,28 @@ public class FuncionarioDAO {
     //Para inserir as informações no banco de dados
     public static void inserir(FuncionarioTO funcionario) throws Exception {
         
-        if(funcionario.getIdPessoa() )
-        
-        
-        
-        
-        String sql = "INSERT INTO Funcionario ("
-                + "idPessoa,"
-                + "nomeMaeFuncionario,"
-                + "dataCadastroFuncionario,"
-                + "salarioFuncionario,"
-                + "statusFuncionario)"
-                + "VALUES (?,?,?,?,?)";
-
-        Conexao c = new Conexao();
-
-        PreparedStatement ps = c.getConexao().prepareCall(sql);
-        ps.setInt(1, funcionario.getIdPessoa());
-        ps.setInt(2, funcionario.getIdPessoaJuridica());
-        ps.setInt(3, cliente.getIdPessoaFisica());
-        ps.setString(4, cliente.getLocalTrabalhoCliente());
-        ps.setString(5, cliente.getStatusCliente());
-        ps.execute();
-        c.confirmar();
+//        if(funcionario.getIdPessoa() )
+//        
+//        
+//        
+//        
+//        String sql = "INSERT INTO Funcionario ("
+//                + "idPessoa,"
+//                + "nomeMaeFuncionario,"
+//                + "dataCadastroFuncionario,"
+//                + "salarioFuncionario,"
+//                + "statusFuncionario)"
+//                + "VALUES (?,?,?,?,?)";
+//
+//        Conexao c = new Conexao();
+//
+//        PreparedStatement ps = c.getConexao().prepareCall(sql);
+//        ps.setInt(1, funcionario.getIdPessoa());
+//        ps.setInt(2, funcionario.getIdPessoaJuridica());
+//        ps.setInt(3, cliente.getIdPessoaFisica());
+//        ps.setString(4, cliente.getLocalTrabalhoCliente());
+//        ps.setString(5, cliente.getStatusCliente());
+//        ps.execute();
+//        c.confirmar();
     }
 }

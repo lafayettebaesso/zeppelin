@@ -14,6 +14,12 @@ public class DeliveryAdicionarProdutoGUI extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public DeliveryAdicionarProdutoGUI(JDesktopPane dpArea) {
+        //Armazena o dpArea (JDesktopPane) recebido por parâmetro para ser usado depois
+        this.dpArea = dpArea;
+        initComponents();
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

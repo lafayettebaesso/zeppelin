@@ -3,11 +3,19 @@ package br.com.ctesop.gui;
 import br.com.ctesop.componentes.JOptionPane;
 import br.com.ctesop.dao.CidadeDAO;
 import br.com.ctesop.dao.ClienteDAO;
+import br.com.ctesop.dao.EstadoDAO;
+import br.com.ctesop.gui.tablemodel.EstadoTableModel;
+import br.com.ctesop.to.ClienteTO;
 import br.com.ctesop.to.CidadeTO;
+import br.com.ctesop.to.PessoaFisicaTO;
+import br.com.ctesop.to.PessoaJuridicaTO;
+import br.com.ctesop.to.PessoaTO;
 import java.util.List;
 
 public class ClienteGUI extends javax.swing.JInternalFrame {
 
+    int pagina = 0;
+    
     public ClienteGUI() {
         initComponents();
         carregaCidades();
@@ -59,12 +67,10 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
         txtTelefoneResidencial = new javax.swing.JFormattedTextField();
         lbDataNascimento = new javax.swing.JLabel();
         txtDataNascimento = new javax.swing.JFormattedTextField();
-        lbNomeMae = new javax.swing.JLabel();
-        txtNomeMae = new javax.swing.JTextField();
+        lbLocalTrabalho = new javax.swing.JLabel();
+        txtLocalTrabalho = new javax.swing.JTextField();
         lbDataCadastro = new javax.swing.JLabel();
         txtDataCadastro = new javax.swing.JFormattedTextField();
-        lbSalario = new javax.swing.JLabel();
-        txtSalario = new javax.swing.JFormattedTextField();
         lbStatus = new javax.swing.JLabel();
         cbStatus = new javax.swing.JComboBox();
         lbCNPJ = new javax.swing.JLabel();
@@ -210,7 +216,7 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addComponent(pnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
         );
 
@@ -219,6 +225,8 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
         pnFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulário"));
 
         lbCodigo.setText("Código:");
+
+        txtCodigo.setEditable(false);
 
         lbNome.setText("Nome do cliente:");
 
@@ -244,11 +252,6 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
 
         bgSexo.add(rbMasculino);
         rbMasculino.setText("Masculino");
-        rbMasculino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbMasculinoActionPerformed(evt);
-            }
-        });
 
         bgSexo.add(rbFeminino);
         rbFeminino.setText("Feminino");
@@ -267,11 +270,9 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
 
         lbDataNascimento.setText("Data de nascimento:");
 
-        lbNomeMae.setText("Nome da mãe:");
+        lbLocalTrabalho.setText("Local de trabalho:");
 
         lbDataCadastro.setText("Data de cadastro:");
-
-        lbSalario.setText("Salário:");
 
         lbStatus.setText("Status:");
 
@@ -290,86 +291,87 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
         pnFormularioLayout.setHorizontalGroup(
             pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnFormularioLayout.createSequentialGroup()
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnFormularioLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbCidade)
-                            .addComponent(lbTelefoneResidencial)
-                            .addComponent(lbCelular)
-                            .addComponent(lbInscricaoEstadual)
-                            .addComponent(lbSexo)
-                            .addComponent(lbCPF)
-                            .addComponent(lbCNPJ)
-                            .addComponent(lbTipoPessoa)
-                            .addComponent(lbCodigo)))
-                    .addGroup(pnFormularioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbDataNascimento))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnFormularioLayout.createSequentialGroup()
-                        .addContainerGap()
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbLocalTrabalho)
+                    .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbDataCadastro, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbStatus, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(12, 12, 12)
+                            .addGroup(pnFormularioLayout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbCidade)
+                                    .addComponent(lbInscricaoEstadual)
+                                    .addComponent(lbSexo)
+                                    .addComponent(lbCPF)
+                                    .addComponent(lbCNPJ)
+                                    .addComponent(lbTipoPessoa)
+                                    .addComponent(lbCodigo)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnFormularioLayout.createSequentialGroup()
+                                .addGap(81, 81, 81)
+                                .addComponent(lbStatus)))
+                        .addGroup(pnFormularioLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(lbDataNascimento)))
+                    .addComponent(lbCelular)
+                    .addComponent(lbTelefoneResidencial))
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnFormularioLayout.createSequentialGroup()
-                        .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(lbNomeMae)
                         .addGap(12, 12, 12)
-                        .addComponent(txtNomeMae, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE))
-                    .addGroup(pnFormularioLayout.createSequentialGroup()
-                        .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(lbRazaoSocial)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtRazaoSocial))
-                    .addGroup(pnFormularioLayout.createSequentialGroup()
-                        .addComponent(cbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(lbEndereco)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEndereco))
-                    .addGroup(pnFormularioLayout.createSequentialGroup()
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(lbNome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNome))
-                    .addGroup(pnFormularioLayout.createSequentialGroup()
                         .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnFormularioLayout.createSequentialGroup()
-                                .addComponent(txtDataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(lbSalario)
-                                .addGap(12, 12, 12)
-                                .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtInscricaoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbRazaoSocial)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtRazaoSocial))
                             .addGroup(pnFormularioLayout.createSequentialGroup()
-                                .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(lbRG)
-                                .addGap(12, 12, 12)
-                                .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbEndereco)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtEndereco))
                             .addGroup(pnFormularioLayout.createSequentialGroup()
-                                .addComponent(rbMasculino)
-                                .addGap(6, 6, 6)
-                                .addComponent(rbFeminino, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnFormularioLayout.createSequentialGroup()
-                                .addComponent(rbPessoaFisica)
-                                .addGap(6, 6, 6)
-                                .addComponent(rbPessoaJuridica))
-                            .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnFormularioLayout.createSequentialGroup()
-                                .addComponent(txtTelefoneResidencial, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(lbTelefoneComercial)
-                                .addGap(12, 12, 12)
-                                .addComponent(txtTelefoneComercial, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 222, Short.MAX_VALUE)))
-                .addGap(12, 12, 12))
+                                .addComponent(lbNome)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNome))
+                            .addComponent(txtLocalTrabalho)
+                            .addGroup(pnFormularioLayout.createSequentialGroup()
+                                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtInscricaoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(pnFormularioLayout.createSequentialGroup()
+                                        .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(15, 15, 15)
+                                        .addComponent(lbRG)
+                                        .addGap(12, 12, 12)
+                                        .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnFormularioLayout.createSequentialGroup()
+                                        .addComponent(rbMasculino)
+                                        .addGap(6, 6, 6)
+                                        .addComponent(rbFeminino, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnFormularioLayout.createSequentialGroup()
+                                        .addComponent(rbPessoaFisica)
+                                        .addGap(6, 6, 6)
+                                        .addComponent(rbPessoaJuridica))
+                                    .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(pnFormularioLayout.createSequentialGroup()
+                                        .addGap(3, 3, 3)
+                                        .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lbDataCadastro)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtDataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(12, 12, 12))
+                    .addGroup(pnFormularioLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(txtTelefoneResidencial, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbTelefoneComercial)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTelefoneComercial, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(253, Short.MAX_VALUE))))
         );
         pnFormularioLayout.setVerticalGroup(
             pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,28 +416,24 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
                     .addComponent(lbInscricaoEstadual))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbCelular))
-                .addGap(12, 12, 12)
+                    .addComponent(lbLocalTrabalho)
+                    .addComponent(txtLocalTrabalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbCelular)
+                    .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbTelefoneResidencial, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTelefoneResidencial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbTelefoneComercial)
-                    .addComponent(txtTelefoneComercial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbTelefoneResidencial, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbDataNascimento))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbNomeMae)
-                        .addComponent(txtNomeMae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(12, 12, 12)
+                    .addComponent(txtTelefoneComercial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbSalario)
-                    .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbDataCadastro))
+                    .addComponent(lbDataCadastro)
+                    .addComponent(lbDataNascimento)
+                    .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -462,8 +460,8 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addComponent(pnBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(pnAbas, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8))
+                .addComponent(pnAbas, javax.swing.GroupLayout.PREFERRED_SIZE, 487, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -490,9 +488,8 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
         txtTelefoneResidencial.setEnabled(habilitar);
         txtTelefoneComercial.setEnabled(habilitar);
         txtDataNascimento.setEnabled(habilitar);
-        txtNomeMae.setEnabled(habilitar);
+        txtLocalTrabalho.setEnabled(habilitar);
         txtDataCadastro.setEnabled(habilitar);
-        txtSalario.setEnabled(habilitar);
         cbStatus.setEnabled(habilitar);
 
         btNovo.setEnabled(!habilitar);
@@ -513,9 +510,8 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
         txtTelefoneResidencial.setText("");
         txtTelefoneComercial.setText("");
         txtDataNascimento.setText("");
-        txtNomeMae.setText("");
+        txtLocalTrabalho.setText("");
         txtDataCadastro.setText("");
-        txtSalario.setText("");
     }
 
     //Ações para quando clicar no RadioButton "Pessoa Física"   
@@ -607,13 +603,64 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
         txtCodigo.setText("0");
     }//GEN-LAST:event_btNovoActionPerformed
 
-    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btSalvarActionPerformed
+    private void atualizarGrade() {
+        try {
+            String filtro = txtPesquisar.getText();
+            ClienteTableModel tb = new ClienteTableModel();
+            tb.setDados(ClienteDAO.listar(pagina, filtro));
+            tbGrade.setModel(tb);
 
-    private void rbMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMasculinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbMasculinoActionPerformed
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Erro ao atualizar grade");
+        }
+    }
+
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        //Ações para o botão "Salvar"
+        try {
+            if (!validar()) {
+                return;
+            }
+
+            ClienteTO clienteTO = new ClienteTO();
+            PessoaTO pessoaTO = new PessoaTO();
+            PessoaFisicaTO pessoaFisicaTO = new PessoaFisicaTO();
+            PessoaJuridicaTO pessoaJuridicaTO = new PessoaJuridicaTO();
+            //Cria uma nova cidade, dá um nome para ela e recupera o objeto Cidade selecionado
+            CidadeTO cidade = (CidadeTO) cbCidade.getSelectedItem();
+
+            clienteTO.setIdCliente(Integer.parseInt(txtCodigo.getText()));
+            pessoaTO.setNomePessoa(txtNome.getText());
+            pessoaTO.setIdCidade(cidade.getIdCidade());
+            pessoaTO.setEnderecoPessoa(txtEndereco.getText());
+            pessoaFisicaTO.setCpfPessoaFisica(txtCPF.getText());
+            pessoaFisicaTO.setRgPessoaFisica(txtRG.getText());
+            pessoaJuridicaTO.setCnpjPessoaJuridica(txtCNPJ.getText());
+            pessoaJuridicaTO.setRazaoSocialPessoaJuridica(txtRazaoSocial.getText());
+            clienteTO.setLocalTrabalhoCliente(txtLocalTrabalho.getText());
+            pessoaTO.setInscricaoEstadual(txtInscricaoEstadual.getText());
+            pessoaTO.setCelularPessoa(txtCelular.getText());
+            pessoaTO.setTelefonePessoa(txtTelefoneResidencial.getText());
+            pessoaTO.setTelefoneComercialPessoa(txtTelefoneComercial.getText());
+            pessoaTO.setDataNascimentoPessoa(txtDataNascimento.getText());
+            clienteTO.setDataCadastro(txtDataCadastro.getText());
+            clienteTO.setStatusCliente(cbStatus.getSelectedItem().toString());
+
+            if (clienteTO.getIdCliente() == 0) {
+                ClienteDAO.inserir(clienteTO);
+            } else {
+                ClienteDAO.alterar(clienteTO);
+            }
+
+            JOptionPane.showMessageDialog(this, "Cidade cadastrado com sucesso!");
+
+            atualizarGrade();
+            limparForm();
+            habilitarForm(false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao salvar!\nDados: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btSalvarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -635,12 +682,11 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbDataNascimento;
     private javax.swing.JLabel lbEndereco;
     private javax.swing.JLabel lbInscricaoEstadual;
+    private javax.swing.JLabel lbLocalTrabalho;
     private javax.swing.JLabel lbNome;
-    private javax.swing.JLabel lbNomeMae;
     private javax.swing.JLabel lbPesquisar;
     private javax.swing.JLabel lbRG;
     private javax.swing.JLabel lbRazaoSocial;
-    private javax.swing.JLabel lbSalario;
     private javax.swing.JLabel lbSexo;
     private javax.swing.JLabel lbStatus;
     private javax.swing.JLabel lbTelefoneComercial;
@@ -665,12 +711,11 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField txtDataNascimento;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtInscricaoEstadual;
+    private javax.swing.JTextField txtLocalTrabalho;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtNomeMae;
     private javax.swing.JTextField txtPesquisar;
     private javax.swing.JFormattedTextField txtRG;
     private javax.swing.JTextField txtRazaoSocial;
-    private javax.swing.JFormattedTextField txtSalario;
     private javax.swing.JTextField txtTelefoneComercial;
     private javax.swing.JFormattedTextField txtTelefoneResidencial;
     // End of variables declaration//GEN-END:variables

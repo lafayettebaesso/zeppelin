@@ -10,6 +10,10 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
     //Atribudo para armazenar qual JDesktopPane irá receber o JInternalFrame
     private JDesktopPane dpArea = null;
 
+    public DeliveryGUI() {
+        initComponents();
+    }
+    
     public DeliveryGUI(JDesktopPane dpArea) {
         //Armazena o dpArea (JDesktopPane) recebido por parâmetro para ser usado depois
         this.dpArea = dpArea;
@@ -402,7 +406,7 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
     private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
         //Abre a JInternalFrame no JDesktopPane dpArea
         if (dpArea != null) {
-            DeliveryAdicionarProdutoGUI p = new DeliveryAdicionarProdutoGUI();
+            DeliveryAdicionarProdutoGUI p = new DeliveryAdicionarProdutoGUI(dpArea);
             dpArea.add(p);
             p.setLocation(calculaLocal(dpArea, p));
             p.setVisible(true);

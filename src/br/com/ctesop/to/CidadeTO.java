@@ -38,4 +38,11 @@ public class CidadeTO {
     public void setStatusCidade(String statusCidade) {
         this.statusCidade = statusCidade;
     }
+
+    @Override
+    public String toString() {
+        return getNomeCidade();
+    }
+    
+    
 }

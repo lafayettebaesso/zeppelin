@@ -9,6 +9,7 @@ public class Conexao {
     private Connection conexao;
 
     public Conexao() throws Exception {
+        //Estabelece a conexão com o banco de dados
         try {
             String url = "jdbc:mysql://localhost:3306/dbzeppelin";
             String usuario = "root";
@@ -19,7 +20,7 @@ public class Conexao {
             conexao.setAutoCommit(false);
 
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
-            throw new Exception("Problemas nos parâmetros de conexão.\n" + e);
+            throw new Exception("Houve algum problema para realizar a conexão com o bando de dados.\n" + e);
         }
     }
 

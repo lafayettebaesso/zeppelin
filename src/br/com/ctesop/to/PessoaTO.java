@@ -8,6 +8,7 @@ public class PessoaTO {
     private int idCidade;
     private String nomePessoa;
     private String enderecoPessoa;
+    private String inscricaoEstadual;
     private String telefonePessoa;
     private String telefoneComercialPessoa;
     private String celularPessoa;
@@ -61,6 +62,14 @@ public class PessoaTO {
         this.enderecoPessoa = enderecoPessoa;
     }
 
+    public String getInscricaoEstadual() {
+        return inscricaoEstadual;
+    }
+    
+    public void setInscricaoEstadual(String inscricaoEstadual) {
+        this.inscricaoEstadual = inscricaoEstadual;
+    }
+    
     public String getTelefonePessoa() {
         return telefonePessoa;
     }

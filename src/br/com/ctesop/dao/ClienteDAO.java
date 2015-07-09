@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ClienteDAO {
 
-    //Para verificar se o nome digitado em "Nome do cliente" já existe
+    //Para verificar se o nome digitado em "Nome do cliente" já existe no banco de dados
     public static boolean verificaNomeExiste(String nomeCliente) throws Exception {
         Conexao c = new Conexao();
         String sql = "SELECT * FROM Cliente WHERE nomeCliente = ?";
@@ -103,5 +103,4 @@ public class ClienteDAO {
         }
         return lista;
     }
-
 }
