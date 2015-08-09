@@ -17,21 +17,6 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
         btCancelar = new javax.swing.JButton();
         btFechar = new javax.swing.JButton();
         pnAbas = new javax.swing.JTabbedPane();
-        pnFormulario = new javax.swing.JPanel();
-        lbCodigo = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
-        lbNomeFuncionario = new javax.swing.JLabel();
-        txtNomeFuncionario = new javax.swing.JTextField();
-        lbEndereco = new javax.swing.JLabel();
-        txtEndereco = new javax.swing.JTextField();
-        lbCidade = new javax.swing.JLabel();
-        lbCPF = new javax.swing.JLabel();
-        lbRG = new javax.swing.JLabel();
-        lbStatus = new javax.swing.JLabel();
-        cbStatus = new javax.swing.JComboBox();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         pnPesquisa = new javax.swing.JPanel();
         pnPesquisar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -39,9 +24,29 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         spGrade = new javax.swing.JScrollPane();
         tbGrade = new javax.swing.JTable();
+        pnFormulario = new javax.swing.JPanel();
+        lbCodigo = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        lbNomeReceita = new javax.swing.JLabel();
+        txtNomeReceita = new javax.swing.JTextField();
+        lbRendimentoTotal = new javax.swing.JLabel();
+        txtRendimentoTotal = new javax.swing.JTextField();
+        lbIngredientes = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btPesquisarIngrediente = new javax.swing.JToggleButton();
+        lbModoFazer = new javax.swing.JLabel();
+        txtModoFazer = new javax.swing.JTextField();
+        lbTempoCozimento = new javax.swing.JLabel();
+        txtTempoCozimento = new javax.swing.JTextField();
+        lbCusto = new javax.swing.JLabel();
+        txtCusto = new javax.swing.JTextField();
+        lbStatus = new javax.swing.JLabel();
+        cbStatus = new javax.swing.JComboBox();
 
         setClosable(true);
         setIconifiable(true);
+        setTitle("Receita");
 
         btNovo.setMnemonic('n');
         btNovo.setText("Novo");
@@ -94,91 +99,6 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
                 .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        pnFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulário"));
-
-        lbCodigo.setText("Código:");
-
-        txtCodigo.setEditable(false);
-
-        lbNomeFuncionario.setText("Nome da receita:");
-
-        lbEndereco.setText("Rendimento total:");
-
-        lbCidade.setText("Modo de fazer:");
-
-        lbCPF.setText("Tempo de cozimento:");
-
-        lbRG.setText("Custo:");
-
-        lbStatus.setText("Status:");
-
-        cbStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ativo", "Inativo" }));
-
-        javax.swing.GroupLayout pnFormularioLayout = new javax.swing.GroupLayout(pnFormulario);
-        pnFormulario.setLayout(pnFormularioLayout);
-        pnFormularioLayout.setHorizontalGroup(
-            pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnFormularioLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbCPF)
-                    .addComponent(lbCodigo)
-                    .addComponent(lbNomeFuncionario)
-                    .addComponent(lbStatus)
-                    .addComponent(lbEndereco)
-                    .addComponent(lbCidade))
-                .addGap(12, 12, 12)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNomeFuncionario)
-                    .addComponent(jTextField2)
-                    .addGroup(pnFormularioLayout.createSequentialGroup()
-                        .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnFormularioLayout.createSequentialGroup()
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbRG)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 95, Short.MAX_VALUE)))
-                .addGap(12, 12, 12))
-        );
-        pnFormularioLayout.setVerticalGroup(
-            pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnFormularioLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbCodigo)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNomeFuncionario)
-                    .addComponent(txtNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbEndereco)
-                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbCidade)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbRG)
-                    .addComponent(lbCPF)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbStatus)
-                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12))
-        );
-
-        pnAbas.addTab("Cadastro", pnFormulario);
 
         pnPesquisar.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
 
@@ -235,7 +155,7 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(pnPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE))
+                    .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
         pnPesquisaLayout.setVerticalGroup(
@@ -244,11 +164,142 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addComponent(pnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
         );
 
         pnAbas.addTab("Pesquisar", pnPesquisa);
+
+        pnFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulário"));
+
+        lbCodigo.setText("Código:");
+
+        txtCodigo.setEditable(false);
+
+        lbNomeReceita.setText("Nome da receita:");
+
+        lbRendimentoTotal.setText("Rendimento total:");
+
+        lbIngredientes.setText("Ingredientes:");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        btPesquisarIngrediente.setText("...");
+
+        lbModoFazer.setText("Modo de fazer:");
+
+        lbTempoCozimento.setText("Tempo de cozimento:");
+
+        lbCusto.setText("Custo:");
+
+        lbStatus.setText("Status:");
+
+        cbStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ativo", "Inativo" }));
+
+        javax.swing.GroupLayout pnFormularioLayout = new javax.swing.GroupLayout(pnFormulario);
+        pnFormulario.setLayout(pnFormularioLayout);
+        pnFormularioLayout.setHorizontalGroup(
+            pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnFormularioLayout.createSequentialGroup()
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnFormularioLayout.createSequentialGroup()
+                            .addGap(28, 28, 28)
+                            .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lbCodigo)
+                                .addComponent(lbNomeReceita)
+                                .addComponent(lbRendimentoTotal)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnFormularioLayout.createSequentialGroup()
+                            .addGap(0, 0, 0)
+                            .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbModoFazer, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lbIngredientes, javax.swing.GroupLayout.Alignment.TRAILING))))
+                    .addComponent(lbStatus, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbTempoCozimento, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(12, 12, 12)
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnFormularioLayout.createSequentialGroup()
+                            .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtNomeReceita, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pnFormularioLayout.createSequentialGroup()
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addGap(12, 12, 12)
+                                    .addComponent(btPesquisarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnFormularioLayout.createSequentialGroup()
+                                    .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtRendimentoTotal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(0, 0, Short.MAX_VALUE)))
+                            .addGap(12, 12, 12))
+                        .addGroup(pnFormularioLayout.createSequentialGroup()
+                            .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pnFormularioLayout.createSequentialGroup()
+                                    .addComponent(txtTempoCozimento, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(15, 15, 15)
+                                    .addComponent(lbCusto)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, 0))
+                                .addComponent(txtModoFazer, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE))
+                            .addContainerGap()))
+                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        pnFormularioLayout.setVerticalGroup(
+            pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnFormularioLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbCodigo)
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbNomeReceita)
+                    .addComponent(txtNomeReceita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbRendimentoTotal)
+                    .addComponent(txtRendimentoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnFormularioLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lbIngredientes))
+                    .addGroup(pnFormularioLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btPesquisarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(12, 12, 12)
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtModoFazer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnFormularioLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(lbModoFazer)))
+                .addGap(12, 12, 12)
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTempoCozimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTempoCozimento)
+                    .addComponent(lbCusto)
+                    .addComponent(txtCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbStatus)
+                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
+        );
+
+        pnAbas.addTab("Cadastro", pnFormulario);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -257,9 +308,12 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnAbas))
-                .addGap(8, 8, 8))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pnAbas)
+                        .addGap(8, 8, 8))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(8, 8, 8))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,7 +322,7 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
                 .addComponent(pnBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(pnAbas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8))
+                .addContainerGap())
         );
 
         pack();
@@ -283,22 +337,23 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btFechar;
     private javax.swing.JButton btNovo;
+    private javax.swing.JToggleButton btPesquisarIngrediente;
     private javax.swing.JButton btSalvar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox cbStatus;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JLabel lbCPF;
-    private javax.swing.JLabel lbCidade;
     private javax.swing.JLabel lbCodigo;
-    private javax.swing.JLabel lbEndereco;
-    private javax.swing.JLabel lbNomeFuncionario;
-    private javax.swing.JLabel lbRG;
+    private javax.swing.JLabel lbCusto;
+    private javax.swing.JLabel lbIngredientes;
+    private javax.swing.JLabel lbModoFazer;
+    private javax.swing.JLabel lbNomeReceita;
+    private javax.swing.JLabel lbRendimentoTotal;
     private javax.swing.JLabel lbStatus;
+    private javax.swing.JLabel lbTempoCozimento;
     private javax.swing.JTabbedPane pnAbas;
     private javax.swing.JPanel pnBotoes;
     private javax.swing.JPanel pnFormulario;
@@ -307,7 +362,10 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane spGrade;
     private javax.swing.JTable tbGrade;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtEndereco;
-    private javax.swing.JTextField txtNomeFuncionario;
+    private javax.swing.JTextField txtCusto;
+    private javax.swing.JTextField txtModoFazer;
+    private javax.swing.JTextField txtNomeReceita;
+    private javax.swing.JTextField txtRendimentoTotal;
+    private javax.swing.JTextField txtTempoCozimento;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,11 +29,12 @@ public class ClienteTableModel {
             case 0:
                 return cliente.getIdCliente();
             case 1:
-                return cliente.getClass(PessoaTO.NomePessoa);
-            case 2:
-                return cliente.getIdPessoa(Endereco);
-            case 3:
                 return cliente.getStatusCliente();
+//                return cliente.getClass(PessoaTO.NomePessoa);
+//            case 2:
+//                return cliente.getIdPessoa(Endereco);
+//            case 3:
+//                return cliente.getStatusCliente();
             default:
                 throw new IndexOutOfBoundsException("Coluna inválida!");
         }
@@ -41,7 +42,7 @@ public class ClienteTableModel {
 
     public void setDados(List<ClienteTO> dados){
         this.dados = dados;
-        fireTableDataChanged();
+//        fireTableDataChanged();
     }
 
     public ClienteTO get(int linha) {

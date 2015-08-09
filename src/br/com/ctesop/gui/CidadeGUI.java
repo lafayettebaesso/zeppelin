@@ -50,6 +50,7 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
+        setTitle("Cidade");
 
         btNovo.setMnemonic('n');
         btNovo.setText("Novo");

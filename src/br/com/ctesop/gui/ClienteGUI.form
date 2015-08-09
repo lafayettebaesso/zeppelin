@@ -10,6 +10,7 @@
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
     <Property name="iconifiable" type="boolean" value="true"/>
+    <Property name="title" type="java.lang.String" value="Cliente"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -33,7 +34,7 @@
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="pnBotoes" max="32767" attributes="0"/>
-                  <Component id="pnAbas" min="-2" pref="831" max="-2" attributes="0"/>
+                  <Component id="pnAbas" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
           </Group>
@@ -45,8 +46,8 @@
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="pnBotoes" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-              <Component id="pnAbas" pref="487" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pnAbas" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -59,11 +60,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="btNovo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Component id="btSalvar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Component id="btCancelar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Component id="btFechar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -175,7 +176,7 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="pnPesquisar" max="32767" attributes="0"/>
-                          <Component id="spGrade" pref="799" max="32767" attributes="0"/>
+                          <Component id="spGrade" pref="735" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
@@ -187,8 +188,8 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="pnPesquisar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="spGrade" pref="317" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="spGrade" pref="290" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -298,66 +299,94 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lbLocalTrabalho" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="lbCidade" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbInscricaoEstadual" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbSexo" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbCPF" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbCNPJ" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbTipoPessoa" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbCodigo" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                                      <Component id="lbStatus" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lbDataNascimento" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="lbCelular" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbTelefoneResidencial" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                      <Component id="lbTelefoneResidencial" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lbCelular" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbLocalTrabalho" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="txtTelefoneResidencial" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                      <Component id="lbTelefoneComercial" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Component id="txtTelefoneComercial" min="-2" pref="120" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                      <Component id="txtCelular" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <Component id="txtLocalTrabalho" pref="612" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lbCNPJ" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbInscricaoEstadual" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbCidade" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbTipoPessoa" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbCodigo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbStatus" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbDataNascimento" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lbSexo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="lbCPF" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="txtCNPJ" min="-2" pref="156" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                       <Component id="lbRazaoSocial" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                       <Component id="txtRazaoSocial" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="txtCodigo" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Component id="lbNome" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Component id="txtNome" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="cbCidade" min="-2" pref="190" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                       <Component id="lbEndereco" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                       <Component id="txtEndereco" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="txtCodigo" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="lbNome" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtNome" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtLocalTrabalho" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtInscricaoEstadual" min="-2" pref="202" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
+                                              <Component id="rbPessoaFisica" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                              <Component id="rbPessoaJuridica" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="txtDataNascimento" min="-2" pref="90" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                              <Component id="lbDataCadastro" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                              <Component id="txtDataCadastro" min="-2" pref="90" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="txtInscricaoEstadual" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                                          <Component id="cbStatus" min="-2" pref="149" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
                                               <Component id="txtCPF" min="-2" pref="156" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                               <Component id="lbRG" min="-2" max="-2" attributes="0"/>
@@ -366,40 +395,16 @@
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Component id="rbMasculino" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                              <Component id="rbFeminino" min="-2" pref="92" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="rbPessoaFisica" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                              <Component id="rbPessoaJuridica" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="txtCelular" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                                          <Component id="cbStatus" min="-2" pref="149" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                              <Component id="txtDataNascimento" min="-2" pref="90" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="lbDataCadastro" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txtDataCadastro" min="-2" pref="90" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                              <Component id="rbFeminino" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtTelefoneResidencial" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lbTelefoneComercial" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtTelefoneComercial" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace pref="253" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -421,66 +426,70 @@
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbSexo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="rbMasculino" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="rbFeminino" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbSexo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lbEndereco" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="cbCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtCPF" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbRG" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtRG" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCPF" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbCPF" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbRazaoSocial" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtRazaoSocial" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lbCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbRazaoSocial" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="txtRazaoSocial" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtInscricaoEstadual" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbInscricaoEstadual" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lbLocalTrabalho" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtLocalTrabalho" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lbCelular" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtCelular" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lbTelefoneResidencial" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="txtTelefoneResidencial" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbTelefoneComercial" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtTelefoneComercial" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTelefoneResidencial" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtDataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbDataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbDataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtDataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbDataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtDataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="cbStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -551,13 +560,6 @@
                 <Property name="text" type="java.lang.String" value="Feminino"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lbEndereco">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtEndereco">
-            </Component>
             <Component class="javax.swing.JLabel" name="lbCidade">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cidade:"/>
@@ -569,6 +571,13 @@
                   <StringArray count="0"/>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbEndereco">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtEndereco">
             </Component>
             <Component class="javax.swing.JLabel" name="lbCPF">
               <Properties>
@@ -583,56 +592,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtRG">
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbCelular">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Celular:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="txtCelular">
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbTelefoneResidencial">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Telefone residencial:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="txtTelefoneResidencial">
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbDataNascimento">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Data de nascimento:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="txtDataNascimento">
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbLocalTrabalho">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Local de trabalho:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtLocalTrabalho">
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbDataCadastro">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Data de cadastro:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="txtDataCadastro">
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbStatus">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Status:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cbStatus">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
-                    <StringItem index="0" value="Ativo"/>
-                    <StringItem index="1" value="Inativo"/>
-                  </StringArray>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lbCNPJ">
               <Properties>
@@ -655,12 +614,65 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtInscricaoEstadual">
             </Component>
+            <Component class="javax.swing.JLabel" name="lbLocalTrabalho">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Local de trabalho:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtLocalTrabalho">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLocalTrabalhoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbCelular">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Celular:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtCelular">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbTelefoneResidencial">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Telefone residencial:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtTelefoneResidencial">
+            </Component>
             <Component class="javax.swing.JLabel" name="lbTelefoneComercial">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Telefone comercial:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtTelefoneComercial">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbDataNascimento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Data de nascimento:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtDataNascimento">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbDataCadastro">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Data de cadastro:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtDataCadastro">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbStatus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Status:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbStatus">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="Ativo"/>
+                    <StringItem index="1" value="Inativo"/>
+                  </StringArray>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

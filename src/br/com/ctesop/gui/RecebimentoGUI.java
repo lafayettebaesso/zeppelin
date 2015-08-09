@@ -11,9 +11,8 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         pnBotoes = new javax.swing.JPanel();
-        btNovo = new javax.swing.JButton();
-        btSalvar = new javax.swing.JButton();
-        btCancelar = new javax.swing.JButton();
+        btConcluir = new javax.swing.JButton();
+        btExcluirPedido = new javax.swing.JButton();
         btFechar = new javax.swing.JButton();
         pn = new javax.swing.JPanel();
         lbDinheiro = new javax.swing.JLabel();
@@ -56,24 +55,19 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
+        setTitle("Recebimento");
 
-        btNovo.setMnemonic('n');
-        btNovo.setText("Novo");
-        btNovo.setMaximumSize(new java.awt.Dimension(120, 40));
-        btNovo.setMinimumSize(new java.awt.Dimension(120, 40));
-        btNovo.setPreferredSize(new java.awt.Dimension(120, 40));
+        btConcluir.setMnemonic('c');
+        btConcluir.setText("Concluir");
+        btConcluir.setMaximumSize(new java.awt.Dimension(120, 40));
+        btConcluir.setMinimumSize(new java.awt.Dimension(120, 40));
+        btConcluir.setPreferredSize(new java.awt.Dimension(120, 40));
 
-        btSalvar.setMnemonic('s');
-        btSalvar.setText("Salvar");
-        btSalvar.setMaximumSize(new java.awt.Dimension(120, 40));
-        btSalvar.setMinimumSize(new java.awt.Dimension(120, 40));
-        btSalvar.setPreferredSize(new java.awt.Dimension(120, 40));
-
-        btCancelar.setMnemonic('c');
-        btCancelar.setText("Cancelar");
-        btCancelar.setMaximumSize(new java.awt.Dimension(120, 40));
-        btCancelar.setMinimumSize(new java.awt.Dimension(120, 40));
-        btCancelar.setPreferredSize(new java.awt.Dimension(120, 40));
+        btExcluirPedido.setMnemonic('e');
+        btExcluirPedido.setText("Excluir pedido");
+        btExcluirPedido.setMaximumSize(new java.awt.Dimension(120, 40));
+        btExcluirPedido.setMinimumSize(new java.awt.Dimension(120, 40));
+        btExcluirPedido.setPreferredSize(new java.awt.Dimension(120, 40));
 
         btFechar.setMnemonic('f');
         btFechar.setText("Fechar");
@@ -91,21 +85,18 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
         pnBotoesLayout.setHorizontalGroup(
             pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBotoesLayout.createSequentialGroup()
-                .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btExcluirPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnBotoesLayout.setVerticalGroup(
             pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btExcluirPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -139,31 +130,29 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
                     .addComponent(lbCheque)
                     .addComponent(lbDebito))
                 .addGroup(pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLayout.createSequentialGroup()
+                            .addGap(14, 14, 14)
+                            .addComponent(txtDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnLayout.createSequentialGroup()
+                            .addGap(14, 14, 14)
+                            .addComponent(txtDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(14, 14, 14)
+                            .addComponent(btDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
                         .addGroup(pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(txtCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCheque, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btCredito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btCheque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnLayout.createSequentialGroup()
-                        .addGroup(pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLayout.createSequentialGroup()
-                                .addComponent(txtDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnLayout.createSequentialGroup()
+                                .addComponent(txtCheque, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(14, 14, 14)
-                                .addComponent(txtDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btCheque, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnLayout.createSequentialGroup()
+                                .addComponent(txtCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(btCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         pnLayout.setVerticalGroup(
             pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,16 +215,15 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
                     .addComponent(lbTotalAcrescimo)
                     .addComponent(lbTotalPagar)
                     .addComponent(lbTotalDesconto))
+                .addGap(12, 12, 12)
                 .addGroup(pnTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnTotalLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
                         .addGroup(pnTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTotalAcrescimo)
                             .addComponent(txtTotalDesconto, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtTotalPagar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
+                            .addComponent(txtTotalPagar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
                         .addGap(12, 12, 12))
                     .addGroup(pnTotalLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
                         .addComponent(txtTotalConta)
                         .addContainerGap())))
         );
@@ -283,15 +271,15 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
                 .addGroup(pnDescontoAcrescimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbAcrescimo)
                     .addComponent(lbDesconto))
-                .addGap(8, 8, 8)
+                .addGap(14, 14, 14)
                 .addGroup(pnDescontoAcrescimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnDescontoAcrescimoLayout.createSequentialGroup()
                         .addComponent(txtDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(14, 14, 14)
                         .addComponent(btDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnDescontoAcrescimoLayout.createSequentialGroup()
                         .addComponent(txtAcrescimo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(14, 14, 14)
                         .addComponent(btAcrescimo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(8, 8, 8))
         );
@@ -331,22 +319,21 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
         pnTotalClienteLayout.setHorizontalGroup(
             pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnTotalClienteLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbTroco)
-                    .addComponent(lbTotalRestante))
-                .addGap(12, 12, 12)
                 .addGroup(pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnTotalClienteLayout.createSequentialGroup()
-                        .addComponent(txtTotalRestante, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 1, Short.MAX_VALUE))
-                    .addComponent(txtTroco))
-                .addGap(12, 12, 12))
-            .addGroup(pnTotalClienteLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lbTotalRecebido)
-                .addGap(12, 12, 12)
-                .addComponent(txtTotalRecebido, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbTroco)
+                            .addComponent(lbTotalRestante))
+                        .addGap(12, 12, 12)
+                        .addGroup(pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTroco, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                            .addComponent(txtTotalRestante)))
+                    .addGroup(pnTotalClienteLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(lbTotalRecebido)
+                        .addGap(12, 12, 12)
+                        .addComponent(txtTotalRecebido)))
                 .addGap(12, 12, 12))
         );
         pnTotalClienteLayout.setVerticalGroup(
@@ -360,7 +347,7 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
                 .addGroup(pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTotalRestante, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbTotalRestante))
-                .addGap(14, 14, 14)
+                .addGap(13, 13, 13)
                 .addGroup(pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTroco)
                     .addComponent(txtTroco, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -379,7 +366,7 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(pnDescontoAcrescimo, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+                                    .addComponent(pnDescontoAcrescimo, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
                                     .addComponent(pn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(12, 12, 12)
                                 .addComponent(spGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
@@ -419,15 +406,14 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAcrescimo;
-    private javax.swing.JButton btCancelar;
     private javax.swing.JButton btCheque;
+    private javax.swing.JButton btConcluir;
     private javax.swing.JButton btCredito;
     private javax.swing.JButton btDebito;
     private javax.swing.JButton btDesconto;
     private javax.swing.JButton btDinheiro;
+    private javax.swing.JButton btExcluirPedido;
     private javax.swing.JButton btFechar;
-    private javax.swing.JButton btNovo;
-    private javax.swing.JButton btSalvar;
     private javax.swing.JLabel lbAcrescimo;
     private javax.swing.JLabel lbCheque;
     private javax.swing.JLabel lbCredito;

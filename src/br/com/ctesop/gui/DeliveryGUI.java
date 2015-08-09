@@ -30,6 +30,13 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
         btCancelar = new javax.swing.JButton();
         btFechar = new javax.swing.JButton();
         pnAbas = new javax.swing.JTabbedPane();
+        pnPesquisaDelivery = new javax.swing.JPanel();
+        pnPesquisar = new javax.swing.JPanel();
+        lbPesquisarDelivery = new javax.swing.JLabel();
+        txtPesquisarDelivery = new javax.swing.JTextField();
+        btPesquisarDelivery = new javax.swing.JButton();
+        spGradePesquisaDelivery = new javax.swing.JScrollPane();
+        tbGradePesquisaDelivery = new javax.swing.JTable();
         pnFormulario = new javax.swing.JPanel();
         pnDadosDelivery = new javax.swing.JPanel();
         lbCodigo = new javax.swing.JLabel();
@@ -54,16 +61,10 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
         txtValorTotal = new javax.swing.JTextField();
         spGradeProdutoDelivery = new javax.swing.JScrollPane();
         tbGradeProdutoDelivery = new javax.swing.JTable();
-        pnPesquisaDelivery = new javax.swing.JPanel();
-        pnPesquisar = new javax.swing.JPanel();
-        lbPesquisarDelivery = new javax.swing.JLabel();
-        txtPesquisarDelivery = new javax.swing.JTextField();
-        btPesquisarDelivery = new javax.swing.JButton();
-        spGradePesquisaDelivery = new javax.swing.JScrollPane();
-        tbGradePesquisaDelivery = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
+        setTitle("Delivery");
 
         btNovo.setMnemonic('n');
         btNovo.setText("Novo");
@@ -117,6 +118,76 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
                 .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        pnPesquisar.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
+
+        lbPesquisarDelivery.setText("Pesquisar:");
+
+        btPesquisarDelivery.setMnemonic('p');
+        btPesquisarDelivery.setLabel("Pesquisar");
+        btPesquisarDelivery.setMaximumSize(new java.awt.Dimension(120, 40));
+        btPesquisarDelivery.setMinimumSize(new java.awt.Dimension(120, 40));
+        btPesquisarDelivery.setPreferredSize(new java.awt.Dimension(120, 40));
+
+        javax.swing.GroupLayout pnPesquisarLayout = new javax.swing.GroupLayout(pnPesquisar);
+        pnPesquisar.setLayout(pnPesquisarLayout);
+        pnPesquisarLayout.setHorizontalGroup(
+            pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPesquisarLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(lbPesquisarDelivery)
+                .addGap(12, 12, 12)
+                .addComponent(txtPesquisarDelivery)
+                .addGap(12, 12, 12)
+                .addComponent(btPesquisarDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
+        );
+        pnPesquisarLayout.setVerticalGroup(
+            pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPesquisarLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbPesquisarDelivery)
+                    .addComponent(txtPesquisarDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btPesquisarDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
+        );
+
+        tbGradePesquisaDelivery.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        spGradePesquisaDelivery.setViewportView(tbGradePesquisaDelivery);
+
+        javax.swing.GroupLayout pnPesquisaDeliveryLayout = new javax.swing.GroupLayout(pnPesquisaDelivery);
+        pnPesquisaDelivery.setLayout(pnPesquisaDeliveryLayout);
+        pnPesquisaDeliveryLayout.setHorizontalGroup(
+            pnPesquisaDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPesquisaDeliveryLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(pnPesquisaDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spGradePesquisaDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
+        );
+        pnPesquisaDeliveryLayout.setVerticalGroup(
+            pnPesquisaDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPesquisaDeliveryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(spGradePesquisaDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnAbas.addTab("Delivery", pnPesquisaDelivery);
+
         pnDadosDelivery.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Delivery"));
 
         lbCodigo.setText("Código:");
@@ -161,9 +232,9 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
                     .addComponent(txtEndereco)
                     .addGroup(pnDadosDeliveryLayout.createSequentialGroup()
                         .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(15, 15, 15)
                         .addComponent(lbBairro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 12, 12)
                         .addComponent(txtBairro))
                     .addComponent(txtPontoReferencia)
                     .addGroup(pnDadosDeliveryLayout.createSequentialGroup()
@@ -171,11 +242,11 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnDadosDeliveryLayout.createSequentialGroup()
                         .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbCliente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCliente)
                         .addGap(15, 15, 15)
+                        .addComponent(lbCliente)
+                        .addGap(12, 12, 12)
+                        .addComponent(txtCliente)
+                        .addGap(12, 12, 12)
                         .addComponent(btPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12))
         );
@@ -265,8 +336,8 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
                         .addComponent(lbValorTotal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(spGradeProdutoDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(spGradeProdutoDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
         );
         pnProdutosDeliveryLayout.setVerticalGroup(
             pnProdutosDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,81 +370,11 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(pnDadosDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(pnProdutosDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnProdutosDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
 
         pnAbas.addTab("Cadastro", pnFormulario);
-
-        pnPesquisar.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
-
-        lbPesquisarDelivery.setText("Pesquisar:");
-
-        btPesquisarDelivery.setMnemonic('p');
-        btPesquisarDelivery.setLabel("Pesquisar");
-        btPesquisarDelivery.setMaximumSize(new java.awt.Dimension(120, 40));
-        btPesquisarDelivery.setMinimumSize(new java.awt.Dimension(120, 40));
-        btPesquisarDelivery.setPreferredSize(new java.awt.Dimension(120, 40));
-
-        javax.swing.GroupLayout pnPesquisarLayout = new javax.swing.GroupLayout(pnPesquisar);
-        pnPesquisar.setLayout(pnPesquisarLayout);
-        pnPesquisarLayout.setHorizontalGroup(
-            pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnPesquisarLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lbPesquisarDelivery)
-                .addGap(12, 12, 12)
-                .addComponent(txtPesquisarDelivery)
-                .addGap(12, 12, 12)
-                .addComponent(btPesquisarDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
-        );
-        pnPesquisarLayout.setVerticalGroup(
-            pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnPesquisarLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbPesquisarDelivery)
-                    .addComponent(txtPesquisarDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btPesquisarDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12))
-        );
-
-        tbGradePesquisaDelivery.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        spGradePesquisaDelivery.setViewportView(tbGradePesquisaDelivery);
-
-        javax.swing.GroupLayout pnPesquisaDeliveryLayout = new javax.swing.GroupLayout(pnPesquisaDelivery);
-        pnPesquisaDelivery.setLayout(pnPesquisaDeliveryLayout);
-        pnPesquisaDeliveryLayout.setHorizontalGroup(
-            pnPesquisaDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnPesquisaDeliveryLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(pnPesquisaDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(spGradePesquisaDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE))
-                .addGap(12, 12, 12))
-        );
-        pnPesquisaDeliveryLayout.setVerticalGroup(
-            pnPesquisaDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnPesquisaDeliveryLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(spGradePesquisaDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        pnAbas.addTab("Delivery", pnPesquisaDelivery);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -87,17 +87,17 @@ public class ClienteDAO {
     }
 
     //Para pesquisar os clientes cadastrados
-    public static List<ClienteTO> listar(String filtro) throws Exception {
+    public static List<ClienteTO> listar(int pagina, String filtro) throws Exception {
         Conexao c = new Conexao();
         String sql = "SELECT * FROM Cliente WHERE nomeCliente LIKE '%" + filtro + "%' LIMIT ?,10";
         PreparedStatement ps = c.getConexao().prepareCall(sql);
+        ps.setInt(1, pagina * 10);
         ResultSet rs = ps.executeQuery();
 
         List<ClienteTO> lista = new ArrayList<>();
         while (rs.next()) {
             ClienteTO e = new ClienteTO();
             e.setIdCliente(rs.getInt("IdCliente"));
-            //e.setNomeCliente(rs.getString("NomeCliene"));
             e.setStatusCliente(rs.getString("StatusCliente"));
             lista.add(e);
         }

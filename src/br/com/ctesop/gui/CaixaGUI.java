@@ -66,6 +66,7 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
 
         pnInformacoes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        lbSaldoInicial.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         lbSaldoInicial.setText("Saldo inical:");
 
         pnEntradas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "(+) Entradas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 0, 255))); // NOI18N
@@ -82,6 +83,7 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel4.setText("Cartão - Crédito:");
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel1.setText("Entradas totais:");
 
         javax.swing.GroupLayout pnEntradasLayout = new javax.swing.GroupLayout(pnEntradas);
@@ -146,6 +148,7 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel7.setText("Cheque:");
 
+        jLabel8.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel8.setText("Saídas totais:");
 
         javax.swing.GroupLayout pnSaidasLayout = new javax.swing.GroupLayout(pnSaidas);
@@ -163,7 +166,7 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
                     .addComponent(jFormattedTextField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextField7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextField8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
         pnSaidasLayout.setVerticalGroup(
             pnSaidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,6 +186,7 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12))
         );
 
+        lbSaldoFinal.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         lbSaldoFinal.setText("Saldo final:");
 
         javax.swing.GroupLayout pnInformacoesLayout = new javax.swing.GroupLayout(pnInformacoes);
@@ -230,6 +234,9 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
         lbValor.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         lbValor.setText("Valor de abertura:");
 
+        txtValor.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtValor.setPreferredSize(new java.awt.Dimension(10, 20));
+
         btAbrirCaixa.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         btAbrirCaixa.setMnemonic('a');
         btAbrirCaixa.setText("Abrir o caixa");
@@ -267,13 +274,13 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(lbValor)
-                .addGap(6, 6, 6)
+                .addGap(10, 10, 10)
                 .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(10, 10, 10)
                 .addComponent(btAbrirCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
+                .addGap(10, 10, 10)
                 .addComponent(btFecharCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
+                .addGap(10, 10, 10)
                 .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
@@ -283,7 +290,7 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbValor)
-                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btAbrirCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btFecharCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -330,7 +337,7 @@ public class CaixaGUI extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
                 .addComponent(pnFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -23,6 +23,7 @@ public class DeliveryAlterarProdutoGUI extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
+        setTitle("Alterar produto do delivery");
 
         btSalvar.setMnemonic('s');
         btSalvar.setText("Salvar");
@@ -88,8 +89,8 @@ public class DeliveryAlterarProdutoGUI extends javax.swing.JInternalFrame {
                         .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPrecoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 202, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(0, 200, Short.MAX_VALUE)))
+                .addGap(12, 12, 12))
         );
         pnFormularioLayout.setVerticalGroup(
             pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
