@@ -55,8 +55,8 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
         lbStatus = new javax.swing.JLabel();
         cbStatus = new javax.swing.JComboBox();
         pnProdutosDelivery = new javax.swing.JPanel();
-        btPesquisar = new javax.swing.JButton();
-        btEditar = new javax.swing.JButton();
+        btPesquisarProduto = new javax.swing.JButton();
+        btEditarProduto = new javax.swing.JButton();
         lbValorTotal = new javax.swing.JLabel();
         txtValorTotal = new javax.swing.JTextField();
         spGradeProdutoDelivery = new javax.swing.JScrollPane();
@@ -283,24 +283,24 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
 
         pnProdutosDelivery.setBorder(javax.swing.BorderFactory.createTitledBorder("Produtos do Delivery"));
 
-        btPesquisar.setMnemonic('p');
-        btPesquisar.setText("Pesquisar");
-        btPesquisar.setMaximumSize(new java.awt.Dimension(120, 40));
-        btPesquisar.setMinimumSize(new java.awt.Dimension(120, 40));
-        btPesquisar.setPreferredSize(new java.awt.Dimension(120, 40));
-        btPesquisar.addActionListener(new java.awt.event.ActionListener() {
+        btPesquisarProduto.setMnemonic('p');
+        btPesquisarProduto.setText("Pesquisar um produto");
+        btPesquisarProduto.setMaximumSize(new java.awt.Dimension(120, 40));
+        btPesquisarProduto.setMinimumSize(new java.awt.Dimension(120, 40));
+        btPesquisarProduto.setPreferredSize(new java.awt.Dimension(120, 40));
+        btPesquisarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btPesquisarActionPerformed(evt);
+                btPesquisarProdutoActionPerformed(evt);
             }
         });
 
-        btEditar.setText("Editar");
-        btEditar.setMaximumSize(new java.awt.Dimension(120, 40));
-        btEditar.setMinimumSize(new java.awt.Dimension(120, 40));
-        btEditar.setPreferredSize(new java.awt.Dimension(120, 40));
-        btEditar.addActionListener(new java.awt.event.ActionListener() {
+        btEditarProduto.setText("Editar");
+        btEditarProduto.setMaximumSize(new java.awt.Dimension(120, 40));
+        btEditarProduto.setMinimumSize(new java.awt.Dimension(120, 40));
+        btEditarProduto.setPreferredSize(new java.awt.Dimension(120, 40));
+        btEditarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEditarActionPerformed(evt);
+                btEditarProdutoActionPerformed(evt);
             }
         });
 
@@ -329,9 +329,9 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(pnProdutosDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnProdutosDeliveryLayout.createSequentialGroup()
-                        .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
-                        .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btEditarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbValorTotal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -344,8 +344,8 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnProdutosDeliveryLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(pnProdutosDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btEditarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbValorTotal)
                     .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
@@ -404,7 +404,7 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_btFecharActionPerformed
 
-    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+    private void btPesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarProdutoActionPerformed
         //Abre a JInternalFrame no JDesktopPane dpArea
         if (dpArea != null) {
             DeliveryAdicionarProdutoGUI p = new DeliveryAdicionarProdutoGUI(dpArea);
@@ -415,9 +415,9 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Impossível abrir a janela interna, pois o \n"
                     + "DesktopPane destino não está definido!");
         }
-    }//GEN-LAST:event_btPesquisarActionPerformed
+    }//GEN-LAST:event_btPesquisarProdutoActionPerformed
 
-    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
+    private void btEditarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarProdutoActionPerformed
         //Abre a JInternalFrame no JDesktopPane dpArea
         if (dpArea != null) {
             DeliveryAlterarProdutoGUI p = new DeliveryAlterarProdutoGUI();
@@ -428,7 +428,7 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Impossível abrir a janela interna, pois o \n"
                     + "DesktopPane destino não está definido!");
         }
-    }//GEN-LAST:event_btEditarActionPerformed
+    }//GEN-LAST:event_btEditarProdutoActionPerformed
 
     private void btPesquisarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarClienteActionPerformed
         //Abre a JInternalFrame no JDesktopPane dpArea
@@ -446,12 +446,12 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelar;
-    private javax.swing.JButton btEditar;
+    private javax.swing.JButton btEditarProduto;
     private javax.swing.JButton btFechar;
     private javax.swing.JButton btNovo;
-    private javax.swing.JButton btPesquisar;
     private javax.swing.JButton btPesquisarCliente;
     private javax.swing.JButton btPesquisarDelivery;
+    private javax.swing.JButton btPesquisarProduto;
     private javax.swing.JButton btSalvar;
     private javax.swing.JComboBox cbStatus;
     private javax.swing.JLabel lbBairro;

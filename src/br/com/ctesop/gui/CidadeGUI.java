@@ -358,7 +358,7 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
             txtNomeCidade.setText(cidade.getNomeCidade());
             //Preencher também o campo "Sigla do estado"
             try {
-                EstadoTO estado = EstadoDAO.get(cidade.getIdEstado());
+                EstadoTO estado = (EstadoTO) EstadoDAO.get(EstadoTO.class, cidade.getIdEstado());
                 cbEstado.setSelectedItem(estado);
             } catch (Exception ex) {
             }
@@ -379,7 +379,7 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
             String filtro = txtPesquisar.getText();
 
             CidadeTableModel tb = new CidadeTableModel();
-            tb.setDados(CidadeDAO.listar(pagina, filtro));
+            tb.setDados((List<CidadeTO>) (Object) EstadoDAO.listar(CidadeTO.class, pagina, "nomeCidade", filtro));
             tbGrade.setModel(tb);
 
         } catch (Exception e) {
@@ -434,9 +434,9 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
     //Para carregar a "Sigla do estado" no formulário Cidade
     private void carregaEstados() {
         try {
-            List<EstadoTO> listaEstado = EstadoDAO.listar();
-            for (EstadoTO e : listaEstado) {
-                cbEstado.addItem(e);
+            List<Object> listaEstado =  EstadoDAO.listar(EstadoTO.class);
+            for (Object e :  listaEstado) {
+                cbEstado.addItem((EstadoTO)e);
             }
         } catch (Exception ex) {
             //Para as mensagens de erro. Esta puxando do pacote "br.com.ctesop.componentes" da classe "JOptionPane"

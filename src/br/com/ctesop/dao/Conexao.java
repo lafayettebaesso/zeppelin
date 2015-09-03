@@ -13,7 +13,7 @@ public class Conexao {
         try {
             String url = "jdbc:mysql://localhost:3306/dbzeppelin";
             String usuario = "root";
-            String senha = "root";
+            String senha = "";
 
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conexao = DriverManager.getConnection(url, usuario, senha);

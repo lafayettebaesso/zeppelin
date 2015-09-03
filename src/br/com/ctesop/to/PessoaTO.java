@@ -1,48 +1,49 @@
 package br.com.ctesop.to;
 
+import java.sql.Date;
+
 public class PessoaTO {
 
-    private int idPessoa;
-    private int idPessoaFisica;
-    private int idPessoaJuridica;
-    private int idCidade;
+    private Integer idPessoa;
+    private Integer idPessoaFisica;
+    private Integer idPessoaJuridica;
+    private Integer idCidade;
     private String nomePessoa;
     private String enderecoPessoa;
-    private String inscricaoEstadual;
     private String telefonePessoa;
     private String telefoneComercialPessoa;
     private String celularPessoa;
-    private String dataNascimentoPessoa;
+    private Date dataNascimentoPessoa;
     private String sexoPessoa;
 
-    public int getIdPessoa() {
+    public Integer getIdPessoa() {
         return idPessoa;
     }
 
-    public void setIdPessoa(int idPessoa) {
+    public void setIdPessoa(Integer idPessoa) {
         this.idPessoa = idPessoa;
     }
 
-    public int getIdPessoaFisica() {
+    public Integer getIdPessoaFisica() {
         return idPessoaFisica;
     }
 
-    public void setIdPessoaFisica(int idPessoaFisica) {
+    public void setIdPessoaFisica(Integer idPessoaFisica) {
         this.idPessoaFisica = idPessoaFisica;
     }
 
-    public int getIdPessoaJuridica() {
+    public Integer getIdPessoaJuridica() {
         return idPessoaJuridica;
     }
 
-    public void setIdPessoaJuridica(int idPessoaJuridica) {
+    public void setIdPessoaJuridica(Integer idPessoaJuridica) {
         this.idPessoaJuridica = idPessoaJuridica;
     }
 
-    public void setIdCidade(int idCidade) {
+    public void setIdCidade(Integer idCidade) {
         this.idCidade = idCidade;
     }
-    public int getIdCidade() {
+    public Integer getIdCidade() {
         return idCidade;
     }
 
@@ -60,14 +61,6 @@ public class PessoaTO {
 
     public void setEnderecoPessoa(String enderecoPessoa) {
         this.enderecoPessoa = enderecoPessoa;
-    }
-
-    public String getInscricaoEstadual() {
-        return inscricaoEstadual;
-    }
-    
-    public void setInscricaoEstadual(String inscricaoEstadual) {
-        this.inscricaoEstadual = inscricaoEstadual;
     }
     
     public String getTelefonePessoa() {
@@ -94,11 +87,11 @@ public class PessoaTO {
         this.celularPessoa = celularPessoa;
     }
 
-    public String getDataNascimentoPessoa() {
+    public Date getDataNascimentoPessoa() {
         return dataNascimentoPessoa;
     }
 
-    public void setDataNascimentoPessoa(String dataNascimentoPessoa) {
+    public void setDataNascimentoPessoa(Date dataNascimentoPessoa) {
         this.dataNascimentoPessoa = dataNascimentoPessoa;
     }
 

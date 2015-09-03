@@ -1,44 +1,46 @@
 package br.com.ctesop.to;
 
+import java.sql.Date;
+
 public class ClienteTO {
 
-    private int idCliente;
-    private int idPessoa;
-    private int idPessoaFisica;
-    private int idPessoaJuridica;
+    private Integer idCliente;
+    private Integer idPessoa;
+    private Integer idPessoaFisica;
+    private Integer idPessoaJuridica;
     private String localTrabalhoCliente;
-    private String dataCadastro;
+    private Date dataCadastro;
     private String statusCliente;
 
-    public int getIdCliente() {
+    public Integer getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(int idCliente) {
+    public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
     }
 
-    public int getIdPessoa() {
+    public Integer getIdPessoa() {
         return idPessoa;
     }
 
-    public void setIdPessoa(int idPessoa) {
+    public void setIdPessoa(Integer idPessoa) {
         this.idPessoa = idPessoa;
     }
 
-    public int getIdPessoaFisica() {
+    public Integer getIdPessoaFisica() {
         return idPessoaFisica;
     }
 
-    public void setIdPessoaFisica(int idPessoaFisica) {
+    public void setIdPessoaFisica(Integer idPessoaFisica) {
         this.idPessoaFisica = idPessoaFisica;
     }
 
-    public int getIdPessoaJuridica() {
+    public Integer getIdPessoaJuridica() {
         return idPessoaJuridica;
     }
 
-    public void setIdPessoaJuridica(int idPessoaJuridica) {
+    public void setIdPessoaJuridica(Integer idPessoaJuridica) {
         this.idPessoaJuridica = idPessoaJuridica;
     }
 
@@ -50,11 +52,11 @@ public class ClienteTO {
         this.localTrabalhoCliente = localTrabalhoCliente;
     }
 
-    public String getDataCadastro() {
+    public Date getDataCadastro() {
         return dataCadastro;
     }
     
-    public void setDataCadastro(String dataCadastro) {
+    public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
     

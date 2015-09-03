@@ -1,8 +1,22 @@
 package br.com.ctesop.gui;
 
+import java.awt.Point;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+
 public class ReceitaGUI extends javax.swing.JInternalFrame {
 
+    //Atribudo para armazenar qual JDesktopPane irá receber o JInternalFrame
+    private JDesktopPane dpArea = null;
+
     public ReceitaGUI() {
+        initComponents();
+    }
+
+    public ReceitaGUI(JDesktopPane dpArea) {
+        //Armazena o dpArea (JDesktopPane) recebido por parâmetro para ser usado depois
+        this.dpArea = dpArea;
         initComponents();
     }
 
@@ -196,6 +210,11 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         btPesquisarIngrediente.setText("...");
+        btPesquisarIngrediente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisarIngredienteActionPerformed(evt);
+            }
+        });
 
         lbModoFazer.setText("Modo de fazer:");
 
@@ -220,11 +239,8 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
                                 .addComponent(lbCodigo)
                                 .addComponent(lbNomeReceita)
                                 .addComponent(lbRendimentoTotal)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnFormularioLayout.createSequentialGroup()
-                            .addGap(0, 0, 0)
-                            .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lbModoFazer, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lbIngredientes, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addComponent(lbModoFazer, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lbIngredientes, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(lbStatus, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbTempoCozimento, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(12, 12, 12)
@@ -236,7 +252,7 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
                                 .addGroup(pnFormularioLayout.createSequentialGroup()
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                     .addGap(12, 12, 12)
-                                    .addComponent(btPesquisarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btPesquisarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnFormularioLayout.createSequentialGroup()
                                     .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(txtRendimentoTotal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,8 +266,7 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
                                     .addGap(15, 15, 15)
                                     .addComponent(lbCusto)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0))
+                                    .addComponent(txtCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(txtModoFazer, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE))
                             .addContainerGap()))
                     .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -279,7 +294,7 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
                         .addGap(12, 12, 12)
                         .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btPesquisarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btPesquisarIngrediente))))
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtModoFazer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,12 +323,9 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pnAbas)
-                        .addGap(8, 8, 8))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(8, 8, 8))))
+                    .addComponent(pnAbas)
+                    .addComponent(pnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,6 +343,19 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
     private void btFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFecharActionPerformed
         dispose();
     }//GEN-LAST:event_btFecharActionPerformed
+
+    private void btPesquisarIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarIngredienteActionPerformed
+        //Abre a JInternalFrame no JDesktopPane dpArea
+        if (dpArea != null) {
+            ReceitaAdicionarItemReceitaGUI p = new ReceitaAdicionarItemReceitaGUI();
+            dpArea.add(p);
+            p.setLocation(calculaLocal(dpArea, p));
+            p.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Impossível abrir a janela interna, pois o \n"
+                    + "DesktopPane destino não está definido!");
+        }
+    }//GEN-LAST:event_btPesquisarIngredienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -368,4 +393,11 @@ public class ReceitaGUI extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtRendimentoTotal;
     private javax.swing.JTextField txtTempoCozimento;
     // End of variables declaration//GEN-END:variables
+
+    /* Para abrir os JInternalFrame adicionais DeliveryAdicionarProdutoGUI
+     * e DeliveryAlterarProdutoGUI centralizados */
+    private Point calculaLocal(JDesktopPane dpArea, JInternalFrame p) {
+        return new Point(((dpArea.getWidth() - p.getWidth()) / 2), ((dpArea.getHeight() - p.getHeight()) / 2));
+    }
+
 }

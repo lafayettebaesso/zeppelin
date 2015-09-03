@@ -4,7 +4,7 @@ import br.com.ctesop.to.FuncionarioTO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class FuncionarioDAO {
+public class FuncionarioDAO extends GenericDAO {
 
     //Para verificar se o nome digitado em "Nome do funcionário" já existe
     public static boolean verificaNomeExiste(String nomePessoa) throws Exception {

@@ -17,13 +17,6 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
         btCancelar = new javax.swing.JButton();
         btFechar = new javax.swing.JButton();
         pnAbas = new javax.swing.JTabbedPane();
-        pnFormulario = new javax.swing.JPanel();
-        lbCodigo = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
-        lbNomeFuncionario = new javax.swing.JLabel();
-        txtNomeFuncionario = new javax.swing.JTextField();
-        lbStatus = new javax.swing.JLabel();
-        cbStatus = new javax.swing.JComboBox();
         pnPesquisa = new javax.swing.JPanel();
         pnPesquisar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -31,6 +24,13 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         spGrade = new javax.swing.JScrollPane();
         tbGrade = new javax.swing.JTable();
+        pnFormulario = new javax.swing.JPanel();
+        lbCodigo = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        lbNomeFuncionario = new javax.swing.JLabel();
+        txtNomeFuncionario = new javax.swing.JTextField();
+        lbStatus = new javax.swing.JLabel();
+        cbStatus = new javax.swing.JComboBox();
 
         setClosable(true);
         setIconifiable(true);
@@ -88,58 +88,6 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
                 .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        pnFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulário"));
-
-        lbCodigo.setText("Código:");
-
-        txtCodigo.setEditable(false);
-
-        lbNomeFuncionario.setText("Nome:");
-
-        lbStatus.setText("Status:");
-
-        cbStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ativo", "Inativo" }));
-
-        javax.swing.GroupLayout pnFormularioLayout = new javax.swing.GroupLayout(pnFormulario);
-        pnFormulario.setLayout(pnFormularioLayout);
-        pnFormularioLayout.setHorizontalGroup(
-            pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnFormularioLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbStatus)
-                    .addComponent(lbCodigo)
-                    .addComponent(lbNomeFuncionario))
-                .addGap(12, 12, 12)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNomeFuncionario)
-                    .addGroup(pnFormularioLayout.createSequentialGroup()
-                        .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 421, Short.MAX_VALUE)))
-                .addGap(12, 12, 12))
-        );
-        pnFormularioLayout.setVerticalGroup(
-            pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnFormularioLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbCodigo)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNomeFuncionario)
-                    .addComponent(txtNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbStatus)
-                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(91, 91, 91))
-        );
-
-        pnAbas.addTab("Cadastro", pnFormulario);
-
         pnPesquisar.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
 
         jLabel1.setText("Pesquisar:");
@@ -155,13 +103,13 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
         pnPesquisarLayout.setHorizontalGroup(
             pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnPesquisarLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jTextField1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
         pnPesquisarLayout.setVerticalGroup(
             pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +143,7 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(pnPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE))
+                    .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
         pnPesquisaLayout.setVerticalGroup(
@@ -203,12 +151,64 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
             .addGroup(pnPesquisaLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(pnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
         );
 
         pnAbas.addTab("Pesquisar", pnPesquisa);
+
+        pnFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulário"));
+
+        lbCodigo.setText("Código:");
+
+        txtCodigo.setEditable(false);
+
+        lbNomeFuncionario.setText("Nome:");
+
+        lbStatus.setText("Status:");
+
+        cbStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ativo", "Inativo" }));
+
+        javax.swing.GroupLayout pnFormularioLayout = new javax.swing.GroupLayout(pnFormulario);
+        pnFormulario.setLayout(pnFormularioLayout);
+        pnFormularioLayout.setHorizontalGroup(
+            pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnFormularioLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbStatus)
+                    .addComponent(lbCodigo)
+                    .addComponent(lbNomeFuncionario))
+                .addGap(12, 12, 12)
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNomeFuncionario)
+                    .addGroup(pnFormularioLayout.createSequentialGroup()
+                        .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 338, Short.MAX_VALUE)))
+                .addGap(12, 12, 12))
+        );
+        pnFormularioLayout.setVerticalGroup(
+            pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnFormularioLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbCodigo)
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbNomeFuncionario)
+                    .addComponent(txtNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbStatus)
+                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0))
+        );
+
+        pnAbas.addTab("Cadastro", pnFormulario);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -216,9 +216,11 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnAbas))
+                .addComponent(pnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(8, 8, 8))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(pnAbas)
                 .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(

@@ -3,26 +3,38 @@ package br.com.ctesop.gui;
 import br.com.ctesop.componentes.JOptionPane;
 import br.com.ctesop.dao.CidadeDAO;
 import br.com.ctesop.dao.ClienteDAO;
-import br.com.ctesop.dao.EstadoDAO;
-import br.com.ctesop.gui.tablemodel.ClienteTableModel;
-import br.com.ctesop.gui.tablemodel.EstadoTableModel;
+import br.com.ctesop.dao.PessoaDAO;
+import br.com.ctesop.dao.PessoaFisicaDAO;
+import br.com.ctesop.dao.PessoaJuridicaDAO;
+import br.com.ctesop.gui.tablemodel.TableModelGrid;
 import br.com.ctesop.to.ClienteTO;
 import br.com.ctesop.to.CidadeTO;
 import br.com.ctesop.to.PessoaFisicaTO;
 import br.com.ctesop.to.PessoaJuridicaTO;
 import br.com.ctesop.to.PessoaTO;
+import java.sql.Date;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.TableModel;
 
 public class ClienteGUI extends javax.swing.JInternalFrame {
 
     int pagina = 0;
-    
+    TableModelGrid tb;
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
     public ClienteGUI() {
+        this.tb = new TableModelGrid("Código", "Nome", "Endereço", "Status");
         initComponents();
         carregaCidades();
         habilitarForm(false);
         habilitarPessoaJuridica(false);
+        atualizarGrade();
     }
 
     @SuppressWarnings("unchecked")
@@ -37,8 +49,8 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
         btCancelar = new javax.swing.JButton();
         btFechar = new javax.swing.JButton();
         pnAbas = new javax.swing.JTabbedPane();
-        pnPesquisa = new javax.swing.JPanel();
         pnPesquisar = new javax.swing.JPanel();
+        pnPesquisa = new javax.swing.JPanel();
         lbPesquisar = new javax.swing.JLabel();
         txtPesquisar = new javax.swing.JTextField();
         btPesquisar = new javax.swing.JButton();
@@ -155,7 +167,7 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
                 .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        pnPesquisar.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
+        pnPesquisa.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
 
         lbPesquisar.setText("Pesquisar:");
 
@@ -164,28 +176,33 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
         btPesquisar.setMaximumSize(new java.awt.Dimension(120, 40));
         btPesquisar.setMinimumSize(new java.awt.Dimension(120, 40));
         btPesquisar.setPreferredSize(new java.awt.Dimension(120, 40));
+        btPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisarActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout pnPesquisarLayout = new javax.swing.GroupLayout(pnPesquisar);
-        pnPesquisar.setLayout(pnPesquisarLayout);
-        pnPesquisarLayout.setHorizontalGroup(
-            pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnPesquisarLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnPesquisaLayout = new javax.swing.GroupLayout(pnPesquisa);
+        pnPesquisa.setLayout(pnPesquisaLayout);
+        pnPesquisaLayout.setHorizontalGroup(
+            pnPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPesquisaLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(lbPesquisar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPesquisar)
                 .addGap(12, 12, 12)
-                .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
+                .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
-        pnPesquisarLayout.setVerticalGroup(
-            pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnPesquisarLayout.createSequentialGroup()
+        pnPesquisaLayout.setVerticalGroup(
+            pnPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPesquisaLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbPesquisar)
                     .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
 
@@ -200,30 +217,35 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbGrade.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbGradeMouseClicked(evt);
+            }
+        });
         spGrade.setViewportView(tbGrade);
 
-        javax.swing.GroupLayout pnPesquisaLayout = new javax.swing.GroupLayout(pnPesquisa);
-        pnPesquisa.setLayout(pnPesquisaLayout);
-        pnPesquisaLayout.setHorizontalGroup(
-            pnPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnPesquisaLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnPesquisarLayout = new javax.swing.GroupLayout(pnPesquisar);
+        pnPesquisar.setLayout(pnPesquisarLayout);
+        pnPesquisarLayout.setHorizontalGroup(
+            pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPesquisarLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(pnPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
-        pnPesquisaLayout.setVerticalGroup(
-            pnPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnPesquisaLayout.createSequentialGroup()
+        pnPesquisarLayout.setVerticalGroup(
+            pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPesquisarLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(pnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
-        pnAbas.addTab("Pesquisar", pnPesquisa);
+        pnAbas.addTab("Pesquisar", pnPesquisar);
 
         pnFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulário"));
 
@@ -346,7 +368,7 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
                                 .addComponent(txtRazaoSocial))
                             .addGroup(pnFormularioLayout.createSequentialGroup()
                                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14)
+                                .addGap(15, 15, 15)
                                 .addComponent(lbNome)
                                 .addGap(12, 12, 12)
                                 .addComponent(txtNome))
@@ -380,7 +402,7 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
                                         .addComponent(rbMasculino)
                                         .addGap(8, 8, 8)
                                         .addComponent(rbFeminino)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, 0)))))
                 .addGap(12, 12, 12))
         );
         pnFormularioLayout.setVerticalGroup(
@@ -450,7 +472,7 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbStatus))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
         );
 
         pnAbas.addTab("Cadastro", pnFormulario);
@@ -552,36 +574,33 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
         }
 
         //Validação do "Endereço"
-        if (txtEndereco.getText().trim().length() < 2 || txtNome.getText().trim().length() > 150) {
-            JOptionPane.showMessageDialog(this, "Endereço inválido.", "Alerta", javax.swing.JOptionPane.WARNING_MESSAGE);
-            txtEndereco.requestFocus();
-            return false;
-        }
-
+//        if (txtEndereco.getText().trim().length() < 2 || txtNome.getText().trim().length() > 150) {
+//            JOptionPane.showMessageDialog(this, "Endereço inválido.", "Alerta", javax.swing.JOptionPane.WARNING_MESSAGE);
+//            txtEndereco.requestFocus();
+//            return false;
+//        }
         //Validação do "Celular"
-        if (txtTelefoneResidencial.getText().trim().length() != 14) {
-            JOptionPane.showMessageDialog(this, "Endereço inválido.", "Alerta", javax.swing.JOptionPane.WARNING_MESSAGE);
-            txtNome.requestFocus();
-            return false;
-        }
-
+//        if (txtTelefoneResidencial.getText().trim().length() != 14) {
+//            JOptionPane.showMessageDialog(this, "Endereço inválido.", "Alerta", javax.swing.JOptionPane.WARNING_MESSAGE);
+//            txtNome.requestFocus();
+//            return false;
+//        }
         //Validação do "Telefone residencial"
-        if (txtNome.getText().trim().length() < 2 || txtNome.getText().trim().length() > 150) {
-            JOptionPane.showMessageDialog(this, "Endereço inválido.", "Alerta", javax.swing.JOptionPane.WARNING_MESSAGE);
-            txtNome.requestFocus();
-            return false;
-        }
-
+//        if (txtNome.getText().trim().length() < 2 || txtNome.getText().trim().length() > 150) {
+//            JOptionPane.showMessageDialog(this, "Endereço inválido.", "Alerta", javax.swing.JOptionPane.WARNING_MESSAGE);
+//            txtNome.requestFocus();
+//            return false;
+//        }
         if (rbPessoaFisica.isSelected()) {
 
         }
 
         //Para verificar se o "Nome da cidade" já está cadastrado
-        if (ClienteDAO.verificaNomeExiste(txtCPF.getText().trim())) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Nome d cidade já cadastrado.", "Alerta", javax.swing.JOptionPane.WARNING_MESSAGE);
-            txtNome.requestFocus();
-            return false;
-        }
+//        if (ClienteDAO.verificaNomeExiste(txtCPF.getText().trim())) {
+//            javax.swing.JOptionPane.showMessageDialog(this, "Nome d cidade já cadastrado.", "Alerta", javax.swing.JOptionPane.WARNING_MESSAGE);
+//            txtNome.requestFocus();
+//            return false;
+//        }
         return true;
 
     }
@@ -606,11 +625,13 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
     private void atualizarGrade() {
         try {
             String filtro = txtPesquisar.getText();
-            
-            ClienteTableModel tb = new ClienteTableModel();
-            tb.setDados(ClienteDAO.listar(pagina, filtro));
-            tbGrade.setModel((TableModel) tb);
+            List<Class<?>> classes = new ArrayList<>();
+            classes.add(ClienteTO.class);
+            classes.add(PessoaTO.class);
 
+            String[] camposSelect = new String[]{"Cliente.idCliente", "Pessoa.nomePessoa", "Pessoa.enderecoPessoa", "Cliente.statusCliente"};
+            tb.setDados(ClienteDAO.listarUtilizandoComandoInnerJoin(classes, camposSelect, pagina, "nomePessoa", filtro));
+            tbGrade.setModel((TableModel) tb);
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Erro ao atualizar grade");
         }
@@ -639,17 +660,53 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
             pessoaJuridicaTO.setCnpjPessoaJuridica(txtCNPJ.getText());
             pessoaJuridicaTO.setRazaoSocialPessoaJuridica(txtRazaoSocial.getText());
             clienteTO.setLocalTrabalhoCliente(txtLocalTrabalho.getText());
-            pessoaTO.setInscricaoEstadual(txtInscricaoEstadual.getText());
+            //pessoaJuridicaTO.(txtInscricaoEstadual.getText());
             pessoaTO.setCelularPessoa(txtTelefoneResidencial.getText());
             pessoaTO.setTelefonePessoa(txtCelular.getText());
             pessoaTO.setTelefoneComercialPessoa(txtTelefoneComercial.getText());
-            pessoaTO.setDataNascimentoPessoa(txtDataNascimento.getText());
-            clienteTO.setDataCadastro(txtDataCadastro.getText());
+            if (!txtDataNascimento.getText().trim().isEmpty()) {
+                Date data = new Date(dateFormat.parse(txtDataNascimento.getText()).getTime());
+                pessoaTO.setDataNascimentoPessoa(data);
+            }
+
+            if (!txtDataCadastro.getText().trim().isEmpty()) {
+                Date data = new Date(dateFormat.parse(txtDataCadastro.getText()).getTime());
+                clienteTO.setDataCadastro(data);
+            }
+
             clienteTO.setStatusCliente(cbStatus.getSelectedItem().toString());
 
             if (clienteTO.getIdCliente() == 0) {
+                if (!pessoaFisicaTO.getCpfPessoaFisica().isEmpty()) {
+                    pessoaTO.setIdPessoaFisica(PessoaFisicaDAO.inserirRetornandoId(pessoaFisicaTO));
+                    clienteTO.setIdPessoaFisica(pessoaTO.getIdPessoaFisica());
+                } else {
+                    pessoaTO.setIdPessoaJuridica(PessoaJuridicaDAO.inserirRetornandoId(pessoaJuridicaTO));
+                    clienteTO.setIdPessoaJuridica(pessoaTO.getIdPessoaJuridica());
+                }
+
+                clienteTO.setIdPessoa(PessoaDAO.inserirRetornandoId(pessoaTO));
                 ClienteDAO.inserir(clienteTO);
             } else {
+                ClienteTO clienteBaseDados = (ClienteTO) ClienteDAO.get(ClienteTO.class, clienteTO.getIdCliente());
+                clienteTO.setIdPessoa(clienteBaseDados.getIdPessoa());
+                clienteTO.setIdPessoaFisica(clienteBaseDados.getIdPessoaFisica());
+                clienteTO.setIdPessoaJuridica(clienteBaseDados.getIdPessoaJuridica());
+                pessoaTO.setIdPessoa(clienteBaseDados.getIdPessoa());                
+                pessoaTO.setIdPessoaFisica(clienteBaseDados.getIdPessoaFisica());
+                pessoaTO.setIdPessoaJuridica(clienteBaseDados.getIdPessoaJuridica());
+
+
+                if (!pessoaFisicaTO.getCpfPessoaFisica().isEmpty()) {
+                    pessoaFisicaTO.setIdPessoaFisica(clienteBaseDados.getIdPessoaFisica());
+                    PessoaFisicaDAO.alterar(pessoaFisicaTO);
+                }else{
+                    pessoaJuridicaTO.setIdPessoaJuridica(clienteBaseDados.getIdPessoaJuridica());
+                    PessoaJuridicaDAO.alterar(pessoaJuridicaTO); 
+                }
+                
+                pessoaTO.setIdPessoa(clienteBaseDados.getIdPessoa());
+                PessoaDAO.alterar(pessoaTO);
                 ClienteDAO.alterar(clienteTO);
             }
 
@@ -678,6 +735,70 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
     private void txtLocalTrabalhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocalTrabalhoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLocalTrabalhoActionPerformed
+
+    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+        atualizarGrade();
+    }//GEN-LAST:event_btPesquisarActionPerformed
+
+    private void tbGradeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbGradeMouseClicked
+        /* Código para carregar as informações da grade para o formulário
+         Quando o usuário der dois cliques no Estado o mesmo é carregado no formulário */
+        if (evt.getClickCount() == 2) {
+
+            try {
+                TableModelGrid tm = (TableModelGrid) tbGrade.getModel();
+                int idEntidade = tm.getIntValueAt(tbGrade.getSelectedRow(), 0);
+                if (idEntidade <= 0) {
+                    return;
+                }
+
+                ClienteTO clienteTO = (ClienteTO) ClienteDAO.get(ClienteTO.class, idEntidade);
+                PessoaTO pessoaTO = (PessoaTO) PessoaDAO.get(PessoaTO.class, clienteTO.getIdPessoa());
+                PessoaFisicaTO pessoaFisicaTO = null;
+                PessoaJuridicaTO pessoaJuridicaTO = null;
+
+                if (clienteTO.getIdPessoaFisica() != 0) {
+                    pessoaFisicaTO = (PessoaFisicaTO) PessoaFisicaDAO.get(PessoaFisicaTO.class, clienteTO.getIdPessoaFisica());
+                } else {
+                    pessoaJuridicaTO = (PessoaJuridicaTO) PessoaJuridicaDAO.get(PessoaJuridicaTO.class, clienteTO.getIdPessoaJuridica());
+                }
+
+                //CidadeTO cidade = (CidadeTO) cbCidade.getSelectedItem(); //pessoaTO.getIdCidade()
+                txtCodigo.setText(clienteTO.getIdCliente().toString());
+                txtNome.setText(pessoaTO.getNomePessoa());
+                txtEndereco.setText(pessoaTO.getEnderecoPessoa());
+                txtTelefoneResidencial.setText(pessoaTO.getCelularPessoa());
+                txtCelular.setText(pessoaTO.getTelefonePessoa());
+                txtTelefoneComercial.setText(pessoaTO.getTelefoneComercialPessoa());
+
+                if (pessoaTO.getDataNascimentoPessoa() != null) {
+                    txtDataNascimento.setText(dateFormat.format(pessoaTO.getDataNascimentoPessoa()));
+                }
+
+                if (clienteTO.getDataCadastro() != null) {
+                    txtDataCadastro.setText(dateFormat.format(clienteTO.getDataCadastro()));
+                }
+
+                txtLocalTrabalho.setText(clienteTO.getLocalTrabalhoCliente());
+                cbStatus.setSelectedItem(clienteTO.getStatusCliente());
+
+                if (pessoaFisicaTO != null) {
+                    txtCPF.setText(pessoaFisicaTO.getCpfPessoaFisica());
+                    txtRG.setText(pessoaFisicaTO.getRgPessoaFisica());
+                }
+
+                if (pessoaJuridicaTO != null) {
+                    txtCNPJ.setText(pessoaJuridicaTO.getCnpjPessoaJuridica());
+                    txtRazaoSocial.setText(pessoaJuridicaTO.getRazaoSocialPessoaJuridica());
+                    //pessoaJuridicaTO.(txtInscricaoEstadual.getText());
+                }
+
+                habilitarForm(true);
+            } catch (Exception ex) {
+                Logger.getLogger(ClienteGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_tbGradeMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -740,9 +861,9 @@ public class ClienteGUI extends javax.swing.JInternalFrame {
     //Para carregar a "Sigla do estado" no formulário Cidade
     private void carregaCidades() {
         try {
-            List<CidadeTO> listaCidade = CidadeDAO.listar();
-            for (CidadeTO e : listaCidade) {
-                cbCidade.addItem(e);
+            List<Object> listaCidade = CidadeDAO.listar(CidadeTO.class);
+            for (Object e : listaCidade) {
+                cbCidade.addItem((CidadeTO) e);
             }
 
         } catch (Exception ex) {

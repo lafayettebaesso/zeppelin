@@ -11,6 +11,12 @@ public class ProdutoGUI extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public ProdutoGUI(JDesktopPane dpArea) {
+        //Armazena o dpArea (JDesktopPane) recebido por parâmetro para ser usado depois
+        this.dpArea = dpArea;
+        initComponents();
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -153,7 +159,7 @@ public class ProdutoGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(pnPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE))
+                    .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
         pnPesquisaLayout.setVerticalGroup(
@@ -207,12 +213,12 @@ public class ProdutoGUI extends javax.swing.JInternalFrame {
                             .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnFormularioLayout.createSequentialGroup()
                                 .addComponent(txtPrecoVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(15, 15, 15)
                                 .addComponent(lbPrecoCusto)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(12, 12, 12)
                                 .addComponent(txtPrecoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 172, Short.MAX_VALUE)))
+                        .addGap(0, 0, 0)))
                 .addGap(12, 12, 12))
         );
         pnFormularioLayout.setVerticalGroup(

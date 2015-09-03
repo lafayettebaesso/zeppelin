@@ -5,16 +5,16 @@ import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
-public class VendaGUI extends javax.swing.JInternalFrame {
+public class CompraGUI extends javax.swing.JInternalFrame {
 
     //Atribudo para armazenar qual JDesktopPane irá receber o JInternalFrame
     private JDesktopPane dpArea = null;
 
-    public VendaGUI() {
+    public CompraGUI() {
         initComponents();
     }
 
-    public VendaGUI(JDesktopPane dpArea) {
+    public CompraGUI(JDesktopPane dpArea) {
         //Armazena o dpArea (JDesktopPane) recebido por parâmetro para ser usado depois
         this.dpArea = dpArea;
         initComponents();
@@ -31,15 +31,11 @@ public class VendaGUI extends javax.swing.JInternalFrame {
         pnDadosVenda = new javax.swing.JPanel();
         pnDados = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         cbFuncionario = new javax.swing.JComboBox();
-        txtObservacao = new javax.swing.JTextField();
         txtCliente = new javax.swing.JTextField();
         btCliente = new javax.swing.JButton();
         pnInformacoes = new javax.swing.JPanel();
-        lbMesa = new javax.swing.JLabel();
-        txtMesa = new javax.swing.JTextField();
         lbDataContaReceber = new javax.swing.JLabel();
         txtDataContaReceber = new javax.swing.JTextField();
         lbValorTotal = new javax.swing.JLabel();
@@ -53,7 +49,7 @@ public class VendaGUI extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("Venda");
+        setTitle("Compra");
 
         btPagamento.setMnemonic('p');
         btPagamento.setText("Pagamento");
@@ -89,15 +85,13 @@ public class VendaGUI extends javax.swing.JInternalFrame {
                 .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        pnDadosVenda.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados da venda"));
+        pnDadosVenda.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados da compra"));
 
         pnDados.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel2.setText("Funcionário");
 
-        jLabel3.setText("Observação:");
-
-        jLabel4.setText("Cliente:");
+        jLabel4.setText("Fornecedor");
 
         cbFuncionario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -113,15 +107,13 @@ public class VendaGUI extends javax.swing.JInternalFrame {
         pnDadosLayout.setHorizontalGroup(
             pnDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnDadosLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(19, 19, 19)
                 .addGroup(pnDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel2))
                 .addGap(12, 12, 12)
                 .addGroup(pnDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtObservacao, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cbFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, 0, 350, Short.MAX_VALUE)
                     .addGroup(pnDadosLayout.createSequentialGroup()
                         .addComponent(txtCliente)
                         .addGap(12, 12, 12)
@@ -137,10 +129,6 @@ public class VendaGUI extends javax.swing.JInternalFrame {
                     .addComponent(cbFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(pnDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(pnDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btCliente))
@@ -149,11 +137,13 @@ public class VendaGUI extends javax.swing.JInternalFrame {
 
         pnInformacoes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        lbMesa.setText("Mesa:");
-
         lbDataContaReceber.setText("Data:");
 
+        txtDataContaReceber.setEditable(false);
+
         lbValorTotal.setText("Valor total:");
+
+        txtValorTotal.setEditable(false);
 
         javax.swing.GroupLayout pnInformacoesLayout = new javax.swing.GroupLayout(pnInformacoes);
         pnInformacoes.setLayout(pnInformacoesLayout);
@@ -163,11 +153,9 @@ public class VendaGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(pnInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbValorTotal)
-                    .addComponent(lbDataContaReceber, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbMesa, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lbDataContaReceber, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtMesa)
                     .addComponent(txtDataContaReceber)
                     .addComponent(txtValorTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
@@ -175,10 +163,6 @@ public class VendaGUI extends javax.swing.JInternalFrame {
         pnInformacoesLayout.setVerticalGroup(
             pnInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnInformacoesLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(pnInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbMesa)
-                    .addComponent(txtMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(pnInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbDataContaReceber)
@@ -207,11 +191,11 @@ public class VendaGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(pnDadosVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnDados, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(pnDados, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
 
-        pnProdutosVenda.setBorder(javax.swing.BorderFactory.createTitledBorder("Produtos da venda"));
+        pnProdutosVenda.setBorder(javax.swing.BorderFactory.createTitledBorder("Produtos da compra"));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -318,7 +302,7 @@ public class VendaGUI extends javax.swing.JInternalFrame {
     private void btLocalizarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLocalizarProdutoActionPerformed
         //Abre a JInternalFrame no JDesktopPane dpArea
         if (dpArea != null) {
-            VendaAdicionarProdutoGUI p = new VendaAdicionarProdutoGUI(dpArea);
+            CompraAdicionarProdutoGUI p = new CompraAdicionarProdutoGUI(dpArea);
             dpArea.add(p);
             p.setLocation(calculaLocal(dpArea, p));
             p.setVisible(true);
@@ -331,7 +315,7 @@ public class VendaGUI extends javax.swing.JInternalFrame {
     private void btEditarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarProdutoActionPerformed
         //Abre a JInternalFrame no JDesktopPane dpArea
         if (dpArea != null) {
-            VendaAlterarProdutoGUI p = new VendaAlterarProdutoGUI();
+            CompraAlterarProdutoGUI p = new CompraAlterarProdutoGUI();
             dpArea.add(p);
             p.setLocation(calculaLocal(dpArea, p));
             p.setVisible(true);
@@ -344,7 +328,7 @@ public class VendaGUI extends javax.swing.JInternalFrame {
     private void btClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClienteActionPerformed
         //Abre a JInternalFrame no JDesktopPane dpArea
         if (dpArea != null) {
-            ClienteGUI p = new ClienteGUI();
+            FornecedorGUI p = new FornecedorGUI();
             dpArea.add(p);
             p.setLocation(calculaLocal(dpArea, p));
             p.setVisible(true);
@@ -365,12 +349,10 @@ public class VendaGUI extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox cbFuncionario;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbDataContaReceber;
-    private javax.swing.JLabel lbMesa;
     private javax.swing.JLabel lbValorTotal;
     private javax.swing.JPanel pnBotoes;
     private javax.swing.JPanel pnDados;
@@ -379,8 +361,6 @@ public class VendaGUI extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnProdutosVenda;
     private javax.swing.JTextField txtCliente;
     private javax.swing.JTextField txtDataContaReceber;
-    private javax.swing.JTextField txtMesa;
-    private javax.swing.JTextField txtObservacao;
     private javax.swing.JTextField txtValorTotal;
     // End of variables declaration//GEN-END:variables
 

@@ -3,6 +3,7 @@ package br.com.ctesop.gui;
 import br.com.ctesop.dao.EstadoDAO;
 import br.com.ctesop.gui.tablemodel.EstadoTableModel;
 import br.com.ctesop.to.EstadoTO;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class EstadoGUI extends javax.swing.JInternalFrame {
@@ -98,13 +99,13 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
             pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBotoesLayout.createSequentialGroup()
                 .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
         pnBotoesLayout.setVerticalGroup(
             pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +180,7 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
             .addGroup(pnPesquisaLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(pnPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+                    .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
                     .addComponent(pnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
@@ -228,7 +229,7 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
                             .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 429, Short.MAX_VALUE)))
+                        .addGap(0, 275, Short.MAX_VALUE)))
                 .addGap(12, 12, 12))
         );
         pnFormularioLayout.setVerticalGroup(
@@ -259,11 +260,11 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnAbas))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnAbas)
+                    .addComponent(pnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(
@@ -301,12 +302,13 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
         btCancelar.setEnabled(habilitar);
     }
 
+    @SuppressWarnings("unchecked")
     private void atualizarGrade() {
         try {
             String filtro = txtPesquisar.getText();
 
             EstadoTableModel tb = new EstadoTableModel();
-            tb.setDados(EstadoDAO.listar(pagina, filtro));
+            tb.setDados((List<EstadoTO>) (Object) EstadoDAO.listar(EstadoTO.class, pagina, "nomeEstado", filtro));
             tbGrade.setModel(tb);
 
         } catch (Exception e) {
