@@ -31,15 +31,10 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="pnAbas" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="pnBotoes" max="32767" attributes="0"/>
-                      <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="pnAbas" max="32767" attributes="0"/>
+                  <Component id="pnBotoes" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -304,13 +299,8 @@
                                       <Component id="lbRendimentoTotal" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lbModoFazer" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbIngredientes" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="lbModoFazer" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbIngredientes" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="lbStatus" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lbTempoCozimento" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -324,7 +314,7 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          <Component id="btPesquisarIngrediente" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="btPesquisarIngrediente" min="-2" pref="35" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
@@ -344,7 +334,6 @@
                                           <Component id="lbCusto" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="txtCusto" min="-2" pref="156" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="txtModoFazer" pref="479" max="32767" attributes="0"/>
                                   </Group>
@@ -383,7 +372,7 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane1" min="-2" pref="106" max="-2" attributes="0"/>
-                                  <Component id="btPesquisarIngrediente" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="btPesquisarIngrediente" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -467,6 +456,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btPesquisarIngredienteActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lbModoFazer">
               <Properties>
