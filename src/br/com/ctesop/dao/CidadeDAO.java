@@ -1,10 +1,6 @@
 package br.com.ctesop.dao;
 
 import br.com.ctesop.to.CidadeTO;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CidadeDAO extends GenericDAO {
     

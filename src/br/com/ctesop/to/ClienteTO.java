@@ -1,15 +1,13 @@
 package br.com.ctesop.to;
 
-import java.sql.Date;
+import java.util.Date;
 
-public class ClienteTO {
+public class ClienteTO extends PessoaTO {
 
     private Integer idCliente;
     private Integer idPessoa;
-    private Integer idPessoaFisica;
-    private Integer idPessoaJuridica;
     private String localTrabalhoCliente;
-    private Date dataCadastro;
+    private Date dataCadastroCliente;
     private String statusCliente;
 
     public Integer getIdCliente() {
@@ -20,28 +18,14 @@ public class ClienteTO {
         this.idCliente = idCliente;
     }
 
+    @Override
     public Integer getIdPessoa() {
         return idPessoa;
     }
 
+    @Override
     public void setIdPessoa(Integer idPessoa) {
         this.idPessoa = idPessoa;
-    }
-
-    public Integer getIdPessoaFisica() {
-        return idPessoaFisica;
-    }
-
-    public void setIdPessoaFisica(Integer idPessoaFisica) {
-        this.idPessoaFisica = idPessoaFisica;
-    }
-
-    public Integer getIdPessoaJuridica() {
-        return idPessoaJuridica;
-    }
-
-    public void setIdPessoaJuridica(Integer idPessoaJuridica) {
-        this.idPessoaJuridica = idPessoaJuridica;
     }
 
     public String getLocalTrabalhoCliente() {
@@ -52,12 +36,12 @@ public class ClienteTO {
         this.localTrabalhoCliente = localTrabalhoCliente;
     }
 
-    public Date getDataCadastro() {
-        return dataCadastro;
+    public Date getDataCadastroCliente() {
+        return dataCadastroCliente;
     }
     
-    public void setDataCadastro(Date dataCadastro) {
-        this.dataCadastro = dataCadastro;
+    public void setDataCadastroCliente(Date dataCadastroCliente) {
+        this.dataCadastroCliente = dataCadastroCliente;
     }
     
     public String getStatusCliente() {
@@ -66,5 +50,10 @@ public class ClienteTO {
 
     public void setStatusCliente(String statusCliente) {
         this.statusCliente = statusCliente;
+    }
+    
+    @Override
+    public String toString() {
+        return getNomePessoa();
     }
 }

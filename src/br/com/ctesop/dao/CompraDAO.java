@@ -1,5 +1,5 @@
 package br.com.ctesop.dao;
 
-public class CompraDAO {
+public class CompraDAO extends GenericDAO {
     
 }

@@ -17,11 +17,10 @@
             <Property name="text" type="java.lang.String" value="Movimenta&#xe7;&#xe3;o"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seMovimentacao1">
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miDelivery">
               <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Shift+D"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Delivery"/>
               </Properties>
               <Events>
@@ -44,7 +43,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miCompraActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seMovimentacao1">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seMovimentacao2">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miContasReceber">
               <Properties>
@@ -62,7 +61,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miContasPagarActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seMovimentacao2">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seMovimentacao3">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miAbrirFecharCaixa">
               <Properties>
@@ -72,7 +71,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miAbrirFecharCaixaActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seMovimentacao3">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seMovimentacao4">
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -81,11 +80,10 @@
             <Property name="text" type="java.lang.String" value="Cadastro"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seCadastro1">
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miEstado">
               <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Shift+E"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Estado"/>
               </Properties>
               <Events>
@@ -94,22 +92,16 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miCidade">
               <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Shift+I"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Cidade"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miCidadeActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seCadastro1">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seCadastro2">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miCliente">
               <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Shift+C"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Cliente"/>
               </Properties>
               <Events>
@@ -118,9 +110,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miFornecedor">
               <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Shift+F"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Fornecedor"/>
               </Properties>
               <Events>
@@ -129,16 +118,13 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miFuncionario">
               <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Shift+U"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Funcion&#xe1;rio"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miFuncionarioActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seCadastro2">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seCadastro3">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miGrupoProduto">
               <Properties>
@@ -156,39 +142,103 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miProdutoActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seCadastro3">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="miUsuario">
+            <MenuItem class="javax.swing.JMenuItem" name="miIngrediente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Usu&#xe1;rio"/>
+                <Property name="text" type="java.lang.String" value="Ingrediente"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miUsuarioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miIngredienteActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="seCadastro4">
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="meCozinha">
+        <Menu class="javax.swing.JMenu" name="meRelat&#xf3;rio">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cozinha"/>
+            <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="miReceita">
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seRelatorio1">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miRelatorioCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Receita"/>
+                <Property name="text" type="java.lang.String" value="Cliente"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miReceitaActionPerformed"/>
-              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miRelatorioFornecedor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fornecedor"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miRelatorioFuncionario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Funcion&#xe1;rio"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seRelatorio2">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miRelatorioCompra">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Compra"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miRelatorioContasPagar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Contas a pagar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seRelatorio3">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miRelatorioVenda">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Venda"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miRelatorioContasReceber">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Contas a receber"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seRelatorio4">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miRelatorioCaixa">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Caixa"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seRelatorio5">
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="meFechar">
+        <Menu class="javax.swing.JMenu" name="meSistema">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Fechar"/>
+            <Property name="text" type="java.lang.String" value="Sistema"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="meSistemaActionPerformed"/>
+          </Events>
+          <SubComponents>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seSistema1">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miSobre">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Sobre"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seSistema2">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miSair">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Sair"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miSairActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="seSistema3">
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

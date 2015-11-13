@@ -1,12 +1,13 @@
 package br.com.ctesop.to;
 
-public class FornecedorTO {
+import java.util.Date;
+
+public class FornecedorTO extends PessoaTO {
 
     //A Classe "Integer" é para poder setar o código como nulo no banco de dados (em vez do "0" referente ao int)
-    private Integer idFornecedor;    
+    private Integer idFornecedor;
     private Integer idPessoa;
-    private Integer idPessoaFisica;
-    private Integer idPessoaJuridica;
+    private Date dataCadastroFornecedor;
     private String statusFornecedor;
 
     public Integer getIdFornecedor() {
@@ -16,12 +17,21 @@ public class FornecedorTO {
     public void setIdFornecedor(Integer idFornecedor) {
         this.idFornecedor = idFornecedor;
     }
+
     public Integer getIdPessoa() {
         return idPessoa;
     }
 
     public void setIdPessoa(Integer idPessoa) {
         this.idPessoa = idPessoa;
+    }
+
+    public Date getDataCadastroFornecedor() {
+        return dataCadastroFornecedor;
+    }
+
+    public void setDataCadastroFornecedor(Date dataCadastroFornecedor) {
+        this.dataCadastroFornecedor = dataCadastroFornecedor;
     }
 
     public String getStatusFornecedor() {
@@ -31,21 +41,9 @@ public class FornecedorTO {
     public void setStatusFornecedor(String statusFornecedor) {
         this.statusFornecedor = statusFornecedor;
     }
-
-    public Integer getIdPessoaFisica() {
-        return idPessoaFisica;
-    }
-
-    public void setIdPessoaFisica(Integer idPessoaFisica) {
-        this.idPessoaFisica = idPessoaFisica;
-    }
-
-    public Integer getIdPessoaJuridica() {
-        return idPessoaJuridica;
-    }
-
-    public void setIdPessoaJuridica(Integer idPessoaJuridica) {
-        this.idPessoaJuridica = idPessoaJuridica;
-    }
     
+    @Override
+    public String toString() {
+        return getNomePessoa();
+    }
 }

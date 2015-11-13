@@ -32,7 +32,7 @@
               <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="pnBotoes" alignment="0" max="32767" attributes="0"/>
-                  <Component id="pnAbas" alignment="0" pref="673" max="32767" attributes="0"/>
+                  <Component id="pnAbas" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
           </Group>
@@ -174,7 +174,7 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="pnPesquisar" max="32767" attributes="0"/>
-                          <Component id="spGrade" pref="633" max="32767" attributes="0"/>
+                          <Component id="spGrade" pref="511" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
@@ -237,6 +237,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtPesquisar">
+                  <Properties>
+                    <Property name="document" type="javax.swing.text.Document" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new br.com.ctesop.componentes.MascaraLetras(90)" type="code"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btPesquisar">
                   <Properties>
@@ -306,24 +311,21 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lbCodigo" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbCodigoCidade" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lbNomeCidade" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbStatus" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbStatusCidade" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lbEstado" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="txtNomeCidade" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="cbEstado" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
-                                  <Component id="cbStatus" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="txtCodigo" min="-2" pref="40" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="313" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="cbStatusCidade" alignment="0" pref="100" max="32767" attributes="0"/>
+                              <Component id="txtCodigoCidade" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="cbEstado" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -332,8 +334,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbCodigoCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCodigoCidade" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -347,8 +349,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbStatusCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbStatusCidade" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
@@ -356,25 +358,37 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lbCodigo">
+            <Component class="javax.swing.JLabel" name="lbCodigoCidade">
               <Properties>
                 <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtCodigo">
+            <Component class="javax.swing.JTextField" name="txtCodigoCidade">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lbNomeCidade">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Droid Sans" size="12" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nome da cidade:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNomeCidade">
+              <Properties>
+                <Property name="document" type="javax.swing.text.Document" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new br.com.ctesop.componentes.MascaraLetras(90)" type="code"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lbEstado">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Droid Sans" size="12" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Estado:"/>
               </Properties>
             </Component>
@@ -385,17 +399,17 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lbStatus">
+            <Component class="javax.swing.JLabel" name="lbStatusCidade">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Status:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbStatus">
+            <Component class="javax.swing.JComboBox" name="cbStatusCidade">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="2">
-                    <StringItem index="0" value="Ativo"/>
-                    <StringItem index="1" value="Inativo"/>
+                    <StringItem index="0" value="ATIVO"/>
+                    <StringItem index="1" value="INATIVO"/>
                   </StringArray>
                 </Property>
               </Properties>

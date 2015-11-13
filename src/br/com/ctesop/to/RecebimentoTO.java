@@ -4,27 +4,26 @@ import java.util.Date;
 
 public class RecebimentoTO {
 
-    private int idRecebimento;
-    private int idParcelasContasReceber;
+    private Integer idRecebimento;
+    private Integer idParcelasContasReceber;
     private float valorRecebimento;
     private float jurosRecebimento;
     private float descontoRecebimento;
     private Date dataRecebimento;
-    private String statusRecebimento;
 
-    public int getIdRecebimento() {
+    public Integer getIdRecebimento() {
         return idRecebimento;
     }
 
-    public void setIdRecebimento(int idRecebimento) {
+    public void setIdRecebimento(Integer idRecebimento) {
         this.idRecebimento = idRecebimento;
     }
 
-    public int getIdParcelasContasReceber() {
+    public Integer getIdParcelasContasReceber() {
         return idParcelasContasReceber;
     }
 
-    public void setIdParcelasContasReceber(int idParcelasContasReceber) {
+    public void setIdParcelasContasReceber(Integer idParcelasContasReceber) {
         this.idParcelasContasReceber = idParcelasContasReceber;
     }
 
@@ -58,13 +57,5 @@ public class RecebimentoTO {
 
     public void setDataRecebimento(Date dataRecebimento) {
         this.dataRecebimento = dataRecebimento;
-    }
-
-    public String getStatusRecebimento() {
-        return statusRecebimento;
-    }
-
-    public void setStatusRecebimento(String statusRecebimento) {
-        this.statusRecebimento = statusRecebimento;
     }
 }

@@ -2,42 +2,42 @@ package br.com.ctesop.to;
 
 public class MovimentoCaixaTO {
 
-    private int idMovimentoCaixa;
-    private int idCaixa;
-    private int idRecebimento;
-    private int idPagamento;
+    private Integer idMovimentoCaixa;
+    private Integer idCaixa;
+    private Integer idRecebimento;
+    private Integer idPagamento;
     private float valorMovimentoCaixa;
     private String tipoMovimentoCaixa;
 
-    public int getIdMovimentoCaixa() {
+    public Integer getIdMovimentoCaixa() {
         return idMovimentoCaixa;
     }
 
-    public void setIdMovimentoCaixa(int idMovimentoCaixa) {
+    public void setIdMovimentoCaixa(Integer idMovimentoCaixa) {
         this.idMovimentoCaixa = idMovimentoCaixa;
     }
 
-    public int getIdCaixa() {
+    public Integer getIdCaixa() {
         return idCaixa;
     }
 
-    public void setIdCaixa(int idCaixa) {
+    public void setIdCaixa(Integer idCaixa) {
         this.idCaixa = idCaixa;
     }
 
-    public int getIdRecebimento() {
+    public Integer getIdRecebimento() {
         return idRecebimento;
     }
 
-    public void setIdRecebimento(int idRecebimento) {
+    public void setIdRecebimento(Integer idRecebimento) {
         this.idRecebimento = idRecebimento;
     }
 
-    public int getIdPagamento() {
+    public Integer getIdPagamento() {
         return idPagamento;
     }
 
-    public void setIdPagamento(int idPagamento) {
+    public void setIdPagamento(Integer idPagamento) {
         this.idPagamento = idPagamento;
     }
 

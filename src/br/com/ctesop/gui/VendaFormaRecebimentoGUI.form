@@ -32,15 +32,10 @@
           <Group type="102" attributes="0">
               <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="pnBotoes" max="32767" attributes="0"/>
-                      <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="pnFormaPagamento" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="pnBotoes" max="32767" attributes="0"/>
+                  <Component id="pnFormaPagamento" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -94,6 +89,9 @@
               <Dimension value="[120, 40]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btConfirmarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btSair">
           <Properties>
@@ -152,12 +150,18 @@
       <SubComponents>
         <Component class="javax.swing.JRadioButton" name="rbAVista">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="bgFormaPagamento"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#xc0; vista"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbAPrazo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&#xc0; prazo"/>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="bgFormaPagamento"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="A prazo"/>
           </Properties>
         </Component>
       </SubComponents>

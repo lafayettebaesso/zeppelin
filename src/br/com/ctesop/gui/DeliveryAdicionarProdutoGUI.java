@@ -28,7 +28,6 @@ public class DeliveryAdicionarProdutoGUI extends javax.swing.JInternalFrame {
         txtNomeProduto = new javax.swing.JTextField();
         lbNomeProduto = new javax.swing.JLabel();
         btPesquisar = new javax.swing.JButton();
-        btProduto = new javax.swing.JButton();
         spGradePesquisarProduto = new javax.swing.JScrollPane();
         tbGradePesquisarProduto = new javax.swing.JTable();
         pnBotoes = new javax.swing.JPanel();
@@ -48,13 +47,6 @@ public class DeliveryAdicionarProdutoGUI extends javax.swing.JInternalFrame {
         btPesquisar.setMinimumSize(new java.awt.Dimension(120, 40));
         btPesquisar.setPreferredSize(new java.awt.Dimension(120, 40));
 
-        btProduto.setText("...");
-        btProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btProdutoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnPesquisarProdutoLayout = new javax.swing.GroupLayout(pnPesquisarProduto);
         pnPesquisarProduto.setLayout(pnPesquisarProdutoLayout);
         pnPesquisarProdutoLayout.setHorizontalGroup(
@@ -62,24 +54,20 @@ public class DeliveryAdicionarProdutoGUI extends javax.swing.JInternalFrame {
             .addGroup(pnPesquisarProdutoLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(lbNomeProduto)
-                .addGap(4, 4, 4)
-                .addComponent(txtNomeProduto)
+                .addGap(12, 12, 12)
+                .addComponent(txtNomeProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
                 .addGap(12, 12, 12)
                 .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(btProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
         pnPesquisarProdutoLayout.setVerticalGroup(
             pnPesquisarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnPesquisarProdutoLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(pnPesquisarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnPesquisarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbNomeProduto)
-                        .addComponent(txtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(pnPesquisarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbNomeProduto)
+                    .addComponent(txtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
 
@@ -101,6 +89,11 @@ public class DeliveryAdicionarProdutoGUI extends javax.swing.JInternalFrame {
         btAdicionar.setMaximumSize(new java.awt.Dimension(120, 40));
         btAdicionar.setMinimumSize(new java.awt.Dimension(120, 40));
         btAdicionar.setPreferredSize(new java.awt.Dimension(120, 40));
+        btAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdicionarActionPerformed(evt);
+            }
+        });
 
         btSair.setMnemonic('f');
         btSair.setText("Fechar");
@@ -161,28 +154,18 @@ public class DeliveryAdicionarProdutoGUI extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btProdutoActionPerformed
-        //Abre a JInternalFrame no JDesktopPane dpArea
-        if (dpArea != null) {
-            ProdutoGUI p = new ProdutoGUI();
-            dpArea.add(p);
-            p.setLocation(calculaLocal(dpArea, p));
-            p.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(this, "Impossível abrir a janela interna, pois o \n"
-                    + "DesktopPane destino não está definido!");
-        }
-    }//GEN-LAST:event_btProdutoActionPerformed
-
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         dispose();
     }//GEN-LAST:event_btSairActionPerformed
+
+    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btAdicionarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionar;
     private javax.swing.JButton btPesquisar;
-    private javax.swing.JButton btProduto;
     private javax.swing.JButton btSair;
     private javax.swing.JLabel lbNomeProduto;
     private javax.swing.JPanel pnBotoes;

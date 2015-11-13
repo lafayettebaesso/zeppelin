@@ -1,35 +1,55 @@
 package br.com.ctesop.to;
 
+import java.util.Date;
+
 public class ContasPagarTO {
 
-    private int idContasPagar;
-    private int idCompra;
-    private String descricaoContasPagar;
+    private Integer idContasPagar;
+    private Integer idCompra;
+    private Integer idFornecedor;
+    private Date dataContasPagar;
+    private int quantidadeParcelasContasPagar;
     private float valorTotalContasPagar;
     private String statusContasPagar;
 
-    public int getIdContasPagar() {
+    public Integer getIdContasPagar() {
         return idContasPagar;
     }
 
-    public void setIdContasPagar(int idContasPagar) {
+    public void setIdContasPagar(Integer idContasPagar) {
         this.idContasPagar = idContasPagar;
     }
 
-    public int getIdCompra() {
+    public Integer getIdCompra() {
         return idCompra;
     }
 
-    public void setIdCompra(int idCompra) {
+    public void setIdCompra(Integer idCompra) {
         this.idCompra = idCompra;
     }
 
-    public String getDescricaoContasPagar() {
-        return descricaoContasPagar;
+    public Integer getIdFornecedor() {
+        return idFornecedor;
     }
 
-    public void setDescricaoContasPagar(String descricaoContasPagar) {
-        this.descricaoContasPagar = descricaoContasPagar;
+    public void setIdFornecedor(Integer idFornecedor) {
+        this.idFornecedor = idFornecedor;
+    }
+
+    public Date getDataContasPagar() {
+        return dataContasPagar;
+    }
+
+    public void setDataContasPagar(Date dataContasPagar) {
+        this.dataContasPagar = dataContasPagar;
+    }
+
+    public int getQuantidadeParcelasContasPagar() {
+        return quantidadeParcelasContasPagar;
+    }
+
+    public void setQuantidadeParcelasContasPagar(int quantidadeParcelasContasPagar) {
+        this.quantidadeParcelasContasPagar = quantidadeParcelasContasPagar;
     }
 
     public float getValorTotalContasPagar() {
@@ -47,4 +67,5 @@ public class ContasPagarTO {
     public void setStatusContasPagar(String statusContasPagar) {
         this.statusContasPagar = statusContasPagar;
     }
+    
 }

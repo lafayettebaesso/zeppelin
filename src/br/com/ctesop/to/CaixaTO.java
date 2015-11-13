@@ -1,14 +1,17 @@
 package br.com.ctesop.to;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class CaixaTO {
 
     private int idCaixa;
+    private float valorAbertura;
     private Date dataAberturaCaixa;
     private Date dataFechamentoCaixa;
     private float saldoCaixa;
     private String statusCaixa;
+
+    
 
     public int getIdCaixa() {
         return idCaixa;
@@ -18,6 +21,14 @@ public class CaixaTO {
         this.idCaixa = idCaixa;
     }
 
+    public float getValorAbertura() {
+        return valorAbertura;
+    }
+
+    public void setValorAbertura(float valorAbertura) {
+        this.valorAbertura = valorAbertura;
+    }
+    
     public Date getDataAberturaCaixa() {
         return dataAberturaCaixa;
     }

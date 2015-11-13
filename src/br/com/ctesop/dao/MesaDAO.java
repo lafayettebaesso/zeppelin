@@ -1,5 +1,5 @@
 package br.com.ctesop.dao;
 
-public class MesaDAO {
+public class MesaDAO extends GenericDAO {
     
 }

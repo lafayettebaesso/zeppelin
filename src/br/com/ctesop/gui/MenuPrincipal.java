@@ -21,31 +21,49 @@ public class MenuPrincipal extends javax.swing.JFrame {
         dpArea = new javax.swing.JDesktopPane();
         mbMenu = new javax.swing.JMenuBar();
         meMovimentacao = new javax.swing.JMenu();
+        seMovimentacao1 = new javax.swing.JPopupMenu.Separator();
         miDelivery = new javax.swing.JMenuItem();
         miVenda = new javax.swing.JMenuItem();
         miCompra = new javax.swing.JMenuItem();
-        seMovimentacao1 = new javax.swing.JPopupMenu.Separator();
+        seMovimentacao2 = new javax.swing.JPopupMenu.Separator();
         miContasReceber = new javax.swing.JMenuItem();
         miContasPagar = new javax.swing.JMenuItem();
-        seMovimentacao2 = new javax.swing.JPopupMenu.Separator();
-        miAbrirFecharCaixa = new javax.swing.JMenuItem();
         seMovimentacao3 = new javax.swing.JPopupMenu.Separator();
+        miAbrirFecharCaixa = new javax.swing.JMenuItem();
+        seMovimentacao4 = new javax.swing.JPopupMenu.Separator();
         meCadastro = new javax.swing.JMenu();
+        seCadastro1 = new javax.swing.JPopupMenu.Separator();
         miEstado = new javax.swing.JMenuItem();
         miCidade = new javax.swing.JMenuItem();
-        seCadastro1 = new javax.swing.JPopupMenu.Separator();
+        seCadastro2 = new javax.swing.JPopupMenu.Separator();
         miCliente = new javax.swing.JMenuItem();
         miFornecedor = new javax.swing.JMenuItem();
         miFuncionario = new javax.swing.JMenuItem();
-        seCadastro2 = new javax.swing.JPopupMenu.Separator();
+        seCadastro3 = new javax.swing.JPopupMenu.Separator();
         miGrupoProduto = new javax.swing.JMenuItem();
         miProduto = new javax.swing.JMenuItem();
-        seCadastro3 = new javax.swing.JPopupMenu.Separator();
-        miUsuario = new javax.swing.JMenuItem();
+        miIngrediente = new javax.swing.JMenuItem();
         seCadastro4 = new javax.swing.JPopupMenu.Separator();
-        meCozinha = new javax.swing.JMenu();
-        miReceita = new javax.swing.JMenuItem();
-        meFechar = new javax.swing.JMenu();
+        meRelatório = new javax.swing.JMenu();
+        seRelatorio1 = new javax.swing.JPopupMenu.Separator();
+        miRelatorioCliente = new javax.swing.JMenuItem();
+        miRelatorioFornecedor = new javax.swing.JMenuItem();
+        miRelatorioFuncionario = new javax.swing.JMenuItem();
+        seRelatorio2 = new javax.swing.JPopupMenu.Separator();
+        miRelatorioCompra = new javax.swing.JMenuItem();
+        miRelatorioContasPagar = new javax.swing.JMenuItem();
+        seRelatorio3 = new javax.swing.JPopupMenu.Separator();
+        miRelatorioVenda = new javax.swing.JMenuItem();
+        miRelatorioContasReceber = new javax.swing.JMenuItem();
+        seRelatorio4 = new javax.swing.JPopupMenu.Separator();
+        miRelatorioCaixa = new javax.swing.JMenuItem();
+        seRelatorio5 = new javax.swing.JPopupMenu.Separator();
+        meSistema = new javax.swing.JMenu();
+        seSistema1 = new javax.swing.JPopupMenu.Separator();
+        miSobre = new javax.swing.JMenuItem();
+        seSistema2 = new javax.swing.JPopupMenu.Separator();
+        miSair = new javax.swing.JMenuItem();
+        seSistema3 = new javax.swing.JPopupMenu.Separator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("zeppelin - Sistema de gerenciamento de restaurante");
@@ -56,8 +74,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         mbMenu.setPreferredSize(new java.awt.Dimension(136, 21));
 
         meMovimentacao.setText("Movimentação");
+        meMovimentacao.add(seMovimentacao1);
 
-        miDelivery.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_MASK));
         miDelivery.setText("Delivery");
         miDelivery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +99,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         meMovimentacao.add(miCompra);
-        meMovimentacao.add(seMovimentacao1);
+        meMovimentacao.add(seMovimentacao2);
 
         miContasReceber.setText("Contas a receber");
         miContasReceber.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +116,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         meMovimentacao.add(miContasPagar);
-        meMovimentacao.add(seMovimentacao2);
+        meMovimentacao.add(seMovimentacao3);
 
         miAbrirFecharCaixa.setText("Abrir/Fechar o caixa");
         miAbrirFecharCaixa.addActionListener(new java.awt.event.ActionListener() {
@@ -107,13 +125,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         meMovimentacao.add(miAbrirFecharCaixa);
-        meMovimentacao.add(seMovimentacao3);
+        meMovimentacao.add(seMovimentacao4);
 
         mbMenu.add(meMovimentacao);
 
         meCadastro.setText("Cadastro");
+        meCadastro.add(seCadastro1);
 
-        miEstado.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_MASK));
         miEstado.setText("Estado");
         miEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,7 +140,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         meCadastro.add(miEstado);
 
-        miCidade.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.SHIFT_MASK));
         miCidade.setText("Cidade");
         miCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,9 +147,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         meCadastro.add(miCidade);
-        meCadastro.add(seCadastro1);
+        meCadastro.add(seCadastro2);
 
-        miCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK));
         miCliente.setText("Cliente");
         miCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +157,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         meCadastro.add(miCliente);
 
-        miFornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_MASK));
         miFornecedor.setText("Fornecedor");
         miFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +165,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         meCadastro.add(miFornecedor);
 
-        miFuncionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK));
         miFuncionario.setText("Funcionário");
         miFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +172,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         meCadastro.add(miFuncionario);
-        meCadastro.add(seCadastro2);
+        meCadastro.add(seCadastro3);
 
         miGrupoProduto.setText("Grupo de produto");
         miGrupoProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -175,33 +189,73 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         meCadastro.add(miProduto);
-        meCadastro.add(seCadastro3);
 
-        miUsuario.setText("Usuário");
-        miUsuario.addActionListener(new java.awt.event.ActionListener() {
+        miIngrediente.setText("Ingrediente");
+        miIngrediente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miUsuarioActionPerformed(evt);
+                miIngredienteActionPerformed(evt);
             }
         });
-        meCadastro.add(miUsuario);
+        meCadastro.add(miIngrediente);
         meCadastro.add(seCadastro4);
 
         mbMenu.add(meCadastro);
 
-        meCozinha.setText("Cozinha");
+        meRelatório.setText("Relatórios");
+        meRelatório.add(seRelatorio1);
 
-        miReceita.setText("Receita");
-        miReceita.addActionListener(new java.awt.event.ActionListener() {
+        miRelatorioCliente.setText("Cliente");
+        meRelatório.add(miRelatorioCliente);
+
+        miRelatorioFornecedor.setText("Fornecedor");
+        meRelatório.add(miRelatorioFornecedor);
+
+        miRelatorioFuncionario.setText("Funcionário");
+        meRelatório.add(miRelatorioFuncionario);
+        meRelatório.add(seRelatorio2);
+
+        miRelatorioCompra.setText("Compra");
+        meRelatório.add(miRelatorioCompra);
+
+        miRelatorioContasPagar.setText("Contas a pagar");
+        meRelatório.add(miRelatorioContasPagar);
+        meRelatório.add(seRelatorio3);
+
+        miRelatorioVenda.setText("Venda");
+        meRelatório.add(miRelatorioVenda);
+
+        miRelatorioContasReceber.setText("Contas a receber");
+        meRelatório.add(miRelatorioContasReceber);
+        meRelatório.add(seRelatorio4);
+
+        miRelatorioCaixa.setText("Caixa");
+        meRelatório.add(miRelatorioCaixa);
+        meRelatório.add(seRelatorio5);
+
+        mbMenu.add(meRelatório);
+
+        meSistema.setText("Sistema");
+        meSistema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miReceitaActionPerformed(evt);
+                meSistemaActionPerformed(evt);
             }
         });
-        meCozinha.add(miReceita);
+        meSistema.add(seSistema1);
 
-        mbMenu.add(meCozinha);
+        miSobre.setText("Sobre");
+        meSistema.add(miSobre);
+        meSistema.add(seSistema2);
 
-        meFechar.setText("Fechar");
-        mbMenu.add(meFechar);
+        miSair.setText("Sair");
+        miSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miSairActionPerformed(evt);
+            }
+        });
+        meSistema.add(miSair);
+        meSistema.add(seSistema3);
+
+        mbMenu.add(meSistema);
 
         setJMenuBar(mbMenu);
 
@@ -250,22 +304,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         p.setLocation(calculaLocal(dpArea, p));
         p.setVisible(true);
     }//GEN-LAST:event_miFornecedorActionPerformed
-
-    private void miUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miUsuarioActionPerformed
-        UsuarioGUI p = new UsuarioGUI();
-        dpArea.add(p);
-        p.setLocation(calculaLocal(dpArea, p));
-        p.setVisible(true);
-    }//GEN-LAST:event_miUsuarioActionPerformed
-
-    private void miReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miReceitaActionPerformed
-        /* No construtor o dpArea ("... new ReceitaGUI(dpArea);" foi passado como um
-         * parâmetro para que outros JInternalFrame fosse aberto dentro do ReceitaGUI */
-        ReceitaGUI p = new ReceitaGUI(dpArea);
-        dpArea.add(p);
-        p.setLocation(calculaLocal(dpArea, p));
-        p.setVisible(true);
-    }//GEN-LAST:event_miReceitaActionPerformed
 
     private void miDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miDeliveryActionPerformed
         /* No construtor o dpArea ("... new DeliveryGUI(dpArea);" foi passado como um
@@ -326,6 +364,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         p.setVisible(true);
     }//GEN-LAST:event_miGrupoProdutoActionPerformed
 
+    private void miIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miIngredienteActionPerformed
+        IngredienteGUI p = new IngredienteGUI();
+        dpArea.add(p);
+        p.setLocation(calculaLocal(dpArea, p));
+        p.setVisible(true);
+    }//GEN-LAST:event_miIngredienteActionPerformed
+
+    private void meSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meSistemaActionPerformed
+        
+    }//GEN-LAST:event_meSistemaActionPerformed
+
+    private void miSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_miSairActionPerformed
+
     public static void main(String args[]) {
         /* Definição do Look and Feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -367,9 +420,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane dpArea;
     private javax.swing.JMenuBar mbMenu;
     private javax.swing.JMenu meCadastro;
-    private javax.swing.JMenu meCozinha;
-    private javax.swing.JMenu meFechar;
     private javax.swing.JMenu meMovimentacao;
+    private javax.swing.JMenu meRelatório;
+    private javax.swing.JMenu meSistema;
     private javax.swing.JMenuItem miAbrirFecharCaixa;
     private javax.swing.JMenuItem miCidade;
     private javax.swing.JMenuItem miCliente;
@@ -381,9 +434,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miFornecedor;
     private javax.swing.JMenuItem miFuncionario;
     private javax.swing.JMenuItem miGrupoProduto;
+    private javax.swing.JMenuItem miIngrediente;
     private javax.swing.JMenuItem miProduto;
-    private javax.swing.JMenuItem miReceita;
-    private javax.swing.JMenuItem miUsuario;
+    private javax.swing.JMenuItem miRelatorioCaixa;
+    private javax.swing.JMenuItem miRelatorioCliente;
+    private javax.swing.JMenuItem miRelatorioCompra;
+    private javax.swing.JMenuItem miRelatorioContasPagar;
+    private javax.swing.JMenuItem miRelatorioContasReceber;
+    private javax.swing.JMenuItem miRelatorioFornecedor;
+    private javax.swing.JMenuItem miRelatorioFuncionario;
+    private javax.swing.JMenuItem miRelatorioVenda;
+    private javax.swing.JMenuItem miSair;
+    private javax.swing.JMenuItem miSobre;
     private javax.swing.JMenuItem miVenda;
     private javax.swing.JPopupMenu.Separator seCadastro1;
     private javax.swing.JPopupMenu.Separator seCadastro2;
@@ -392,6 +454,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator seMovimentacao1;
     private javax.swing.JPopupMenu.Separator seMovimentacao2;
     private javax.swing.JPopupMenu.Separator seMovimentacao3;
+    private javax.swing.JPopupMenu.Separator seMovimentacao4;
+    private javax.swing.JPopupMenu.Separator seRelatorio1;
+    private javax.swing.JPopupMenu.Separator seRelatorio2;
+    private javax.swing.JPopupMenu.Separator seRelatorio3;
+    private javax.swing.JPopupMenu.Separator seRelatorio4;
+    private javax.swing.JPopupMenu.Separator seRelatorio5;
+    private javax.swing.JPopupMenu.Separator seSistema1;
+    private javax.swing.JPopupMenu.Separator seSistema2;
+    private javax.swing.JPopupMenu.Separator seSistema3;
     // End of variables declaration//GEN-END:variables
 
     private Point calculaLocal(JDesktopPane dpArea, JInternalFrame p) {

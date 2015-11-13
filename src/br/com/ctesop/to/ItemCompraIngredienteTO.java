@@ -5,6 +5,8 @@ public class ItemCompraIngredienteTO {
     private int idItemCompraIngrediente;
     private int idIngrediente;
     private int idCompra;
+    private int quantidadeItemCompraIngrediente;
+    private float valorItemCompraIngrediente;
 
     public int getIdItemCompraIngrediente() {
         return idItemCompraIngrediente;
@@ -29,4 +31,20 @@ public class ItemCompraIngredienteTO {
     public void setIdCompra(int idCompra) {
         this.idCompra = idCompra;
     }
+
+    public int getQuantidadeItemCompraIngrediente() {
+        return quantidadeItemCompraIngrediente;
+    }
+
+    public void setQuantidadeItemCompraIngrediente(int quantidadeItemCompraIngrediente) {
+        this.quantidadeItemCompraIngrediente = quantidadeItemCompraIngrediente;
+    }
+
+    public float getValorItemCompraIngrediente() {
+        return valorItemCompraIngrediente;
+    }
+
+    public void setValorItemCompraIngrediente(float valorItemCompraIngrediente) {
+        this.valorItemCompraIngrediente = valorItemCompraIngrediente;
+    }   
 }

@@ -7,10 +7,12 @@ import br.com.ctesop.gui.tablemodel.CidadeTableModel;
 import br.com.ctesop.to.CidadeTO;
 import br.com.ctesop.to.EstadoTO;
 import java.util.List;
+import br.com.ctesop.dao.Conexao;
 
 public class CidadeGUI extends javax.swing.JInternalFrame {
 
     int pagina = 0;
+    EstadoTO estado = new EstadoTO();
 
     //Criação do formulário CidadeGUIIIIIIIIIIII
     public CidadeGUI() {
@@ -39,14 +41,14 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
         spGrade = new javax.swing.JScrollPane();
         tbGrade = new javax.swing.JTable();
         pnFormulario = new javax.swing.JPanel();
-        lbCodigo = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
+        lbCodigoCidade = new javax.swing.JLabel();
+        txtCodigoCidade = new javax.swing.JTextField();
         lbNomeCidade = new javax.swing.JLabel();
         txtNomeCidade = new javax.swing.JTextField();
         lbEstado = new javax.swing.JLabel();
         cbEstado = new javax.swing.JComboBox();
-        lbStatus = new javax.swing.JLabel();
-        cbStatus = new javax.swing.JComboBox();
+        lbStatusCidade = new javax.swing.JLabel();
+        cbStatusCidade = new javax.swing.JComboBox();
 
         setClosable(true);
         setIconifiable(true);
@@ -123,6 +125,8 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
 
         lbPesquisar.setText("Pesquisar:");
 
+        txtPesquisar.setDocument(new br.com.ctesop.componentes.MascaraLetras(90));
+
         btPesquisar.setMnemonic('p');
         btPesquisar.setLabel("Pesquisar");
         btPesquisar.setMaximumSize(new java.awt.Dimension(120, 40));
@@ -184,7 +188,7 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(pnPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE))
+                    .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
         pnPesquisaLayout.setVerticalGroup(
@@ -201,17 +205,22 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
 
         pnFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulário"));
 
-        lbCodigo.setText("Código:");
+        lbCodigoCidade.setText("Código:");
 
-        txtCodigo.setEditable(false);
+        txtCodigoCidade.setEditable(false);
+        txtCodigoCidade.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        lbNomeCidade.setFont(new java.awt.Font("Droid Sans", 1, 12)); // NOI18N
         lbNomeCidade.setText("Nome da cidade:");
 
+        txtNomeCidade.setDocument(new br.com.ctesop.componentes.MascaraLetras(90));
+
+        lbEstado.setFont(new java.awt.Font("Droid Sans", 1, 12)); // NOI18N
         lbEstado.setText("Estado:");
 
-        lbStatus.setText("Status:");
+        lbStatusCidade.setText("Status:");
 
-        cbStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ativo", "Inativo" }));
+        cbStatusCidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ATIVO", "INATIVO" }));
 
         javax.swing.GroupLayout pnFormularioLayout = new javax.swing.GroupLayout(pnFormulario);
         pnFormulario.setLayout(pnFormularioLayout);
@@ -220,28 +229,26 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
             .addGroup(pnFormularioLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbCodigo)
+                    .addComponent(lbCodigoCidade)
                     .addComponent(lbNomeCidade)
-                    .addComponent(lbStatus)
+                    .addComponent(lbStatusCidade)
                     .addComponent(lbEstado))
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNomeCidade)
-                    .addGroup(pnFormularioLayout.createSequentialGroup()
-                        .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 313, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(cbStatusCidade, 0, 100, Short.MAX_VALUE)
+                        .addComponent(txtCodigoCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(12, 12, 12))
         );
         pnFormularioLayout.setVerticalGroup(
             pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnFormularioLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbCodigo)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbCodigoCidade)
+                    .addComponent(txtCodigoCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNomeCidade)
@@ -252,8 +259,8 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
                     .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbStatus)
-                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbStatusCidade)
+                    .addComponent(cbStatusCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
 
@@ -267,7 +274,7 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnAbas, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE))
+                    .addComponent(pnAbas))
                 .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(
@@ -283,61 +290,55 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Eventos//
+    //Evento para quando clicar no botão "Fechar"
     private void btFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFecharActionPerformed
         dispose();
     }//GEN-LAST:event_btFecharActionPerformed
 
+    //Evento para quando clicar no botão "Novo"
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
-        //Quando clicar em "Novo" habilita o formulário e seta um valor para o código
         habilitarForm(true);
-        txtCodigo.setText("0");
-    }
-
-    //Ações para quando clicar no botão "Novo"   
-    private void habilitarForm(boolean habilitar) {
-        txtCodigo.setEnabled(habilitar);
-        txtNomeCidade.setEnabled(habilitar);
-        cbEstado.setEnabled(habilitar);
-        cbStatus.setEnabled(habilitar);
-
-        btNovo.setEnabled(!habilitar);
-        btSalvar.setEnabled(habilitar);
-        btCancelar.setEnabled(habilitar);
+        txtCodigoCidade.setText("0");
     }//GEN-LAST:event_btNovoActionPerformed
 
+    //Evento para quando clicar no botão "Pesquisar"
     private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
         atualizarGrade();
     }//GEN-LAST:event_btPesquisarActionPerformed
 
+    //Evento para quando clicar no botão "Cancelar"
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         limparForm();
         habilitarForm(false);
     }//GEN-LAST:event_btCancelarActionPerformed
 
+    //Evento para quando clicar no botão "Salvar"
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        //Ações para quando clicar no botão "Salvar"                               
         try {
-
-            if (!validar()) {
-                return;
-            }
 
             CidadeTO cidadeTO = new CidadeTO();
             //Cria um novo estado, dá um nome para ele e recupera o objeto Estado selecionado
-            EstadoTO estado = (EstadoTO) cbEstado.getSelectedItem();
+            estado = (EstadoTO) cbEstado.getSelectedItem();
 
-            cidadeTO.setIdCidade(Integer.parseInt(txtCodigo.getText()));
+            cidadeTO.setIdCidade(Integer.parseInt(txtCodigoCidade.getText()));
             cidadeTO.setNomeCidade(txtNomeCidade.getText());
             cidadeTO.setIdEstado(estado.getIdEstado());
-            cidadeTO.setStatusCidade(cbStatus.getSelectedItem().toString());
+            cidadeTO.setStatusCidade(cbStatusCidade.getSelectedItem().toString());
 
             if (cidadeTO.getIdCidade() == 0) {
-                CidadeDAO.inserir(cidadeTO);
+                //Verifica se já há algum cadastro igual
+                if (!validar()) {
+                    return;
+                    //Insere o novo cadastro
+                } else {
+                    CidadeDAO.inserir(cidadeTO);
+                    javax.swing.JOptionPane.showMessageDialog(this, "Cidade cadastrada com sucesso!");
+                }
             } else {
                 CidadeDAO.alterar(cidadeTO);
+                JOptionPane.showMessageDialog(this, "Cadastro alterado com sucesso!");
             }
-
-            JOptionPane.showMessageDialog(this, "Cidade cadastrado com sucesso!");
 
             atualizarGrade();
             limparForm();
@@ -347,33 +348,28 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 
+    //Evento para quando der 2 cliques em um item da grade
     private void tbGradeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbGradeMouseClicked
-        /* Código para carregar as informações da grade para o formulário
-         Quando o usuário der dois cliques no Cidade o mesmo é carregado no formulário */
         if (evt.getClickCount() == 2) {
             CidadeTableModel tm = (CidadeTableModel) tbGrade.getModel();
             CidadeTO cidade = tm.get(tbGrade.getSelectedRow());
 
-            txtCodigo.setText(String.valueOf(cidade.getIdCidade()));
+            txtCodigoCidade.setText(String.valueOf(cidade.getIdCidade()));
             txtNomeCidade.setText(cidade.getNomeCidade());
-            //Preencher também o campo "Sigla do estado"
+            //Para preencher também o campo "Sigla do estado"
             try {
                 EstadoTO estado = (EstadoTO) EstadoDAO.get(EstadoTO.class, cidade.getIdEstado());
                 cbEstado.setSelectedItem(estado);
             } catch (Exception ex) {
             }
-            cbStatus.setSelectedItem(cidade.getStatusCidade());
+            cbStatusCidade.setSelectedItem(cidade.getStatusCidade());
 
             habilitarForm(true);
         }
     }//GEN-LAST:event_tbGradeMouseClicked
 
-    //Ações para quando clicar no botão "Cancelar"
-    private void limparForm() {
-        txtCodigo.setText("");
-        txtNomeCidade.setText("");
-    }
-
+    //Métodos//
+    //Método que atualiza a grade com os valores cadastrados
     private void atualizarGrade() {
         try {
             String filtro = txtPesquisar.getText();
@@ -387,10 +383,34 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
         }
     }
 
-    //Método de validação do TextField
+    //Método que habilita o formulário  
+    private void habilitarForm(boolean habilitar) {
+        txtCodigoCidade.setEnabled(habilitar);
+        txtNomeCidade.setEnabled(habilitar);
+        cbEstado.setEnabled(habilitar);
+        cbStatusCidade.setEnabled(habilitar);
+
+        btNovo.setEnabled(!habilitar);
+        btSalvar.setEnabled(habilitar);
+        btCancelar.setEnabled(habilitar);
+
+        if (habilitar) {
+            pnAbas.setSelectedIndex(1);
+        } else {
+            pnAbas.setSelectedIndex(0);
+        }
+    }
+
+    //Método que limpa o formulário
+    private void limparForm() {
+        txtCodigoCidade.setText("");
+        txtNomeCidade.setText("");
+    }
+
+    //Método de validação dos TextFields
     private boolean validar() throws Exception {
         //Validação do "Nome da cidade"
-        if (txtNomeCidade.getText().trim().length() < 2 || txtNomeCidade.getText().trim().length() > 90) {
+        if (txtNomeCidade.getText().trim().length() < 2) {
             JOptionPane.showMessageDialog(this, "Nome da cidade inválido.", "Alerta", javax.swing.JOptionPane.WARNING_MESSAGE);
             txtNomeCidade.requestFocus();
             return false;
@@ -402,7 +422,26 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
             txtNomeCidade.requestFocus();
             return false;
         }
+
+        if (estado.getStatusEstado().equals("INATIVO")) {
+            JOptionPane.showMessageDialog(this, "Impossível cadastrar uma cidade neste estado, pois "
+                    + "o status do estado está como inativo.");
+            return false;
+        }
         return true;
+    }
+
+    //Método para carregar a "Sigla do estado" no formulário Cidade
+    private void carregaEstados() {
+        try {
+            List<Object> listaEstado = EstadoDAO.listar(EstadoTO.class);
+            for (Object e : listaEstado) {
+                cbEstado.addItem((EstadoTO) e);
+            }
+        } catch (Exception ex) {
+            //Para as mensagens de erro. Esta puxando do pacote "br.com.ctesop.componentes" da classe "JOptionPane"
+            JOptionPane.showWarningDialog(this, "Ocorreu um erro ao listar os estados.");
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -413,12 +452,12 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
     private javax.swing.JButton btSalvar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox cbEstado;
-    private javax.swing.JComboBox cbStatus;
-    private javax.swing.JLabel lbCodigo;
+    private javax.swing.JComboBox cbStatusCidade;
+    private javax.swing.JLabel lbCodigoCidade;
     private javax.swing.JLabel lbEstado;
     private javax.swing.JLabel lbNomeCidade;
     private javax.swing.JLabel lbPesquisar;
-    private javax.swing.JLabel lbStatus;
+    private javax.swing.JLabel lbStatusCidade;
     private javax.swing.JTabbedPane pnAbas;
     private javax.swing.JPanel pnBotoes;
     private javax.swing.JPanel pnFormulario;
@@ -426,21 +465,8 @@ public class CidadeGUI extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnPesquisar;
     private javax.swing.JScrollPane spGrade;
     private javax.swing.JTable tbGrade;
-    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtCodigoCidade;
     private javax.swing.JTextField txtNomeCidade;
     private javax.swing.JTextField txtPesquisar;
     // End of variables declaration//GEN-END:variables
-
-    //Para carregar a "Sigla do estado" no formulário Cidade
-    private void carregaEstados() {
-        try {
-            List<Object> listaEstado =  EstadoDAO.listar(EstadoTO.class);
-            for (Object e :  listaEstado) {
-                cbEstado.addItem((EstadoTO)e);
-            }
-        } catch (Exception ex) {
-            //Para as mensagens de erro. Esta puxando do pacote "br.com.ctesop.componentes" da classe "JOptionPane"
-            JOptionPane.showWarningDialog(this, "Ocorreu um erro ao listar as cidades.");
-        }
-    }
 }

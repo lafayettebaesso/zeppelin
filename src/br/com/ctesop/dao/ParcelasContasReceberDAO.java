@@ -1,6 +1,6 @@
 package br.com.ctesop.dao;
 
-public class ParcelasContasReceberDAO {
+public class ParcelasContasReceberDAO extends GenericDAO {
 
     
 }

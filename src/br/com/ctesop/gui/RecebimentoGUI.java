@@ -1,73 +1,94 @@
 package br.com.ctesop.gui;
 
+import br.com.ctesop.dao.CaixaDAO;
+import br.com.ctesop.dao.MovimentoCaixaDAO;
+import br.com.ctesop.dao.RecebimentoDAO;
+import br.com.ctesop.to.CaixaTO;
+import br.com.ctesop.to.MovimentoCaixaTO;
+import br.com.ctesop.to.ParcelasContasReceberTO;
+import br.com.ctesop.to.RecebimentoTO;
+import br.com.ctesop.to.VendaTO;
+import java.awt.Point;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+
 public class RecebimentoGUI extends javax.swing.JInternalFrame {
+    
+    private VendaTO vendaTO;
+    private ParcelasContasReceberTO parcelasContasReceberTO;
+    private VendaFormaRecebimentoGUI vendaFormaRecebimentoGUI;
+    private JDesktopPane dpArea = null;
+    private float recebimento;
+    private float troco = 0;
+    private float total;
+    private float x = 0;
+    private int idRecebimento = 0;
+    private int idMovimentoCaixa = 0;
+    private int idParcelasContasReceberTO = 0;
 
-    public RecebimentoGUI() {
+    public RecebimentoGUI(VendaTO vendaTO, VendaFormaRecebimentoGUI vendaFormaRecebimentoGUI) {
+        this.vendaTO = vendaTO;
+        this.vendaFormaRecebimentoGUI = vendaFormaRecebimentoGUI;
         initComponents();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        txtDataRecebimento.setText(sdf.format(new java.util.Date()));
+        NumberFormat nf = NumberFormat.getNumberInstance();
+        txtTotalContaRecebimento.setText(nf.format(vendaTO.getValorTotalVenda()));
     }
-
+    
+    public RecebimentoGUI(ParcelasContasReceberTO parcelasContasReceberTO) {
+        this.parcelasContasReceberTO = parcelasContasReceberTO;
+        initComponents();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        txtDataRecebimento.setText(sdf.format(new java.util.Date()));
+        NumberFormat nf = NumberFormat.getNumberInstance();
+        txtTotalContaRecebimento.setText(nf.format(parcelasContasReceberTO.getValorParcelasContasReceber()));
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         pnBotoes = new javax.swing.JPanel();
-        btConcluir = new javax.swing.JButton();
+        btConfirmar = new javax.swing.JButton();
         btFechar = new javax.swing.JButton();
-        pn = new javax.swing.JPanel();
-        lbDinheiro = new javax.swing.JLabel();
-        txtDinheiro = new javax.swing.JTextField();
-        btDinheiro = new javax.swing.JButton();
-        lbDebito = new javax.swing.JLabel();
-        txtDebito = new javax.swing.JTextField();
-        btDebito = new javax.swing.JButton();
-        lbCredito = new javax.swing.JLabel();
-        txtCredito = new javax.swing.JTextField();
-        btCredito = new javax.swing.JButton();
-        lbCheque = new javax.swing.JLabel();
-        txtCheque = new javax.swing.JTextField();
-        btCheque = new javax.swing.JButton();
-        pnTotal = new javax.swing.JPanel();
-        lbTotalConta = new javax.swing.JLabel();
-        txtTotalConta = new javax.swing.JTextField();
-        lbTotalDesconto = new javax.swing.JLabel();
-        txtTotalDesconto = new javax.swing.JTextField();
-        lbTotalAcrescimo = new javax.swing.JLabel();
-        txtTotalAcrescimo = new javax.swing.JTextField();
-        lbTotalReceber = new javax.swing.JLabel();
-        txtTotalReceber = new javax.swing.JTextField();
+        btCancelar = new javax.swing.JButton();
         pnDescontoAcrescimo = new javax.swing.JPanel();
-        lbDesconto = new javax.swing.JLabel();
-        txtDesconto = new javax.swing.JTextField();
-        btDesconto = new javax.swing.JButton();
-        lbAcrescimo = new javax.swing.JLabel();
-        txtAcrescimo = new javax.swing.JTextField();
-        btAcrescimo = new javax.swing.JButton();
-        pnTotalCliente = new javax.swing.JPanel();
-        lbTotalRecebido = new javax.swing.JLabel();
-        txtTotalRecebido = new javax.swing.JTextField();
-        lbTotalRestante = new javax.swing.JLabel();
-        txtTotalRestante = new javax.swing.JTextField();
-        lbTroco = new javax.swing.JLabel();
-        txtTroco = new javax.swing.JTextField();
+        lbDescontoRecebimento = new javax.swing.JLabel();
+        txtDescontoRecebimento = new javax.swing.JFormattedTextField();
+        lbAcrescimoRecebimento = new javax.swing.JLabel();
+        txtAcrescimoRecebimento = new javax.swing.JFormattedTextField();
+        lbDinheiroRecebimento = new javax.swing.JLabel();
+        txtDinheiroRecebimento = new javax.swing.JFormattedTextField();
         lbDataRecebimento = new javax.swing.JLabel();
-        txtDataRecebimento = new javax.swing.JTextField();
+        txtDataRecebimento = new javax.swing.JFormattedTextField();
         pnLancamentos = new javax.swing.JPanel();
-        spGrade = new javax.swing.JScrollPane();
-        tbGrade = new javax.swing.JTable();
-        btExcluirLancamento = new javax.swing.JButton();
+        lbTotalContaRecebimento = new javax.swing.JLabel();
+        txtTotalContaRecebimento = new javax.swing.JFormattedTextField();
+        lbTrocoRecebimento = new javax.swing.JLabel();
+        txtTrocoRecebimento = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setIconifiable(true);
         setTitle("Recebimento");
 
-        btConcluir.setMnemonic('c');
-        btConcluir.setText("Concluir");
-        btConcluir.setMaximumSize(new java.awt.Dimension(120, 40));
-        btConcluir.setMinimumSize(new java.awt.Dimension(120, 40));
-        btConcluir.setPreferredSize(new java.awt.Dimension(120, 40));
+        btConfirmar.setMnemonic('o');
+        btConfirmar.setText("Confirmar");
+        btConfirmar.setMaximumSize(new java.awt.Dimension(120, 40));
+        btConfirmar.setMinimumSize(new java.awt.Dimension(120, 40));
+        btConfirmar.setPreferredSize(new java.awt.Dimension(120, 40));
+        btConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConfirmarActionPerformed(evt);
+            }
+        });
 
         btFechar.setMnemonic('f');
-        btFechar.setText("Sair");
+        btFechar.setText("Fechar");
         btFechar.setMaximumSize(new java.awt.Dimension(120, 40));
         btFechar.setMinimumSize(new java.awt.Dimension(120, 40));
         btFechar.setPreferredSize(new java.awt.Dimension(120, 40));
@@ -77,302 +98,158 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
             }
         });
 
+        btCancelar.setMnemonic('f');
+        btCancelar.setText("Cancelar");
+        btCancelar.setMaximumSize(new java.awt.Dimension(120, 40));
+        btCancelar.setMinimumSize(new java.awt.Dimension(120, 40));
+        btCancelar.setPreferredSize(new java.awt.Dimension(120, 40));
+        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnBotoesLayout = new javax.swing.GroupLayout(pnBotoes);
         pnBotoes.setLayout(pnBotoesLayout);
         pnBotoesLayout.setHorizontalGroup(
             pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBotoesLayout.createSequentialGroup()
-                .addComponent(btConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(54, 54, 54))
         );
         pnBotoesLayout.setVerticalGroup(
             pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(btConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        pn.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-
-        lbDinheiro.setText("Dinheiro:");
-
-        btDinheiro.setText("Adicionar");
-
-        lbDebito.setText("Débito:");
-
-        btDebito.setText("Adicionar");
-
-        lbCredito.setText("Crédito:");
-
-        btCredito.setText("Adicionar");
-
-        lbCheque.setText("Cheque:");
-
-        btCheque.setText("Adicionar");
-
-        javax.swing.GroupLayout pnLayout = new javax.swing.GroupLayout(pn);
-        pn.setLayout(pnLayout);
-        pnLayout.setHorizontalGroup(
-            pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbDinheiro)
-                    .addComponent(lbCredito)
-                    .addComponent(lbCheque)
-                    .addComponent(lbDebito))
-                .addGap(12, 12, 12)
-                .addGroup(pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnLayout.createSequentialGroup()
-                        .addComponent(txtDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnLayout.createSequentialGroup()
-                        .addComponent(txtCheque, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btCheque, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnLayout.createSequentialGroup()
-                        .addComponent(txtCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnLayout.createSequentialGroup()
-                        .addComponent(txtDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(12, 12, 12))
-        );
-        pnLayout.setVerticalGroup(
-            pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbDinheiro)
-                    .addComponent(txtDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btDebito))
-                .addGap(8, 8, 8)
-                .addGroup(pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDebito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbDebito)
-                    .addComponent(btDinheiro))
-                .addGap(8, 8, 8)
-                .addGroup(pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCredito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbCredito)
-                    .addComponent(btCredito))
-                .addGap(8, 8, 8)
-                .addGroup(pnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCheque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbCheque)
-                    .addComponent(btCheque))
-                .addGap(8, 8, 8))
-        );
-
-        pnTotal.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        pnTotal.setPreferredSize(new java.awt.Dimension(320, 120));
-
-        lbTotalConta.setText("Total da conta:");
-
-        txtTotalConta.setEditable(false);
-
-        lbTotalDesconto.setText("Desconto:");
-
-        txtTotalDesconto.setEditable(false);
-
-        lbTotalAcrescimo.setText("Acréscimo:");
-
-        txtTotalAcrescimo.setEditable(false);
-
-        lbTotalReceber.setText("Total a receber:");
-
-        txtTotalReceber.setEditable(false);
-
-        javax.swing.GroupLayout pnTotalLayout = new javax.swing.GroupLayout(pnTotal);
-        pnTotal.setLayout(pnTotalLayout);
-        pnTotalLayout.setHorizontalGroup(
-            pnTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnTotalLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(pnTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbTotalConta)
-                    .addComponent(lbTotalAcrescimo)
-                    .addComponent(lbTotalReceber)
-                    .addComponent(lbTotalDesconto))
-                .addGap(12, 12, 12)
-                .addGroup(pnTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnTotalLayout.createSequentialGroup()
-                        .addGroup(pnTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTotalAcrescimo)
-                            .addComponent(txtTotalDesconto, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtTotalReceber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
-                        .addGap(12, 12, 12))
-                    .addGroup(pnTotalLayout.createSequentialGroup()
-                        .addComponent(txtTotalConta)
-                        .addGap(12, 12, 12))))
-        );
-        pnTotalLayout.setVerticalGroup(
-            pnTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnTotalLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(pnTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTotalConta, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbTotalConta))
-                .addGap(8, 8, 8)
-                .addGroup(pnTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbTotalDesconto)
-                    .addComponent(txtTotalDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(pnTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbTotalAcrescimo)
-                    .addComponent(txtTotalAcrescimo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(pnTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbTotalReceber)
-                    .addComponent(txtTotalReceber, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12))
+                .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pnDescontoAcrescimo.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         pnDescontoAcrescimo.setPreferredSize(new java.awt.Dimension(285, 78));
 
-        lbDesconto.setText("Desconto:");
+        lbDescontoRecebimento.setText("Desconto:");
 
-        btDesconto.setText("Adicionar");
+        txtDescontoRecebimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtDescontoRecebimento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDescontoRecebimento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDescontoRecebimentoFocusLost(evt);
+            }
+        });
 
-        lbAcrescimo.setText("Acréscimo:");
+        lbAcrescimoRecebimento.setText("Juros:");
 
-        btAcrescimo.setText("Adicionar");
+        txtAcrescimoRecebimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtAcrescimoRecebimento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAcrescimoRecebimento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtAcrescimoRecebimentoFocusLost(evt);
+            }
+        });
+
+        lbDinheiroRecebimento.setFont(new java.awt.Font("Droid Sans", 1, 12)); // NOI18N
+        lbDinheiroRecebimento.setText("Valor recebido:");
+
+        txtDinheiroRecebimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtDinheiroRecebimento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDinheiroRecebimento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDinheiroRecebimentoFocusLost(evt);
+            }
+        });
+
+        lbDataRecebimento.setText("Data receb.:");
+
+        txtDataRecebimento.setEditable(false);
+        txtDataRecebimento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout pnDescontoAcrescimoLayout = new javax.swing.GroupLayout(pnDescontoAcrescimo);
         pnDescontoAcrescimo.setLayout(pnDescontoAcrescimoLayout);
         pnDescontoAcrescimoLayout.setHorizontalGroup(
             pnDescontoAcrescimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnDescontoAcrescimoLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnDescontoAcrescimoLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(pnDescontoAcrescimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbAcrescimo)
-                    .addComponent(lbDesconto))
+                    .addComponent(lbDataRecebimento)
+                    .addComponent(lbDescontoRecebimento)
+                    .addComponent(lbDinheiroRecebimento)
+                    .addComponent(lbAcrescimoRecebimento))
                 .addGap(12, 12, 12)
-                .addGroup(pnDescontoAcrescimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnDescontoAcrescimoLayout.createSequentialGroup()
-                        .addComponent(txtDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnDescontoAcrescimoLayout.createSequentialGroup()
-                        .addComponent(txtAcrescimo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btAcrescimo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(pnDescontoAcrescimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtDescontoRecebimento, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(txtAcrescimoRecebimento)
+                    .addComponent(txtDataRecebimento)
+                    .addComponent(txtDinheiroRecebimento))
                 .addGap(12, 12, 12))
         );
         pnDescontoAcrescimoLayout.setVerticalGroup(
             pnDescontoAcrescimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnDescontoAcrescimoLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(pnDescontoAcrescimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbDesconto)
-                    .addComponent(btDesconto))
-                .addGap(8, 8, 8)
-                .addGroup(pnDescontoAcrescimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbAcrescimo)
-                    .addComponent(txtAcrescimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btAcrescimo))
-                .addGap(8, 8, 8))
-        );
-
-        pnTotalCliente.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        pnTotalCliente.setPreferredSize(new java.awt.Dimension(320, 120));
-
-        lbTotalRecebido.setText("Total recebido:");
-
-        txtTotalRecebido.setEditable(false);
-
-        lbTotalRestante.setText("Total restante:");
-
-        txtTotalRestante.setEditable(false);
-
-        lbTroco.setText("Troco:");
-
-        txtTroco.setEditable(false);
-
-        lbDataRecebimento.setText("Data:");
-
-        txtDataRecebimento.setEditable(false);
-
-        javax.swing.GroupLayout pnTotalClienteLayout = new javax.swing.GroupLayout(pnTotalCliente);
-        pnTotalCliente.setLayout(pnTotalClienteLayout);
-        pnTotalClienteLayout.setHorizontalGroup(
-            pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnTotalClienteLayout.createSequentialGroup()
-                .addGroup(pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnTotalClienteLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbTotalRestante)
-                            .addComponent(lbTotalRecebido)
-                            .addComponent(lbTroco))
-                        .addGap(12, 12, 12))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnTotalClienteLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbDataRecebimento)
-                        .addGap(12, 12, 12)))
-                .addGroup(pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTotalRecebido, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                    .addComponent(txtTroco)
-                    .addComponent(txtTotalRestante)
-                    .addComponent(txtDataRecebimento))
-                .addGap(12, 12, 12))
-        );
-        pnTotalClienteLayout.setVerticalGroup(
-            pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnTotalClienteLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnDescontoAcrescimoLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbTotalRecebido)
-                    .addComponent(txtTotalRecebido, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTotalRestante, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbTotalRestante))
-                .addGap(8, 8, 8)
-                .addGroup(pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbTroco)
-                    .addComponent(txtTroco, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(pnTotalClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDataRecebimento, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbDataRecebimento))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnDescontoAcrescimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbDinheiroRecebimento)
+                    .addComponent(txtDinheiroRecebimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(pnDescontoAcrescimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbDescontoRecebimento)
+                    .addComponent(txtDescontoRecebimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(pnDescontoAcrescimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbAcrescimoRecebimento)
+                    .addComponent(txtAcrescimoRecebimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(pnDescontoAcrescimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbDataRecebimento)
+                    .addComponent(txtDataRecebimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
         );
 
         pnLancamentos.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        spGrade.setViewportView(tbGrade);
+        lbTotalContaRecebimento.setText("Total da conta:");
 
-        btExcluirLancamento.setText("Excluir lançamento");
+        txtTotalContaRecebimento.setEditable(false);
+        txtTotalContaRecebimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+        txtTotalContaRecebimento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        lbTrocoRecebimento.setText("Troco:");
+
+        txtTrocoRecebimento.setEditable(false);
+        txtTrocoRecebimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtTrocoRecebimento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout pnLancamentosLayout = new javax.swing.GroupLayout(pnLancamentos);
         pnLancamentos.setLayout(pnLancamentosLayout);
         pnLancamentosLayout.setHorizontalGroup(
             pnLancamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnLancamentosLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
-                .addGap(8, 8, 8))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLancamentosLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(btExcluirLancamento)
-                .addContainerGap())
+                .addGap(12, 12, 12)
+                .addGroup(pnLancamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbTrocoRecebimento)
+                    .addComponent(lbTotalContaRecebimento))
+                .addGap(12, 12, 12)
+                .addGroup(pnLancamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtTotalContaRecebimento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(txtTrocoRecebimento))
+                .addGap(12, 12, 12))
         );
         pnLancamentosLayout.setVerticalGroup(
             pnLancamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnLancamentosLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(spGrade, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                .addGap(8, 8, 8)
-                .addComponent(btExcluirLancamento)
-                .addGap(8, 8, 8))
+                .addGap(12, 12, 12)
+                .addGroup(pnLancamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbTotalContaRecebimento)
+                    .addComponent(txtTotalContaRecebimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnLancamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbTrocoRecebimento)
+                    .addComponent(txtTrocoRecebimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -382,18 +259,12 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnBotoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(pnDescontoAcrescimo, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
-                                .addComponent(pn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(pnLancamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(pnTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(pnTotalCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pnDescontoAcrescimo, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(pnLancamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(pnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(
@@ -403,15 +274,8 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
                 .addComponent(pnBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pnDescontoAcrescimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(pn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pnLancamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnTotalCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnLancamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnDescontoAcrescimo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8))
         );
 
@@ -422,52 +286,196 @@ public class RecebimentoGUI extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_btFecharActionPerformed
 
+    private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
+        try {
+            if (!validar()) {
+                return;
+            }
+
+            //Instanciação do objeto utilizados na classe
+            RecebimentoTO recebimentoTO = new RecebimentoTO();
+            MovimentoCaixaTO movimentoCaixaTO = new MovimentoCaixaTO();
+            CaixaTO caixaTO = CaixaDAO.consultarCaixaAberto();
+            if (caixaTO == null) {
+                JOptionPane.showMessageDialog(this, "O caixa está fechado");
+                return;
+            }
+            
+            //Declaração das formatações dos dados usado logo abaixo na classe
+            NumberFormat nf = NumberFormat.getNumberInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+            //Inserção dos dados referente ao Recebimento
+            recebimentoTO.setIdRecebimento(0);
+            recebimentoTO.setIdParcelasContasReceber(null);
+
+            recebimentoTO.setValorRecebimento(nf.parse(txtTotalContaRecebimento.getText()).floatValue());
+
+            if (txtDescontoRecebimento.getText().trim().length() == 0) {
+                recebimentoTO.setDescontoRecebimento(0);
+            } else {
+                recebimentoTO.setDescontoRecebimento(nf.parse(txtDescontoRecebimento.getText()).floatValue());
+            }
+
+            if (txtAcrescimoRecebimento.getText().trim().length() == 0) {
+                recebimentoTO.setJurosRecebimento(0);
+            } else {
+                recebimentoTO.setJurosRecebimento(nf.parse(txtAcrescimoRecebimento.getText()).floatValue());
+            }
+
+            recebimentoTO.setDataRecebimento(sdf.parse(txtDataRecebimento.getText()));
+
+            if (idRecebimento == 0) {
+                idRecebimento = RecebimentoDAO.inserirRetornandoId(recebimentoTO);
+                recebimentoTO.setIdRecebimento(idRecebimento);
+
+            } else {
+                RecebimentoDAO.alterar(recebimentoTO);
+            }
+
+            //Inserção dos dados referente ao MovimentoCaixa
+            movimentoCaixaTO.setIdMovimentoCaixa(0);
+            movimentoCaixaTO.setIdCaixa(CaixaDAO.consultarCaixaAberto().getIdCaixa());
+            movimentoCaixaTO.setIdRecebimento(idRecebimento);
+            movimentoCaixaTO.setIdPagamento(null);
+            movimentoCaixaTO.setValorMovimentoCaixa(nf.parse(txtTotalContaRecebimento.getText()).floatValue());
+            movimentoCaixaTO.setTipoMovimentoCaixa("RECEBIMENTO");
+
+            if (idMovimentoCaixa == 0) {
+                idMovimentoCaixa = MovimentoCaixaDAO.inserirRetornandoId(movimentoCaixaTO);
+            } else {
+                MovimentoCaixaDAO.alterar(movimentoCaixaTO);
+            }
+
+            //Atualização do saldo do caixa
+            float saldoCaixa = caixaTO.getSaldoCaixa() - recebimentoTO.getValorRecebimento();
+            caixaTO.setSaldoCaixa(saldoCaixa);
+            CaixaDAO.alterar(caixaTO);
+            
+            br.com.ctesop.componentes.JOptionPane.showMessageDialog(this, "Recebimento realizado com sucesso!");
+            dispose();
+            vendaFormaRecebimentoGUI.dispose();
+        } catch (Exception e) {
+            e.printStackTrace();
+            br.com.ctesop.componentes.JOptionPane.showMessageDialog(this, "Erro ao salvar!\nDados: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btConfirmarActionPerformed
+
+    private void txtDinheiroRecebimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDinheiroRecebimentoFocusLost
+        try {
+            NumberFormat nf = NumberFormat.getNumberInstance();
+            recebimento = (nf.parse(txtDinheiroRecebimento.getText()).floatValue()
+                    - nf.parse(txtTotalContaRecebimento.getText()).floatValue());
+            nf.setMinimumFractionDigits(2);
+            nf.setMaximumFractionDigits(2);
+
+            if (recebimento <= troco) {
+                txtTrocoRecebimento.setText("0,00");
+            } else {
+                txtTrocoRecebimento.setText(nf.format(recebimento));
+            }
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_txtDinheiroRecebimentoFocusLost
+
+    private void txtDescontoRecebimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDescontoRecebimentoFocusLost
+        try {
+            NumberFormat nf = NumberFormat.getNumberInstance();
+            total = (vendaTO.getValorTotalVenda()- nf.parse(txtDescontoRecebimento.getText()).floatValue());
+            nf.setMinimumFractionDigits(2);
+            nf.setMaximumFractionDigits(2);
+
+            txtTotalContaRecebimento.setText(nf.format(total));
+
+            troco = (nf.parse(txtDinheiroRecebimento.getText()).floatValue()) - (total);
+
+            if (troco <= x) {
+                txtTrocoRecebimento.setText("0,00");
+            } else {
+                txtTrocoRecebimento.setText(nf.format(troco));
+            }
+
+            txtAcrescimoRecebimento.setEnabled(false);
+            txtAcrescimoRecebimento.setText("0,00");
+            btConfirmar.requestFocus();
+
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_txtDescontoRecebimentoFocusLost
+
+    private void txtAcrescimoRecebimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAcrescimoRecebimentoFocusLost
+        try {
+            NumberFormat nf = NumberFormat.getNumberInstance();
+            total = (vendaTO.getValorTotalVenda()+ nf.parse(txtDescontoRecebimento.getText()).floatValue());
+            nf.setMinimumFractionDigits(2);
+            nf.setMaximumFractionDigits(2);
+
+            txtTotalContaRecebimento.setText(nf.format(total));
+
+            troco = (nf.parse(txtDinheiroRecebimento.getText()).floatValue()) - (total);
+
+            if (troco <= x) {
+                txtTrocoRecebimento.setText("0,00");
+            } else {
+                txtTrocoRecebimento.setText(nf.format(troco));
+            }
+
+            txtDescontoRecebimento.setEnabled(false);
+            txtDescontoRecebimento.setText("0,00");
+            btConfirmar.requestFocus();
+
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_txtAcrescimoRecebimentoFocusLost
+
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        limparForm();
+    }//GEN-LAST:event_btCancelarActionPerformed
+
+    public void limparForm() {
+        txtDinheiroRecebimento.setText("");
+        txtDescontoRecebimento.setText("");
+        txtAcrescimoRecebimento.setText("");
+
+        NumberFormat nf = NumberFormat.getNumberInstance();
+        txtTotalContaRecebimento.setText(nf.format(vendaTO.getValorTotalVenda()));
+
+        txtTrocoRecebimento.setText("");
+        txtAcrescimoRecebimento.setEnabled(true);
+        txtDescontoRecebimento.setEnabled(true);
+    }
+    
+    private boolean validar() {
+        return true;
+    }
+
+    /* Para abrir os JInternalFrame adicionais DeliveryAdicionarProdutoGUI
+     * e DeliveryAlterarProdutoGUI centralizados */
+    private Point calculaLocal(JDesktopPane dpArea, JInternalFrame p) {
+        return new Point(((dpArea.getWidth() - p.getWidth()) / 2), ((dpArea.getHeight() - p.getHeight()) / 2));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btAcrescimo;
-    private javax.swing.JButton btCheque;
-    private javax.swing.JButton btConcluir;
-    private javax.swing.JButton btCredito;
-    private javax.swing.JButton btDebito;
-    private javax.swing.JButton btDesconto;
-    private javax.swing.JButton btDinheiro;
-    private javax.swing.JButton btExcluirLancamento;
+    private javax.swing.JButton btCancelar;
+    private javax.swing.JButton btConfirmar;
     private javax.swing.JButton btFechar;
-    private javax.swing.JLabel lbAcrescimo;
-    private javax.swing.JLabel lbCheque;
-    private javax.swing.JLabel lbCredito;
+    private javax.swing.JLabel lbAcrescimoRecebimento;
     private javax.swing.JLabel lbDataRecebimento;
-    private javax.swing.JLabel lbDebito;
-    private javax.swing.JLabel lbDesconto;
-    private javax.swing.JLabel lbDinheiro;
-    private javax.swing.JLabel lbTotalAcrescimo;
-    private javax.swing.JLabel lbTotalConta;
-    private javax.swing.JLabel lbTotalDesconto;
-    private javax.swing.JLabel lbTotalReceber;
-    private javax.swing.JLabel lbTotalRecebido;
-    private javax.swing.JLabel lbTotalRestante;
-    private javax.swing.JLabel lbTroco;
-    private javax.swing.JPanel pn;
+    private javax.swing.JLabel lbDescontoRecebimento;
+    private javax.swing.JLabel lbDinheiroRecebimento;
+    private javax.swing.JLabel lbTotalContaRecebimento;
+    private javax.swing.JLabel lbTrocoRecebimento;
     private javax.swing.JPanel pnBotoes;
     private javax.swing.JPanel pnDescontoAcrescimo;
     private javax.swing.JPanel pnLancamentos;
-    private javax.swing.JPanel pnTotal;
-    private javax.swing.JPanel pnTotalCliente;
-    private javax.swing.JScrollPane spGrade;
-    private javax.swing.JTable tbGrade;
-    private javax.swing.JTextField txtAcrescimo;
-    private javax.swing.JTextField txtCheque;
-    private javax.swing.JTextField txtCredito;
-    private javax.swing.JTextField txtDataRecebimento;
-    private javax.swing.JTextField txtDebito;
-    private javax.swing.JTextField txtDesconto;
-    private javax.swing.JTextField txtDinheiro;
-    private javax.swing.JTextField txtTotalAcrescimo;
-    private javax.swing.JTextField txtTotalConta;
-    private javax.swing.JTextField txtTotalDesconto;
-    private javax.swing.JTextField txtTotalReceber;
-    private javax.swing.JTextField txtTotalRecebido;
-    private javax.swing.JTextField txtTotalRestante;
-    private javax.swing.JTextField txtTroco;
+    private javax.swing.JFormattedTextField txtAcrescimoRecebimento;
+    private javax.swing.JFormattedTextField txtDataRecebimento;
+    private javax.swing.JFormattedTextField txtDescontoRecebimento;
+    private javax.swing.JFormattedTextField txtDinheiroRecebimento;
+    private javax.swing.JFormattedTextField txtTotalContaRecebimento;
+    private javax.swing.JFormattedTextField txtTrocoRecebimento;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,42 +2,60 @@ package br.com.ctesop.to;
 
 public class ProdutoTO {
 
-    private int idProduto;
-    private int idReceita;
-    private String descricaoProduto;
-    private float precoUnitarioProduto;
+    private Integer idProduto;
+    private Integer idGrupoProduto;
+    private String nomeProduto;
+    private float precoVendaProduto;
+    private float precoCustoProduto;
+    private Integer quantidadeProduto;
     private String statusProduto;
 
-    public int getIdProduto() {
+    public Integer getIdProduto() {
         return idProduto;
     }
 
-    public void setIdProduto(int idProduto) {
+    public void setIdProduto(Integer idProduto) {
         this.idProduto = idProduto;
     }
 
-    public int getIdReceita() {
-        return idReceita;
+    public Integer getIdGrupoProduto() {
+        return idGrupoProduto;
     }
 
-    public void setIdReceita(int idReceita) {
-        this.idReceita = idReceita;
+    public void setIdGrupoProduto(Integer idGrupoProduto) {
+        this.idGrupoProduto = idGrupoProduto;
     }
 
-    public String getDescricaoProduto() {
-        return descricaoProduto;
+    public String getNomeProduto() {
+        return nomeProduto;
     }
 
-    public void setDescricaoProduto(String descricaoProduto) {
-        this.descricaoProduto = descricaoProduto;
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
     }
 
-    public float getPrecoUnitarioProduto() {
-        return precoUnitarioProduto;
+    public float getPrecoVendaProduto() {
+        return precoVendaProduto;
     }
 
-    public void setPrecoUnitarioProduto(float precoUnitarioProduto) {
-        this.precoUnitarioProduto = precoUnitarioProduto;
+    public void setPrecoVendaProduto(float precoVendaProduto) {
+        this.precoVendaProduto = precoVendaProduto;
+    }
+
+    public float getPrecoCustoProduto() {
+        return precoCustoProduto;
+    }
+
+    public void setPrecoCustoProduto(float precoCustoProduto) {
+        this.precoCustoProduto = precoCustoProduto;
+    }
+
+    public Integer getQuantidadeProduto() {
+        return quantidadeProduto;
+    }
+
+    public void setQuantidadeProduto(Integer quantidadeProduto) {
+        this.quantidadeProduto = quantidadeProduto;
     }
 
     public String getStatusProduto() {

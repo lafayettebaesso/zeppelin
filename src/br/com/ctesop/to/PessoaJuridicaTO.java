@@ -6,6 +6,7 @@ public class PessoaJuridicaTO {
     private String cnpjPessoaJuridica;
     private String razaoSocialPessoaJuridica;
     private String inscricaoEstadualPessoaJuridica;
+    private String nomeFantasiaPessoaJuridica;
 
     public int getIdPessoaJuridica() {
         return idPessoaJuridica;
@@ -39,4 +40,11 @@ public class PessoaJuridicaTO {
         this.inscricaoEstadualPessoaJuridica = inscricaoEstadualPessoaJuridica;
     }
 
+    public String getNomeFantasiaPessoaJuridica() {
+        return nomeFantasiaPessoaJuridica;
+    }
+
+    public void setNomeFantasiaPessoaJuridica(String nomeFantasiaPessoaJuridica) {
+        this.nomeFantasiaPessoaJuridica = nomeFantasiaPessoaJuridica;
+    }
 }

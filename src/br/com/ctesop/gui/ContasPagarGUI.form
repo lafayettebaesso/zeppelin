@@ -40,7 +40,7 @@
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="pnBotoes" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-              <Component id="pnAbas" min="-2" max="-2" attributes="0"/>
+              <Component id="pnAbas" min="-2" pref="444" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -53,44 +53,23 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="btNovo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Component id="btSalvar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="btCancelar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Component id="btFechar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btNovo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btFechar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btNovo">
-          <Properties>
-            <Property name="mnemonic" type="int" value="110"/>
-            <Property name="text" type="java.lang.String" value="Novo"/>
-            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[120, 40]"/>
-            </Property>
-            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[120, 40]"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[120, 40]"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="btSalvar">
           <Properties>
             <Property name="mnemonic" type="int" value="115"/>
@@ -105,21 +84,9 @@
               <Dimension value="[120, 40]"/>
             </Property>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btCancelar">
-          <Properties>
-            <Property name="mnemonic" type="int" value="99"/>
-            <Property name="text" type="java.lang.String" value="Cancelar"/>
-            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[120, 40]"/>
-            </Property>
-            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[120, 40]"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[120, 40]"/>
-            </Property>
-          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSalvarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btFechar">
           <Properties>
@@ -161,7 +128,7 @@
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="pnPesquisa" max="32767" attributes="0"/>
-                          <Component id="spGrade" alignment="0" pref="667" max="32767" attributes="0"/>
+                          <Component id="spGrade" alignment="0" pref="626" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                   </Group>
@@ -173,7 +140,7 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="pnPesquisa" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="spGrade" pref="377" max="32767" attributes="0"/>
+                      <Component id="spGrade" pref="293" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -194,11 +161,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbPesquisarContasPagar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="jTextField1" max="32767" attributes="0"/>
+                          <Component id="txtPesquisarContasPagar" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="btPesquisarContasPagar" min="-2" pref="120" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -208,9 +175,9 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="lbPesquisarContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPesquisarContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btPesquisarContasPagar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
@@ -218,14 +185,14 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="lbPesquisarContasPagar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Pesquisar:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="txtPesquisarContasPagar">
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="btPesquisarContasPagar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Pesquisar"/>
                   </Properties>
@@ -239,17 +206,15 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tbGrade">
+                <Component class="javax.swing.JTable" name="tbGradeContasPagar">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
-                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                      </Table>
+                      <Table columnCount="0" rowCount="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbGradeContasPagarMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -270,8 +235,8 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="pnFormulario" max="32767" attributes="0"/>
                           <Component id="pnParcelasContasReceber" max="32767" attributes="0"/>
-                          <Component id="pnFormulario" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                   </Group>
@@ -282,7 +247,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="pnFormulario" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="pnParcelasContasReceber" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
@@ -307,34 +272,40 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Component id="lbQuantidadeParcelasContasReceber" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbQuantidadeParcelasContasPagar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lbDataContasReceber" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbDataContasPagar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="lbCodigo" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbCodigoContasPagar" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtQuantidadeParcelasContasReceber" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="lbValorTotalContasReceber" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="txtValorTotalContasReceber" min="-2" pref="99" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtCodigo" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="txtCodigoContasPagar" min="-2" pref="40" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lbCliente" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbClienteContasPagar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="txtCliente" max="32767" attributes="0"/>
+                                  <Component id="cbFornecedorContasPagar" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="txtDataContasReceber" min="-2" pref="90" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtDataContasPagar" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="txtQuantidadeParcelasContasPagar" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                          <Component id="lbValorTotalContasPagar" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                          <Component id="txtValorTotalContasPagar" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                          <Component id="lbStatusContasPagar" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="cbStatusContasPagar" min="-2" pref="100" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="0" pref="113" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
@@ -346,22 +317,24 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCodigoContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbClienteContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbCodigoContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbFornecedorContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lbDataContasReceber" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDataContasReceber" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbDataContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDataContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lbQuantidadeParcelasContasReceber" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtQuantidadeParcelasContasReceber" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbValorTotalContasReceber" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtValorTotalContasReceber" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbQuantidadeParcelasContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtQuantidadeParcelasContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbValorTotalContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtValorTotalContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbStatusContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbStatusContasPagar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
@@ -369,46 +342,84 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="lbQuantidadeParcelasContasReceber">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Qtde. parcelas:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtQuantidadeParcelasContasReceber">
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbValorTotalContasReceber">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Valor total:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtValorTotalContasReceber">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbCodigo">
+                <Component class="javax.swing.JLabel" name="lbCodigoContasPagar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCodigo">
+                <Component class="javax.swing.JTextField" name="txtCodigoContasPagar">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbCliente">
+                <Component class="javax.swing.JLabel" name="lbClienteContasPagar">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Cliente:"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Droid Sans" size="12" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fornecedor:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCliente">
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbDataContasReceber">
+                <Component class="javax.swing.JLabel" name="lbDataContasPagar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Data:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="txtDataContasReceber">
+                <Component class="javax.swing.JFormattedTextField" name="txtDataContasPagar">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbQuantidadeParcelasContasPagar">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Droid Sans" size="12" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Qtde. parcelas:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtQuantidadeParcelasContasPagar">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbValorTotalContasPagar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Valor total:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtValorTotalContasPagar">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbStatusContasPagar">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Droid Sans" size="12" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Status:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cbStatusContasPagar">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="2">
+                        <StringItem index="0" value="ABERTA"/>
+                        <StringItem index="1" value="FECHADA"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cbFornecedorContasPagar">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -416,7 +427,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Parcela(s) da(s) conta(s) a pagar"/>
+                    <TitledBorder title="Parcelas das contas a pagar"/>
                   </Border>
                 </Property>
               </Properties>
@@ -424,10 +435,18 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="631" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="btQuitasParcela" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <Component id="spTabela" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -435,34 +454,52 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="285" max="-2" attributes="0"/>
+                          <Component id="btQuitasParcela" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="spTabela" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                <Container class="javax.swing.JScrollPane" name="spTabela">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable1">
+                    <Component class="javax.swing.JTable" name="tbGradeParcelasContasPagar">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="4">
-                            <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                          </Table>
+                          <Table columnCount="0" rowCount="0"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbGradeParcelasContasPagarMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JButton" name="btQuitasParcela">
+                  <Properties>
+                    <Property name="mnemonic" type="int" value="113"/>
+                    <Property name="text" type="java.lang.String" value="Quitar parcela"/>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[120, 40]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[120, 40]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[120, 40]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btQuitasParcelaActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>

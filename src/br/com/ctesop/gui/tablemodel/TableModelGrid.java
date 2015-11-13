@@ -1,5 +1,6 @@
 package br.com.ctesop.gui.tablemodel;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -29,6 +30,7 @@ public class TableModelGrid extends AbstractTableModel {
 
     public void setDados(List<List<String>> dados){
         this.dados = dados;
+        fireTableDataChanged();
     }
 
     public List<String> get(int linha) {
@@ -52,5 +54,18 @@ public class TableModelGrid extends AbstractTableModel {
             return 0;
         else
             return Integer.parseInt(registro.get(coluna));
+    }
+
+    public void addDados(List<String> dados) {
+        if(this.dados == null){
+            this.dados = new ArrayList<>();
+        }
+        this.dados.add(dados);
+        fireTableDataChanged();
+    }
+
+    public void removeLinha(int linha) {
+        this.dados.remove(linha);
+        fireTableDataChanged();
     }
 }

@@ -4,27 +4,35 @@ import java.util.Date;
 
 public class ContasReceberTO {
 
-    private int idContasReceber;
-    private int idVenda;
+    private Integer idContasReceber;
+    private Integer idVenda;
+    private Integer idCliente;
     private Date dataContasReceber;
-    private String descricaoContasReceber;
     private int quantidadeParcelasContasReceber;
     private float valorTotalContasReceber;
     private String statusContasReceber;
 
-    public int getIdContasReceber() {
+    public Integer getIdContasReceber() {
         return idContasReceber;
     }
 
-    public void setIdContasReceber(int idContasReceber) {
+    public void setIdContasReceber(Integer idContasReceber) {
         this.idContasReceber = idContasReceber;
     }
 
-    public int getIdVenda() {
+    public Integer getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
+    }
+    
+    public Integer getIdVenda() {
         return idVenda;
     }
 
-    public void setIdVenda(int idVenda) {
+    public void setIdVenda(Integer idVenda) {
         this.idVenda = idVenda;
     }
 
@@ -34,14 +42,6 @@ public class ContasReceberTO {
 
     public void setDataContasReceber(Date dataContasReceber) {
         this.dataContasReceber = dataContasReceber;
-    }
-
-    public String getDescricaoContasReceber() {
-        return descricaoContasReceber;
-    }
-
-    public void setDescricaoContasReceber(String descricaoContasReceber) {
-        this.descricaoContasReceber = descricaoContasReceber;
     }
 
     public int getQuantidadeParcelasContasReceber() {

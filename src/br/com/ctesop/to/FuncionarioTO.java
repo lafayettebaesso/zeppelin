@@ -4,20 +4,30 @@ import java.util.Date;
 
 public class FuncionarioTO extends PessoaTO {
 
-    private int idFuncionario;
+    //A Classe "Integer" é para poder setar o código como nulo no banco de dados (em vez do "0" referente ao int)
+    private Integer idFuncionario;
+    private Integer idPessoa;
     private String nomeMaeFuncionario;
     private Date dataCadastroFuncionario;
     private float salarioFuncionario;
     private String statusFuncionario;
 
-    public int getIdFuncionario() {
+    public Integer getIdFuncionario() {
         return idFuncionario;
     }
 
-    public void setIdFuncionario(int idFuncionario) {
+    public void setIdFuncionario(Integer idFuncionario) {
         this.idFuncionario = idFuncionario;
     }
 
+    public Integer getIdPessoa() {
+        return idPessoa;
+    }
+
+    public void setIdPessoa(Integer idPessoa) {
+        this.idPessoa = idPessoa;
+    }
+    
     public String getNomeMaeFuncionario() {
         return nomeMaeFuncionario;
     }
@@ -48,5 +58,10 @@ public class FuncionarioTO extends PessoaTO {
 
     public void setStatusFuncionario(String statusFuncionario) {
         this.statusFuncionario = statusFuncionario;
+    }
+    
+    @Override
+    public String toString() {
+        return getNomePessoa();
     }
 }

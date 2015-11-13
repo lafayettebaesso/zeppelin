@@ -1,9 +1,20 @@
 package br.com.ctesop.gui;
 
+import br.com.ctesop.componentes.JOptionPane;
+import br.com.ctesop.dao.GrupoProdutoDAO;
+import br.com.ctesop.gui.tablemodel.GrupoProdutoTableModel;
+import br.com.ctesop.to.GrupoProdutoTO;
+import java.util.List;
+
 public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
 
+    int pagina = 0;
+
+    //Criação do formulário GrupoProdutoGUI
     public GrupoProdutoGUI() {
         initComponents();
+        habilitarForm(false); //O formulário está desabilidade, por padrão
+        atualizarGrade();
     }
 
     @SuppressWarnings("unchecked")
@@ -19,18 +30,18 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
         pnAbas = new javax.swing.JTabbedPane();
         pnPesquisa = new javax.swing.JPanel();
         pnPesquisar = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        lbPesquisar = new javax.swing.JLabel();
+        txtPesquisar = new javax.swing.JTextField();
+        btPesquisar = new javax.swing.JButton();
         spGrade = new javax.swing.JScrollPane();
         tbGrade = new javax.swing.JTable();
         pnFormulario = new javax.swing.JPanel();
-        lbCodigo = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
-        lbNomeFuncionario = new javax.swing.JLabel();
-        txtNomeFuncionario = new javax.swing.JTextField();
-        lbStatus = new javax.swing.JLabel();
-        cbStatus = new javax.swing.JComboBox();
+        lbCodigoGrupoProduto = new javax.swing.JLabel();
+        txtCodigoGrupoProduto = new javax.swing.JTextField();
+        lbNomeGrupoProduto = new javax.swing.JLabel();
+        txtNomeGrupoProduto = new javax.swing.JTextField();
+        lbStatusGrupoProduto = new javax.swing.JLabel();
+        cbStatusGrupoProduto = new javax.swing.JComboBox();
 
         setClosable(true);
         setIconifiable(true);
@@ -41,18 +52,33 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
         btNovo.setMaximumSize(new java.awt.Dimension(120, 40));
         btNovo.setMinimumSize(new java.awt.Dimension(120, 40));
         btNovo.setPreferredSize(new java.awt.Dimension(120, 40));
+        btNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovoActionPerformed(evt);
+            }
+        });
 
         btSalvar.setMnemonic('s');
         btSalvar.setText("Salvar");
         btSalvar.setMaximumSize(new java.awt.Dimension(120, 40));
         btSalvar.setMinimumSize(new java.awt.Dimension(120, 40));
         btSalvar.setPreferredSize(new java.awt.Dimension(120, 40));
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
 
         btCancelar.setMnemonic('c');
         btCancelar.setText("Cancelar");
         btCancelar.setMaximumSize(new java.awt.Dimension(120, 40));
         btCancelar.setMinimumSize(new java.awt.Dimension(120, 40));
         btCancelar.setPreferredSize(new java.awt.Dimension(120, 40));
+        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarActionPerformed(evt);
+            }
+        });
 
         btFechar.setMnemonic('f');
         btFechar.setText("Fechar");
@@ -71,11 +97,11 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
             pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBotoesLayout.createSequentialGroup()
                 .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -90,13 +116,18 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
 
         pnPesquisar.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa"));
 
-        jLabel1.setText("Pesquisar:");
+        lbPesquisar.setText("Pesquisar:");
 
-        jButton1.setMnemonic('p');
-        jButton1.setLabel("Pesquisar");
-        jButton1.setMaximumSize(new java.awt.Dimension(120, 40));
-        jButton1.setMinimumSize(new java.awt.Dimension(120, 40));
-        jButton1.setPreferredSize(new java.awt.Dimension(120, 40));
+        btPesquisar.setMnemonic('p');
+        btPesquisar.setLabel("Pesquisar");
+        btPesquisar.setMaximumSize(new java.awt.Dimension(120, 40));
+        btPesquisar.setMinimumSize(new java.awt.Dimension(120, 40));
+        btPesquisar.setPreferredSize(new java.awt.Dimension(120, 40));
+        btPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnPesquisarLayout = new javax.swing.GroupLayout(pnPesquisar);
         pnPesquisar.setLayout(pnPesquisarLayout);
@@ -104,11 +135,11 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
             pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnPesquisarLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jLabel1)
+                .addComponent(lbPesquisar)
                 .addGap(12, 12, 12)
-                .addComponent(jTextField1)
+                .addComponent(txtPesquisar)
                 .addGap(12, 12, 12)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
         pnPesquisarLayout.setVerticalGroup(
@@ -116,9 +147,9 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
             .addGroup(pnPesquisarLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(pnPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbPesquisar)
+                    .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -133,6 +164,11 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbGrade.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbGradeMouseClicked(evt);
+            }
+        });
         spGrade.setViewportView(tbGrade);
 
         javax.swing.GroupLayout pnPesquisaLayout = new javax.swing.GroupLayout(pnPesquisa);
@@ -160,15 +196,20 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
 
         pnFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulário"));
 
-        lbCodigo.setText("Código:");
+        lbCodigoGrupoProduto.setText("Código:");
 
-        txtCodigo.setEditable(false);
+        txtCodigoGrupoProduto.setEditable(false);
+        txtCodigoGrupoProduto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        lbNomeFuncionario.setText("Nome:");
+        lbNomeGrupoProduto.setFont(new java.awt.Font("Droid Sans", 1, 12)); // NOI18N
+        lbNomeGrupoProduto.setText("Nome:");
 
-        lbStatus.setText("Status:");
+        txtNomeGrupoProduto.setDocument(new br.com.ctesop.componentes.MascaraLetrasNumeros(90));
 
-        cbStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ativo", "Inativo" }));
+        lbStatusGrupoProduto.setFont(new java.awt.Font("Droid Sans", 1, 12)); // NOI18N
+        lbStatusGrupoProduto.setText("Status:");
+
+        cbStatusGrupoProduto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ATIVO", "INATIVO" }));
 
         javax.swing.GroupLayout pnFormularioLayout = new javax.swing.GroupLayout(pnFormulario);
         pnFormulario.setLayout(pnFormularioLayout);
@@ -177,34 +218,35 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
             .addGroup(pnFormularioLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbStatus)
-                    .addComponent(lbCodigo)
-                    .addComponent(lbNomeFuncionario))
+                    .addComponent(lbStatusGrupoProduto)
+                    .addComponent(lbCodigoGrupoProduto)
+                    .addComponent(lbNomeGrupoProduto))
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNomeFuncionario)
                     .addGroup(pnFormularioLayout.createSequentialGroup()
                         .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 338, Short.MAX_VALUE)))
-                .addGap(12, 12, 12))
+                            .addComponent(txtCodigoGrupoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbStatusGrupoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(150, 150, 150))
+                    .addGroup(pnFormularioLayout.createSequentialGroup()
+                        .addComponent(txtNomeGrupoProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
+                        .addGap(12, 12, 12))))
         );
         pnFormularioLayout.setVerticalGroup(
             pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnFormularioLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbCodigo)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbCodigoGrupoProduto)
+                    .addComponent(txtCodigoGrupoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNomeFuncionario)
-                    .addComponent(txtNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbNomeGrupoProduto)
+                    .addComponent(txtNomeGrupoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbStatus)
-                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbStatusGrupoProduto)
+                    .addComponent(cbStatusGrupoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );
 
@@ -216,11 +258,9 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(pnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(8, 8, 8))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(pnAbas)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnAbas, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(
@@ -236,24 +276,137 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Eventos//
+    //Evento para quando clicar no botão "Fechar"
     private void btFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFecharActionPerformed
         dispose();
     }//GEN-LAST:event_btFecharActionPerformed
+
+    //Evento para quando clicar no botão "Novo"
+    private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
+        habilitarForm(true);
+        txtCodigoGrupoProduto.setText("0");
+    }//GEN-LAST:event_btNovoActionPerformed
+
+    //Evento para quando clicar no botão "Cancelar"
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        limparForm();
+        habilitarForm(false);
+    }//GEN-LAST:event_btCancelarActionPerformed
+
+    //Evento para quando clicar no botão "Salvar"
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        try {
+            if (!validar()) {
+                return;
+            }
+
+            GrupoProdutoTO grupoProdutoTO = new GrupoProdutoTO();
+
+            grupoProdutoTO.setIdGrupoProduto(Integer.parseInt(txtCodigoGrupoProduto.getText()));
+            grupoProdutoTO.setNomeGrupoProduto(txtNomeGrupoProduto.getText());
+            grupoProdutoTO.setStatusGrupoProduto(cbStatusGrupoProduto.getSelectedItem().toString());
+
+            if (grupoProdutoTO.getIdGrupoProduto() == 0) {
+                GrupoProdutoDAO.inserir(grupoProdutoTO);
+                javax.swing.JOptionPane.showMessageDialog(this, "Grupo de produtos cadastrado com sucesso!");
+            } else {
+                GrupoProdutoDAO.alterar(grupoProdutoTO);
+                javax.swing.JOptionPane.showMessageDialog(this, "Cadastro alterado com sucesso!");
+            }
+
+            atualizarGrade();
+            limparForm();
+            habilitarForm(false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao salvar!\nDados: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btSalvarActionPerformed
+
+    //Evento para quando der 2 cliques em um item da grade
+    private void tbGradeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbGradeMouseClicked
+        if (evt.getClickCount() == 2) {
+            GrupoProdutoTableModel tm = (GrupoProdutoTableModel) tbGrade.getModel();
+            GrupoProdutoTO grupoProduto = tm.get(tbGrade.getSelectedRow());
+
+            txtCodigoGrupoProduto.setText(String.valueOf(grupoProduto.getIdGrupoProduto()));
+            txtNomeGrupoProduto.setText(grupoProduto.getNomeGrupoProduto());
+            cbStatusGrupoProduto.setSelectedItem(grupoProduto.getStatusGrupoProduto());
+
+            habilitarForm(true);
+        }
+    }//GEN-LAST:event_tbGradeMouseClicked
+
+    //Evento para quando clicar no botão "Pesquisar"
+    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+        atualizarGrade();
+    }//GEN-LAST:event_btPesquisarActionPerformed
+
+    //Métodos//
+    //Método que atualiza a grade com os valores cadastrados
+    private void atualizarGrade() {
+        try {
+            String filtro = txtPesquisar.getText();
+
+            GrupoProdutoTableModel tb = new GrupoProdutoTableModel();
+            tb.setDados((List<GrupoProdutoTO>) (Object) GrupoProdutoDAO.listar(GrupoProdutoTO.class, pagina,
+                    "nomeGrupoProduto", filtro));
+            tbGrade.setModel(tb);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao atualizar grade");
+        }
+    }
+
+    //Método que habilita o formulário
+    private void habilitarForm(boolean habilitar) {
+        txtCodigoGrupoProduto.setEnabled(habilitar);
+        txtNomeGrupoProduto.setEnabled(habilitar);
+        cbStatusGrupoProduto.setEnabled(habilitar);
+
+        btNovo.setEnabled(!habilitar);
+        btSalvar.setEnabled(habilitar);
+        btCancelar.setEnabled(habilitar);
+        
+        if(habilitar) {
+            pnAbas.setSelectedIndex(1);
+        } else {
+            pnAbas.setSelectedIndex(0);
+        }
+    }
+
+    //Método que limpa o formulário
+    private void limparForm() {
+        txtCodigoGrupoProduto.setText("");
+        txtNomeGrupoProduto.setText("");
+    }
+
+    //Método de validação dos TextFields
+    private boolean validar() throws Exception {
+        //Validação do "Nome do grupo de produtos"
+        if (txtNomeGrupoProduto.getText().trim().length() < 2 || txtNomeGrupoProduto.getText().trim().length() > 90) {
+            JOptionPane.showMessageDialog(this, "Nome do grupo de produtos inválido.", "Alerta",
+                    JOptionPane.WARNING_MESSAGE);
+            txtNomeGrupoProduto.requestFocus();
+            return false;
+        }
+
+        return true;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btFechar;
     private javax.swing.JButton btNovo;
+    private javax.swing.JButton btPesquisar;
     private javax.swing.JButton btSalvar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox cbStatus;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lbCodigo;
-    private javax.swing.JLabel lbNomeFuncionario;
-    private javax.swing.JLabel lbStatus;
+    private javax.swing.JComboBox cbStatusGrupoProduto;
+    private javax.swing.JLabel lbCodigoGrupoProduto;
+    private javax.swing.JLabel lbNomeGrupoProduto;
+    private javax.swing.JLabel lbPesquisar;
+    private javax.swing.JLabel lbStatusGrupoProduto;
     private javax.swing.JTabbedPane pnAbas;
     private javax.swing.JPanel pnBotoes;
     private javax.swing.JPanel pnFormulario;
@@ -261,7 +414,8 @@ public class GrupoProdutoGUI extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnPesquisar;
     private javax.swing.JScrollPane spGrade;
     private javax.swing.JTable tbGrade;
-    private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtNomeFuncionario;
+    private javax.swing.JTextField txtCodigoGrupoProduto;
+    private javax.swing.JTextField txtNomeGrupoProduto;
+    private javax.swing.JTextField txtPesquisar;
     // End of variables declaration//GEN-END:variables
 }

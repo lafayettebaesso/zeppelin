@@ -1,13 +1,15 @@
 package br.com.ctesop.to;
 
+import java.util.Date;
+
 public class VendaTO {
 
     private int idVenda;
-    private int idUsuario;
-    private int idFuncionario;
     private int idCliente;
-    private float valorPedido;
-    private String statusPedido;
+    private int numeroMesaVenda;
+    private float valorTotalVenda;
+    private Date dataVenda;
+    private String statusVenda;
 
     public int getIdVenda() {
         return idVenda;
@@ -15,22 +17,6 @@ public class VendaTO {
 
     public void setIdVenda(int idVenda) {
         this.idVenda = idVenda;
-    }
-
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public int getIdFuncionario() {
-        return idFuncionario;
-    }
-
-    public void setIdFuncionario(int idFuncionario) {
-        this.idFuncionario = idFuncionario;
     }
 
     public int getIdCliente() {
@@ -41,19 +27,35 @@ public class VendaTO {
         this.idCliente = idCliente;
     }
 
-    public float getValorPedido() {
-        return valorPedido;
+    public int getNumeroMesaVenda() {
+        return numeroMesaVenda;
     }
 
-    public void setValorPedido(float valorPedido) {
-        this.valorPedido = valorPedido;
+    public void setNumeroMesaVenda(int numeroMesaVenda) {
+        this.numeroMesaVenda = numeroMesaVenda;
     }
 
-    public String getStatusPedido() {
-        return statusPedido;
+    public float getValorTotalVenda() {
+        return valorTotalVenda;
     }
 
-    public void setStatusPedido(String statusPedido) {
-        this.statusPedido = statusPedido;
+    public void setValorTotalVenda(float valorTotalVenda) {
+        this.valorTotalVenda = valorTotalVenda;
+    }
+
+    public Date getDataVenda() {
+        return dataVenda;
+    }
+
+    public void setDataVenda(Date dataVenda) {
+        this.dataVenda = dataVenda;
+    }
+
+    public String getStatusVenda() {
+        return statusVenda;
+    }
+
+    public void setStatusVenda(String statusVenda) {
+        this.statusVenda = statusVenda;
     }
 }

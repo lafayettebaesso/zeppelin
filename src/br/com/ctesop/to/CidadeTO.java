@@ -43,6 +43,15 @@ public class CidadeTO {
     public String toString() {
         return getNomeCidade();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof CidadeTO)){
+            return false;
+        }
+        CidadeTO cidade = (CidadeTO) obj;
+         return getIdCidade() == cidade.getIdCidade();
+    }
     
     
 }

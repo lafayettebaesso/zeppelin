@@ -4,18 +4,18 @@ import java.util.Date;
 
 public class PessoaFisicaTO {
 
-    private int idPessoaFisica;
+    private Integer idPessoaFisica;
     private String cpfPessoaFisica;
     private String rgPessoaFisica;
     private String orgaoEmissorRgPessoaFisica;
     private Date dataNascimentoPessoaFisica;
     private String inscricaoEstadualPessoaFisica;
 
-    public int getIdPessoaFisica() {
+    public Integer getIdPessoaFisica() {
         return idPessoaFisica;
     }
 
-    public void setIdPessoaFisica(int idPessoaFisica) {
+    public void setIdPessoaFisica(Integer idPessoaFisica) {
         this.idPessoaFisica = idPessoaFisica;
     }
 

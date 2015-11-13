@@ -10,10 +10,9 @@ public class PessoaTO {
     private Integer idCidade;
     private String nomePessoa;
     private String enderecoPessoa;
+    private String celularPessoa;
     private String telefonePessoa;
     private String telefoneComercialPessoa;
-    private String celularPessoa;
-    private Date dataNascimentoPessoa;
     private String sexoPessoa;
 
     public Integer getIdPessoa() {
@@ -40,11 +39,12 @@ public class PessoaTO {
         this.idPessoaJuridica = idPessoaJuridica;
     }
 
-    public void setIdCidade(Integer idCidade) {
-        this.idCidade = idCidade;
-    }
     public Integer getIdCidade() {
         return idCidade;
+    }
+
+    public void setIdCidade(Integer idCidade) {
+        this.idCidade = idCidade;
     }
 
     public String getNomePessoa() {
@@ -62,7 +62,15 @@ public class PessoaTO {
     public void setEnderecoPessoa(String enderecoPessoa) {
         this.enderecoPessoa = enderecoPessoa;
     }
-    
+
+    public String getCelularPessoa() {
+        return celularPessoa;
+    }
+
+    public void setCelularPessoa(String celularPessoa) {
+        this.celularPessoa = celularPessoa;
+    }
+
     public String getTelefonePessoa() {
         return telefonePessoa;
     }
@@ -75,24 +83,8 @@ public class PessoaTO {
         return telefoneComercialPessoa;
     }
 
-    public void setTelefoneComercialPessoa(String telefonePessoaComercial) {
-        this.telefoneComercialPessoa = telefonePessoaComercial;
-    }
-
-    public String getCelularPessoa() {
-        return celularPessoa;
-    }
-
-    public void setCelularPessoa(String celularPessoa) {
-        this.celularPessoa = celularPessoa;
-    }
-
-    public Date getDataNascimentoPessoa() {
-        return dataNascimentoPessoa;
-    }
-
-    public void setDataNascimentoPessoa(Date dataNascimentoPessoa) {
-        this.dataNascimentoPessoa = dataNascimentoPessoa;
+    public void setTelefoneComercialPessoa(String telefoneComercialPessoa) {
+        this.telefoneComercialPessoa = telefoneComercialPessoa;
     }
 
     public String getSexoPessoa() {
@@ -102,5 +94,18 @@ public class PessoaTO {
     public void setSexoPessoa(String sexoPessoa) {
         this.sexoPessoa = sexoPessoa;
     }
+    
+    @Override
+    public String toString() {
+        return getNomePessoa();
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof PessoaTO)){
+            return false;
+        }
+        PessoaTO pessoa = (PessoaTO) obj;
+         return getIdPessoa() == pessoa.getIdPessoa();
+    }
 }

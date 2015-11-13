@@ -4,26 +4,26 @@ import java.util.Date;
 
 public class ParcelasContasPagarTO {
 
-    private int idParcelasContasPagar;
-    private int idContasPagar;
+    private Integer idParcelasContasPagar;
+    private Integer idContasPagar;
     private int numeroParcelasContasPagar;
     private float valorParcelasContasPagar;
     private Date vencimentoParcelasContasPagar;
     private String statusParcelasContasPagar;
 
-    public int getIdParcelasContasPagar() {
+    public Integer getIdParcelasContasPagar() {
         return idParcelasContasPagar;
     }
 
-    public void setIdParcelasContasPagar(int idParcelasContasPagar) {
+    public void setIdParcelasContasPagar(Integer idParcelasContasPagar) {
         this.idParcelasContasPagar = idParcelasContasPagar;
     }
 
-    public int getIdContasPagar() {
+    public Integer getIdContasPagar() {
         return idContasPagar;
     }
 
-    public void setIdContasPagar(int idContasPagar) {
+    public void setIdContasPagar(Integer idContasPagar) {
         this.idContasPagar = idContasPagar;
     }
 

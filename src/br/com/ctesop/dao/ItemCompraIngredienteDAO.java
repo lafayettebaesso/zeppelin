@@ -1,6 +1,6 @@
 package br.com.ctesop.dao;
 
-public class ItemCompraIngredienteDAO {
+public class ItemCompraIngredienteDAO extends GenericDAO {
 
     
 }

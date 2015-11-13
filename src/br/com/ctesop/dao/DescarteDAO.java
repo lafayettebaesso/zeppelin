@@ -1,6 +1,6 @@
 package br.com.ctesop.dao;
 
-public class DescarteDAO {
+public class DescarteDAO extends GenericDAO {
 
     
 }

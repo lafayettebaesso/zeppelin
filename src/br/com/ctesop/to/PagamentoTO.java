@@ -4,27 +4,26 @@ import java.util.Date;
 
 public class PagamentoTO {
 
-    private int idPagamento;
-    private int idParcelasContasPagar;
+    private Integer idPagamento;
+    private Integer idParcelasContasPagar;
     private float valorPagamento;
     private float jurosPagamento;
     private float descontoPagamento;
     private Date dataPagamento;
-    private String statusPagamento;
 
-    public int getIdPagamento() {
+    public Integer getIdPagamento() {
         return idPagamento;
     }
 
-    public void setIdPagamento(int idPagamento) {
+    public void setIdPagamento(Integer idPagamento) {
         this.idPagamento = idPagamento;
     }
 
-    public int getIdParcelasContasPagar() {
+    public Integer getIdParcelasContasPagar() {
         return idParcelasContasPagar;
     }
 
-    public void setIdParcelasContasPagar(int idParcelasContasPagar) {
+    public void setIdParcelasContasPagar(Integer idParcelasContasPagar) {
         this.idParcelasContasPagar = idParcelasContasPagar;
     }
 
@@ -58,13 +57,5 @@ public class PagamentoTO {
 
     public void setDataPagamento(Date dataPagamento) {
         this.dataPagamento = dataPagamento;
-    }
-
-    public String getStatusPagamento() {
-        return statusPagamento;
-    }
-
-    public void setStatusPagamento(String statusPagamento) {
-        this.statusPagamento = statusPagamento;
     }
 }

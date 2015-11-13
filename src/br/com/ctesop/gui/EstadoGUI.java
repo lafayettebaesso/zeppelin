@@ -36,14 +36,14 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
         spGrade = new javax.swing.JScrollPane();
         tbGrade = new javax.swing.JTable();
         pnFormulario = new javax.swing.JPanel();
-        lbCodigo = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
+        lbCodigoEstado = new javax.swing.JLabel();
+        txtCodigoEstado = new javax.swing.JTextField();
         lbNomeEstado = new javax.swing.JLabel();
         txtNomeEstado = new javax.swing.JTextField();
-        lbSigla = new javax.swing.JLabel();
-        txtSigla = new javax.swing.JTextField();
-        lbStatus = new javax.swing.JLabel();
-        cbStatus = new javax.swing.JComboBox();
+        lbSiglaEstado = new javax.swing.JLabel();
+        txtSiglaEstado = new javax.swing.JTextField();
+        lbStatusEstado = new javax.swing.JLabel();
+        cbStatusEstado = new javax.swing.JComboBox();
 
         setClosable(true);
         setIconifiable(true);
@@ -120,6 +120,8 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
 
         lbPesquisar.setText("Pesquisar:");
 
+        txtPesquisar.setDocument(new br.com.ctesop.componentes.MascaraLetras(45));
+
         btPesquisar.setMnemonic('p');
         btPesquisar.setLabel("Pesquisar");
         btPesquisar.setMaximumSize(new java.awt.Dimension(120, 40));
@@ -138,7 +140,7 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
             .addGroup(pnPesquisarLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(lbPesquisar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(txtPesquisar)
                 .addGap(12, 12, 12)
                 .addComponent(btPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,17 +200,25 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
 
         pnFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulário"));
 
-        lbCodigo.setText("Código:");
+        lbCodigoEstado.setText("Código:");
 
-        txtCodigo.setEditable(false);
+        txtCodigoEstado.setEditable(false);
+        txtCodigoEstado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        lbNomeEstado.setFont(new java.awt.Font("Droid Sans", 1, 12)); // NOI18N
         lbNomeEstado.setText("Nome do estado:");
 
-        lbSigla.setText("Sigla");
+        txtNomeEstado.setDocument(new br.com.ctesop.componentes.MascaraLetras(45));
 
-        lbStatus.setText("Status:");
+        lbSiglaEstado.setFont(new java.awt.Font("Droid Sans", 1, 12)); // NOI18N
+        lbSiglaEstado.setText("Sigla");
 
-        cbStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ativo", "Inativo" }));
+        txtSiglaEstado.setDocument(new br.com.ctesop.componentes.MascaraLetras(2));
+
+        lbStatusEstado.setFont(new java.awt.Font("Droid Sans", 1, 12)); // NOI18N
+        lbStatusEstado.setText("Status:");
+
+        cbStatusEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ATIVO", "INATIVO" }));
 
         javax.swing.GroupLayout pnFormularioLayout = new javax.swing.GroupLayout(pnFormulario);
         pnFormulario.setLayout(pnFormularioLayout);
@@ -217,19 +227,19 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
             .addGroup(pnFormularioLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbCodigo)
+                    .addComponent(lbCodigoEstado)
                     .addComponent(lbNomeEstado)
-                    .addComponent(lbStatus)
-                    .addComponent(lbSigla))
+                    .addComponent(lbStatusEstado)
+                    .addComponent(lbSiglaEstado))
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNomeEstado)
                     .addGroup(pnFormularioLayout.createSequentialGroup()
                         .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 275, Short.MAX_VALUE)))
+                            .addComponent(cbStatusEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCodigoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSiglaEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 277, Short.MAX_VALUE)))
                 .addGap(12, 12, 12))
         );
         pnFormularioLayout.setVerticalGroup(
@@ -237,21 +247,21 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
             .addGroup(pnFormularioLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbCodigo)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbCodigoEstado)
+                    .addComponent(txtCodigoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNomeEstado)
                     .addComponent(txtNomeEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbSigla)
-                    .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbSiglaEstado)
+                    .addComponent(txtSiglaEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(pnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbStatus)
-                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(78, Short.MAX_VALUE))
+                    .addComponent(lbStatusEstado)
+                    .addComponent(cbStatusEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pnAbas.addTab("Cadastro", pnFormulario);
@@ -273,36 +283,87 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addComponent(pnBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(pnAbas, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnAbas, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Eventos
+    //Evento para quando clicar no botão "Fechar"
     private void btFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFecharActionPerformed
         dispose();
     }//GEN-LAST:event_btFecharActionPerformed
 
+    ////Evento para quando clicar no botão "Novo"
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
-        //Quando clicar em "Novo" habilita o formulário e seta um valor para o código
         habilitarForm(true);
-        txtCodigo.setText("0");
+        txtCodigoEstado.setText("0");
     }//GEN-LAST:event_btNovoActionPerformed
 
-    //Ações para quando clicar no botão "Novo"   
-    private void habilitarForm(boolean habilitar) {
-        txtCodigo.setEnabled(habilitar);
-        txtNomeEstado.setEnabled(habilitar);
-        txtSigla.setEnabled(habilitar);
-        cbStatus.setEnabled(habilitar);
+    //Evento para quando clicar no botão "Salvar"
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        try {
 
-        btNovo.setEnabled(!habilitar);
-        btSalvar.setEnabled(habilitar);
-        btCancelar.setEnabled(habilitar);
-    }
+            EstadoTO estadoTO = new EstadoTO();
 
-    @SuppressWarnings("unchecked")
+            estadoTO.setIdEstado(Integer.parseInt(txtCodigoEstado.getText()));
+            estadoTO.setNomeEstado(txtNomeEstado.getText().trim());
+            estadoTO.setSiglaEstado(txtSiglaEstado.getText());
+            estadoTO.setStatusEstado(cbStatusEstado.getSelectedItem().toString());
+
+            if(estadoTO.getIdEstado() == 0) {
+                //Verifica se já há algum cadastro igual
+                if(!validar()) {
+                    return;
+                //Insere o novo cadastro
+                } else {
+                    EstadoDAO.inserir(estadoTO);
+                    JOptionPane.showMessageDialog(this, "Estado cadastrado com sucesso!");
+                }
+            } else {
+                EstadoDAO.alterar(estadoTO);
+                JOptionPane.showMessageDialog(this, "Cadastro alterado com sucesso!");
+            }
+
+            atualizarGrade();
+            limparForm();
+            habilitarForm(false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao salvar!\nDados: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btSalvarActionPerformed
+
+    //Evento para quando clicar no botão "Cancelar"
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        //Quando clica em "Cancelar" limpa os campos de texto e desabilita o formulário
+        limparForm();
+        habilitarForm(false);
+    }//GEN-LAST:event_btCancelarActionPerformed
+
+    //Evento para quando der 2 cliques em um item da grade
+    private void tbGradeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbGradeMouseClicked
+        if (evt.getClickCount() == 2) {
+            EstadoTableModel tm = (EstadoTableModel) tbGrade.getModel();
+            EstadoTO estado = tm.get(tbGrade.getSelectedRow());
+
+            txtCodigoEstado.setText(String.valueOf(estado.getIdEstado()));
+            txtNomeEstado.setText(estado.getNomeEstado());
+            txtSiglaEstado.setText(estado.getSiglaEstado());
+            cbStatusEstado.setSelectedItem(estado.getStatusEstado());
+
+            habilitarForm(true);
+        }
+    }//GEN-LAST:event_tbGradeMouseClicked
+
+    //Evento para quando clicar no botão "Pesquisar"
+    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+        atualizarGrade();
+    }//GEN-LAST:event_btPesquisarActionPerformed
+
+    //Métodos//
+    //Método que atualiza a grade com os valores cadastrados
     private void atualizarGrade() {
         try {
             String filtro = txtPesquisar.getText();
@@ -316,97 +377,51 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
         }
     }
 
+    //Método que habilita o formulário 
+    private void habilitarForm(boolean habilitar) {
+        txtCodigoEstado.setEnabled(habilitar);
+        txtNomeEstado.setEnabled(habilitar);
+        txtSiglaEstado.setEnabled(habilitar);
+        cbStatusEstado.setEnabled(habilitar);
 
-    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        //Ações para quando clicar no botão "Salvar"
-        try {
+        btNovo.setEnabled(!habilitar);
+        btSalvar.setEnabled(habilitar);
+        btCancelar.setEnabled(habilitar);
 
-            if (!validar()) {
-                return;
-            }
-
-            EstadoTO estadoTO = new EstadoTO();
-
-            estadoTO.setIdEstado(Integer.parseInt(txtCodigo.getText()));
-            estadoTO.setNomeEstado(txtNomeEstado.getText());
-            estadoTO.setSiglaEstado(txtSigla.getText());
-            estadoTO.setStatusEstado(cbStatus.getSelectedItem().toString());
-
-            if (estadoTO.getIdEstado() == 0) {
-                EstadoDAO.inserir(estadoTO);
-            } else {
-                EstadoDAO.alterar(estadoTO);
-            }
-
-            JOptionPane.showMessageDialog(this, "Estado cadastrado com sucesso!");
-
-            atualizarGrade();
-            limparForm();
-            habilitarForm(false);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Erro ao salvar!\nDados: " + e.getMessage());
+        if (habilitar) {
+            pnAbas.setSelectedIndex(1);
+        } else {
+            pnAbas.setSelectedIndex(0);
         }
-    }//GEN-LAST:event_btSalvarActionPerformed
+    }
 
-    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        limparForm();
-        habilitarForm(false);
-    }//GEN-LAST:event_btCancelarActionPerformed
-
-    private void tbGradeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbGradeMouseClicked
-        /* Código para carregar as informações da grade para o formulário
-         Quando o usuário der dois cliques no Estado o mesmo é carregado no formulário */
-        if (evt.getClickCount() == 2) {
-            EstadoTableModel tm = (EstadoTableModel) tbGrade.getModel();
-            EstadoTO estado = tm.get(tbGrade.getSelectedRow());
-
-            txtCodigo.setText(String.valueOf(estado.getIdEstado()));
-            txtNomeEstado.setText(estado.getNomeEstado());
-            txtSigla.setText(estado.getSiglaEstado());
-            cbStatus.setSelectedItem(estado.getStatusEstado());
-
-            habilitarForm(true);
-        }
-    }//GEN-LAST:event_tbGradeMouseClicked
-
-    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
-        atualizarGrade();
-    }//GEN-LAST:event_btPesquisarActionPerformed
-
-    //Ações para quando clicar no botão "Cancelar"
+    //Método que limpa o formulário
     private void limparForm() {
-        txtCodigo.setText("");
+        txtCodigoEstado.setText("");
         txtNomeEstado.setText("");
-        txtSigla.setText("");
+        txtSiglaEstado.setText("");
     }
 
     //Método de validação do TextField
     private boolean validar() throws Exception {
         //Validação do "Nome do estado"
-        if (txtNomeEstado.getText().trim().length() < 3 || txtNomeEstado.getText().trim().length() > 45) {
+        if (txtNomeEstado.getText().trim().length() < 3) {
             JOptionPane.showMessageDialog(this, "Nome do estado inválido.", "Alerta", JOptionPane.WARNING_MESSAGE);
             txtNomeEstado.requestFocus();
             return false;
         }
 
-        //Para verificar se o "Nome do estado" já está cadastrado
-        if (EstadoDAO.verificaNomeExiste(txtNomeEstado.getText().trim())) {
-            JOptionPane.showMessageDialog(this, "Nome do estado já cadastrado.", "Alerta", JOptionPane.WARNING_MESSAGE);
-            txtNomeEstado.requestFocus();
-            return false;
-        }
-
         //Validação da "Sigla do estado"
-        if (txtSigla.getText().trim().length() != 2) {
+        if (txtSiglaEstado.getText().trim().length() != 2) {
             JOptionPane.showMessageDialog(this, "Sigla do estado inválida.", "Alerta", JOptionPane.WARNING_MESSAGE);
-            txtSigla.requestFocus();
+            txtSiglaEstado.requestFocus();
             return false;
         }
 
         //Para verificar se a sigla do estado já está cadastrada
-        if (EstadoDAO.verificaSiglaExiste(txtSigla.getText().trim())) {
+        if (EstadoDAO.verificaSiglaExiste(txtSiglaEstado.getText().trim())) {
             JOptionPane.showMessageDialog(this, "Sigla do estado já cadastrada.", "Alerta", JOptionPane.WARNING_MESSAGE);
-            txtSigla.requestFocus();
+            txtSiglaEstado.requestFocus();
             return false;
         }
 
@@ -420,12 +435,12 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
     private javax.swing.JButton btPesquisar;
     private javax.swing.JButton btSalvar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox cbStatus;
-    private javax.swing.JLabel lbCodigo;
+    private javax.swing.JComboBox cbStatusEstado;
+    private javax.swing.JLabel lbCodigoEstado;
     private javax.swing.JLabel lbNomeEstado;
     private javax.swing.JLabel lbPesquisar;
-    private javax.swing.JLabel lbSigla;
-    private javax.swing.JLabel lbStatus;
+    private javax.swing.JLabel lbSiglaEstado;
+    private javax.swing.JLabel lbStatusEstado;
     private javax.swing.JTabbedPane pnAbas;
     private javax.swing.JPanel pnBotoes;
     private javax.swing.JPanel pnFormulario;
@@ -433,9 +448,9 @@ public class EstadoGUI extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnPesquisar;
     private javax.swing.JScrollPane spGrade;
     private javax.swing.JTable tbGrade;
-    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtCodigoEstado;
     private javax.swing.JTextField txtNomeEstado;
     private javax.swing.JTextField txtPesquisar;
-    private javax.swing.JTextField txtSigla;
+    private javax.swing.JTextField txtSiglaEstado;
     // End of variables declaration//GEN-END:variables
 }

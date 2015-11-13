@@ -2,31 +2,45 @@ package br.com.ctesop.to;
 
 public class GrupoProdutoTO {
 
-    private int idGrupo;
-    private int idProduto;
-    private String nomeGrupo;
+    private int idGrupoProduto;
+    private String nomeGrupoProduto;
+    private String statusGrupoProduto;
 
-    public int getIdGrupo() {
-        return idGrupo;
+    public int getIdGrupoProduto() {
+        return idGrupoProduto;
     }
 
-    public void setIdGrupo(int idGrupo) {
-        this.idGrupo = idGrupo;
+    public void setIdGrupoProduto(int idGrupoProduto) {
+        this.idGrupoProduto = idGrupoProduto;
     }
 
-    public int getIdProduto() {
-        return idProduto;
+    public String getNomeGrupoProduto() {
+        return nomeGrupoProduto;
     }
 
-    public void setIdProduto(int idProduto) {
-        this.idProduto = idProduto;
+    public void setNomeGrupoProduto(String nomeGrupoProduto) {
+        this.nomeGrupoProduto = nomeGrupoProduto;
     }
 
-    public String getNomeGrupo() {
-        return nomeGrupo;
+    public String getStatusGrupoProduto() {
+        return statusGrupoProduto;
     }
 
-    public void setNomeGrupo(String nomeGrupo) {
-        this.nomeGrupo = nomeGrupo;
+    public void setStatusGrupoProduto(String statusGrupoProduto) {
+        this.statusGrupoProduto = statusGrupoProduto;
+    }
+    
+     @Override
+    public String toString() {
+        return getNomeGrupoProduto();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof GrupoProdutoTO)){
+            return false;
+        }
+        GrupoProdutoTO gp = (GrupoProdutoTO) obj;
+         return getIdGrupoProduto() == gp.getIdGrupoProduto();
     }
 }

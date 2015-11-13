@@ -11,7 +11,7 @@ public class Conexao {
     public Conexao() throws Exception {
         //Estabelece a conexão com o banco de dados
         try {
-            String url = "jdbc:mysql://localhost:3306/dbzeppelin";
+            String url = "jdbc:mysql://localhost:3306/zeppelin";
             String usuario = "root";
             String senha = "";
 

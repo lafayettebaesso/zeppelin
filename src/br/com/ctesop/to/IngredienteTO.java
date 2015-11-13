@@ -2,25 +2,19 @@ package br.com.ctesop.to;
 
 public class IngredienteTO {
 
-    private int idIngrediente;
-    private int idItemProducao;
+    private Integer idIngrediente;
+    //private int idItemProducao;
     private String nomeIngrediente;
-    private String descricaoIngrediente;
+    private float precoCustoIngrediente;
+    private Integer quantidadeIngrediente;
+    private String statusIngrediente;
 
-    public int getIdIngrediente() {
+    public Integer getIdIngrediente() {
         return idIngrediente;
     }
 
-    public void setIdIngrediente(int idIngrediente) {
+    public void setIdIngrediente(Integer idIngrediente) {
         this.idIngrediente = idIngrediente;
-    }
-
-    public int getIdItemProducao() {
-        return idItemProducao;
-    }
-
-    public void setIdItemProducao(int idItemProducao) {
-        this.idItemProducao = idItemProducao;
     }
 
     public String getNomeIngrediente() {
@@ -31,11 +25,29 @@ public class IngredienteTO {
         this.nomeIngrediente = nomeIngrediente;
     }
 
-    public String getDescricaoIngrediente() {
-        return descricaoIngrediente;
+    public float getPrecoCustoIngrediente() {
+        return precoCustoIngrediente;
     }
 
-    public void setDescricaoIngrediente(String descricaoIngrediente) {
-        this.descricaoIngrediente = descricaoIngrediente;
+    public void setPrecoCustoIngrediente(float precoCustoIngrediente) {
+        this.precoCustoIngrediente = precoCustoIngrediente;
     }
+
+    public Integer getQuantidadeIngrediente() {
+        return quantidadeIngrediente;
+    }
+
+    public void setQuantidadeIngrediente(Integer quantidadeIngrediente) {
+        this.quantidadeIngrediente = quantidadeIngrediente;
+    }
+
+    public String getStatusIngrediente() {
+        return statusIngrediente;
+    }
+
+    public void setStatusIngrediente(String statusIngrediente) {
+        this.statusIngrediente = statusIngrediente;
+    }
+
+    
 }

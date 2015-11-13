@@ -27,7 +27,7 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
         pnBotoes = new javax.swing.JPanel();
         btNovo = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
-        btCancelar = new javax.swing.JButton();
+        btFinalizar = new javax.swing.JButton();
         btFechar = new javax.swing.JButton();
         pnAbas = new javax.swing.JTabbedPane();
         pnPesquisaDelivery = new javax.swing.JPanel();
@@ -39,26 +39,25 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
         tbGradePesquisaDelivery = new javax.swing.JTable();
         pnFormulario = new javax.swing.JPanel();
         pnDadosDelivery = new javax.swing.JPanel();
-        lbCodigo = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
-        lbCliente = new javax.swing.JLabel();
-        txtCliente = new javax.swing.JTextField();
-        btPesquisarCliente = new javax.swing.JButton();
-        lbEndereco = new javax.swing.JLabel();
-        txtEndereco = new javax.swing.JTextField();
-        lbNumero = new javax.swing.JLabel();
-        txtNumero = new javax.swing.JTextField();
-        lbBairro = new javax.swing.JLabel();
-        txtBairro = new javax.swing.JTextField();
-        lbPontoReferencia = new javax.swing.JLabel();
-        txtPontoReferencia = new javax.swing.JTextField();
-        lbStatus = new javax.swing.JLabel();
-        cbStatus = new javax.swing.JComboBox();
+        lbCodigoDelivery = new javax.swing.JLabel();
+        txtCodigoDelivery = new javax.swing.JTextField();
+        lbClienteDelivery = new javax.swing.JLabel();
+        lbEnderecoDelivery = new javax.swing.JLabel();
+        txtEnderecoDelivery = new javax.swing.JTextField();
+        lbNumeroDelivery = new javax.swing.JLabel();
+        txtNumeroDelivery = new javax.swing.JTextField();
+        lbBairroDelivery = new javax.swing.JLabel();
+        txtBairroDelivery = new javax.swing.JTextField();
+        lbPontoReferenciaDelivery = new javax.swing.JLabel();
+        txtPontoReferenciaDelivery = new javax.swing.JTextField();
+        lbStatusDelivery = new javax.swing.JLabel();
+        cbStatusDelivery = new javax.swing.JComboBox();
+        jComboBox1 = new javax.swing.JComboBox();
         pnProdutosDelivery = new javax.swing.JPanel();
-        btPesquisarProduto = new javax.swing.JButton();
-        btEditarProduto = new javax.swing.JButton();
-        lbValorTotal = new javax.swing.JLabel();
-        txtValorTotal = new javax.swing.JTextField();
+        btAdicionarProduto = new javax.swing.JButton();
+        btExcluirProduto = new javax.swing.JButton();
+        lbValorTotalDelivery = new javax.swing.JLabel();
+        txtValorTotalDelivery = new javax.swing.JFormattedTextField();
         spGradeProdutoDelivery = new javax.swing.JScrollPane();
         tbGradeProdutoDelivery = new javax.swing.JTable();
 
@@ -78,11 +77,11 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
         btSalvar.setMinimumSize(new java.awt.Dimension(120, 40));
         btSalvar.setPreferredSize(new java.awt.Dimension(120, 40));
 
-        btCancelar.setMnemonic('c');
-        btCancelar.setText("Cancelar");
-        btCancelar.setMaximumSize(new java.awt.Dimension(120, 40));
-        btCancelar.setMinimumSize(new java.awt.Dimension(120, 40));
-        btCancelar.setPreferredSize(new java.awt.Dimension(120, 40));
+        btFinalizar.setMnemonic('c');
+        btFinalizar.setText("Finalizar");
+        btFinalizar.setMaximumSize(new java.awt.Dimension(120, 40));
+        btFinalizar.setMinimumSize(new java.awt.Dimension(120, 40));
+        btFinalizar.setPreferredSize(new java.awt.Dimension(120, 40));
 
         btFechar.setMnemonic('f');
         btFechar.setText("Fechar");
@@ -101,11 +100,11 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
             pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBotoesLayout.createSequentialGroup()
                 .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
+                .addComponent(btFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -114,7 +113,7 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
             .addGroup(pnBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -154,15 +153,20 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
 
         tbGradePesquisaDelivery.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Código", "Nome", "Endereço", "Valor"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         spGradePesquisaDelivery.setViewportView(tbGradePesquisaDelivery);
 
         javax.swing.GroupLayout pnPesquisaDeliveryLayout = new javax.swing.GroupLayout(pnPesquisaDelivery);
@@ -173,7 +177,7 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(pnPesquisaDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(spGradePesquisaDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE))
+                    .addComponent(spGradePesquisaDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
         pnPesquisaDeliveryLayout.setVerticalGroup(
@@ -182,7 +186,7 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(pnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(spGradePesquisaDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+                .addComponent(spGradePesquisaDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -190,30 +194,30 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
 
         pnDadosDelivery.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Delivery"));
 
-        lbCodigo.setText("Código:");
+        lbCodigoDelivery.setText("Código:");
 
-        txtCodigo.setEditable(false);
+        txtCodigoDelivery.setEditable(false);
 
-        lbCliente.setText("Cliente:");
+        lbClienteDelivery.setFont(new java.awt.Font("Droid Sans", 1, 12)); // NOI18N
+        lbClienteDelivery.setText("Cliente:");
 
-        btPesquisarCliente.setText("...");
-        btPesquisarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btPesquisarClienteActionPerformed(evt);
-            }
-        });
+        lbEnderecoDelivery.setFont(new java.awt.Font("Droid Sans", 1, 12)); // NOI18N
+        lbEnderecoDelivery.setText("Endereço:");
 
-        lbEndereco.setText("Endereço:");
+        lbNumeroDelivery.setFont(new java.awt.Font("Droid Sans", 1, 12)); // NOI18N
+        lbNumeroDelivery.setText("Número:");
 
-        lbNumero.setText("Número:");
+        lbBairroDelivery.setFont(new java.awt.Font("Droid Sans", 1, 12)); // NOI18N
+        lbBairroDelivery.setText("Bairro:");
 
-        lbBairro.setText("Bairro:");
+        lbPontoReferenciaDelivery.setText("Ponto de referência:");
 
-        lbPontoReferencia.setText("Ponto de referência:");
+        lbStatusDelivery.setFont(new java.awt.Font("Droid Sans", 1, 12)); // NOI18N
+        lbStatusDelivery.setText("Status:");
 
-        lbStatus.setText("Status:");
+        cbStatusDelivery.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ativo", "Inativo" }));
 
-        cbStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ativo", "Inativo" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout pnDadosDeliveryLayout = new javax.swing.GroupLayout(pnDadosDelivery);
         pnDadosDelivery.setLayout(pnDadosDeliveryLayout);
@@ -222,32 +226,28 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
             .addGroup(pnDadosDeliveryLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnDadosDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbStatus)
-                    .addComponent(lbNumero)
-                    .addComponent(lbPontoReferencia)
-                    .addComponent(lbEndereco)
-                    .addComponent(lbCodigo))
+                    .addComponent(lbStatusDelivery)
+                    .addComponent(lbNumeroDelivery)
+                    .addComponent(lbPontoReferenciaDelivery)
+                    .addComponent(lbEnderecoDelivery)
+                    .addComponent(lbCodigoDelivery))
                 .addGap(12, 12, 12)
                 .addGroup(pnDadosDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEndereco)
+                    .addComponent(txtEnderecoDelivery)
                     .addGroup(pnDadosDeliveryLayout.createSequentialGroup()
-                        .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNumeroDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)
-                        .addComponent(lbBairro)
+                        .addComponent(lbBairroDelivery)
                         .addGap(12, 12, 12)
-                        .addComponent(txtBairro))
-                    .addComponent(txtPontoReferencia)
+                        .addComponent(txtBairroDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE))
+                    .addComponent(txtPontoReferenciaDelivery)
+                    .addComponent(cbStatusDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnDadosDeliveryLayout.createSequentialGroup()
-                        .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnDadosDeliveryLayout.createSequentialGroup()
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCodigoDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)
-                        .addComponent(lbCliente)
-                        .addGap(12, 12, 12)
-                        .addComponent(txtCliente)
-                        .addGap(12, 12, 12)
-                        .addComponent(btPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbClienteDelivery)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(12, 12, 12))
         );
         pnDadosDeliveryLayout.setVerticalGroup(
@@ -255,70 +255,71 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
             .addGroup(pnDadosDeliveryLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnDadosDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbCodigo)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbCliente)
-                    .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbCodigoDelivery)
+                    .addComponent(txtCodigoDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbClienteDelivery)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(pnDadosDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbEndereco)
-                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbEnderecoDelivery)
+                    .addComponent(txtEnderecoDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(pnDadosDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNumero)
-                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbBairro)
-                    .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbNumeroDelivery)
+                    .addComponent(txtNumeroDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbBairroDelivery)
+                    .addComponent(txtBairroDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(pnDadosDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbPontoReferencia)
-                    .addComponent(txtPontoReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbPontoReferenciaDelivery)
+                    .addComponent(txtPontoReferenciaDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(pnDadosDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbStatus)
-                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbStatusDelivery)
+                    .addComponent(cbStatusDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
 
         pnProdutosDelivery.setBorder(javax.swing.BorderFactory.createTitledBorder("Produtos do Delivery"));
 
-        btPesquisarProduto.setMnemonic('p');
-        btPesquisarProduto.setText("Pesquisar um produto");
-        btPesquisarProduto.setMaximumSize(new java.awt.Dimension(120, 40));
-        btPesquisarProduto.setMinimumSize(new java.awt.Dimension(120, 40));
-        btPesquisarProduto.setPreferredSize(new java.awt.Dimension(120, 40));
-        btPesquisarProduto.addActionListener(new java.awt.event.ActionListener() {
+        btAdicionarProduto.setMnemonic('p');
+        btAdicionarProduto.setText("Adicionar produto");
+        btAdicionarProduto.setMaximumSize(new java.awt.Dimension(120, 40));
+        btAdicionarProduto.setMinimumSize(new java.awt.Dimension(120, 40));
+        btAdicionarProduto.setPreferredSize(new java.awt.Dimension(120, 40));
+        btAdicionarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btPesquisarProdutoActionPerformed(evt);
+                btAdicionarProdutoActionPerformed(evt);
             }
         });
 
-        btEditarProduto.setText("Editar");
-        btEditarProduto.setMaximumSize(new java.awt.Dimension(120, 40));
-        btEditarProduto.setMinimumSize(new java.awt.Dimension(120, 40));
-        btEditarProduto.setPreferredSize(new java.awt.Dimension(120, 40));
-        btEditarProduto.addActionListener(new java.awt.event.ActionListener() {
+        btExcluirProduto.setText("Excluir lançamento");
+        btExcluirProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEditarProdutoActionPerformed(evt);
+                btExcluirProdutoActionPerformed(evt);
             }
         });
 
-        lbValorTotal.setText("Valor total:");
+        lbValorTotalDelivery.setText("Valor total:");
 
-        txtValorTotal.setEditable(false);
+        txtValorTotalDelivery.setEditable(false);
 
         tbGradeProdutoDelivery.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Código", "Nome", "Quantidade", "Valor"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         spGradeProdutoDelivery.setViewportView(tbGradeProdutoDelivery);
 
         javax.swing.GroupLayout pnProdutosDeliveryLayout = new javax.swing.GroupLayout(pnProdutosDelivery);
@@ -329,14 +330,14 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(pnProdutosDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnProdutosDeliveryLayout.createSequentialGroup()
-                        .addComponent(btPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addComponent(btEditarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(btExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbValorTotal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(spGradeProdutoDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE))
+                        .addComponent(lbValorTotalDelivery)
+                        .addGap(12, 12, 12)
+                        .addComponent(txtValorTotalDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spGradeProdutoDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
         pnProdutosDeliveryLayout.setVerticalGroup(
@@ -344,10 +345,10 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnProdutosDeliveryLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(pnProdutosDeliveryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btEditarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbValorTotal)
-                    .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbValorTotalDelivery)
+                    .addComponent(txtValorTotalDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(spGradeProdutoDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
@@ -393,7 +394,7 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addComponent(pnBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(pnAbas)
+                .addComponent(pnAbas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8))
         );
 
@@ -404,7 +405,7 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_btFecharActionPerformed
 
-    private void btPesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarProdutoActionPerformed
+    private void btAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarProdutoActionPerformed
         //Abre a JInternalFrame no JDesktopPane dpArea
         if (dpArea != null) {
             DeliveryAdicionarProdutoGUI p = new DeliveryAdicionarProdutoGUI(dpArea);
@@ -415,54 +416,32 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Impossível abrir a janela interna, pois o \n"
                     + "DesktopPane destino não está definido!");
         }
-    }//GEN-LAST:event_btPesquisarProdutoActionPerformed
+    }//GEN-LAST:event_btAdicionarProdutoActionPerformed
 
-    private void btEditarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarProdutoActionPerformed
-        //Abre a JInternalFrame no JDesktopPane dpArea
-        if (dpArea != null) {
-            DeliveryAlterarProdutoGUI p = new DeliveryAlterarProdutoGUI();
-            dpArea.add(p);
-            p.setLocation(calculaLocal(dpArea, p));
-            p.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(this, "Impossível abrir a janela interna, pois o \n"
-                    + "DesktopPane destino não está definido!");
-        }
-    }//GEN-LAST:event_btEditarProdutoActionPerformed
-
-    private void btPesquisarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarClienteActionPerformed
-        //Abre a JInternalFrame no JDesktopPane dpArea
-        if (dpArea != null) {
-            ClienteGUI p = new ClienteGUI();
-            dpArea.add(p);
-            p.setLocation(calculaLocal(dpArea, p));
-            p.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(this, "Impossível abrir a janela interna, pois o \n"
-                    + "DesktopPane destino não está definido!");
-        }
-    }//GEN-LAST:event_btPesquisarClienteActionPerformed
+    private void btExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btExcluirProdutoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCancelar;
-    private javax.swing.JButton btEditarProduto;
+    private javax.swing.JButton btAdicionarProduto;
+    private javax.swing.JButton btExcluirProduto;
     private javax.swing.JButton btFechar;
+    private javax.swing.JButton btFinalizar;
     private javax.swing.JButton btNovo;
-    private javax.swing.JButton btPesquisarCliente;
     private javax.swing.JButton btPesquisarDelivery;
-    private javax.swing.JButton btPesquisarProduto;
     private javax.swing.JButton btSalvar;
-    private javax.swing.JComboBox cbStatus;
-    private javax.swing.JLabel lbBairro;
-    private javax.swing.JLabel lbCliente;
-    private javax.swing.JLabel lbCodigo;
-    private javax.swing.JLabel lbEndereco;
-    private javax.swing.JLabel lbNumero;
+    private javax.swing.JComboBox cbStatusDelivery;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel lbBairroDelivery;
+    private javax.swing.JLabel lbClienteDelivery;
+    private javax.swing.JLabel lbCodigoDelivery;
+    private javax.swing.JLabel lbEnderecoDelivery;
+    private javax.swing.JLabel lbNumeroDelivery;
     private javax.swing.JLabel lbPesquisarDelivery;
-    private javax.swing.JLabel lbPontoReferencia;
-    private javax.swing.JLabel lbStatus;
-    private javax.swing.JLabel lbValorTotal;
+    private javax.swing.JLabel lbPontoReferenciaDelivery;
+    private javax.swing.JLabel lbStatusDelivery;
+    private javax.swing.JLabel lbValorTotalDelivery;
     private javax.swing.JTabbedPane pnAbas;
     private javax.swing.JPanel pnBotoes;
     private javax.swing.JPanel pnDadosDelivery;
@@ -474,14 +453,13 @@ public class DeliveryGUI extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane spGradeProdutoDelivery;
     private javax.swing.JTable tbGradePesquisaDelivery;
     private javax.swing.JTable tbGradeProdutoDelivery;
-    private javax.swing.JTextField txtBairro;
-    private javax.swing.JTextField txtCliente;
-    private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtEndereco;
-    private javax.swing.JTextField txtNumero;
+    private javax.swing.JTextField txtBairroDelivery;
+    private javax.swing.JTextField txtCodigoDelivery;
+    private javax.swing.JTextField txtEnderecoDelivery;
+    private javax.swing.JTextField txtNumeroDelivery;
     private javax.swing.JTextField txtPesquisarDelivery;
-    private javax.swing.JTextField txtPontoReferencia;
-    private javax.swing.JTextField txtValorTotal;
+    private javax.swing.JTextField txtPontoReferenciaDelivery;
+    private javax.swing.JFormattedTextField txtValorTotalDelivery;
     // End of variables declaration//GEN-END:variables
 
     /* Para abrir os JInternalFrame adicionais DeliveryAdicionarProdutoGUI
